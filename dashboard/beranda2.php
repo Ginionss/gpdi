@@ -46,7 +46,7 @@ if ($hak_akses == "admin") {
 									$query = mysqli_query($konek, $sql);
 									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 									$count = mysqli_num_rows($query);
-									$status = $data['status'];
+									// $status = $data['status'];
 
 									// if($status=="1"){
 									// 	$count ="Belum ada request";

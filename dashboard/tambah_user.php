@@ -14,12 +14,22 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
-									<label>NIK</label>
-									<input type="number" name="nik" class="form-control" placeholder="NIK.." autofocus>
+									<label>NIK - NAMA</label>
+									<select id="cari_jemaat" name="nik" class="form-control">
+                                        <option value=""></option>
+                                        <?php  $tampil = "SELECT * FROM jemaat ";
+                                         $query = mysqli_query($konek, $tampil);
+                                         while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+                                             $nik = $data['nik'];
+                                             $nama = $data['nama'];
+                                         ?>
+                                        <option  value="<?= $nik?>"><?= $nik."-".$nama?></option>
+                                        <?php } ?>
+                                    </select>
 								</div>
 								<div class="form-group">
 									<label>Password</label>
-									<input type="password" name="password" class="form-control" placeholder="Password..">
+									<input type="text" name="password" class="form-control" value="user">
 								</div>
 							</div>
 						</div>

@@ -180,6 +180,10 @@
                     theme: 'bootstrap4',
                     placeholder: "Pilih Nama Mempelai Wanita"
                 });
+				$("#cari_jemaat").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Pilih Jemaat"
+                });
             });
         </script>
 </body>

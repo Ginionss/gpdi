@@ -41,10 +41,12 @@
 									$status = $data['status'];
 									$keterangan = $data['keterangan'];
 
-									if ($status == "1") {
-										$status = "<b style='color:blue'>ACC</b>";
-									} elseif ($status == "0") {
-										$status = "<b style='color:red'>BELUM ACC</b>";
+									if ($status == "2") {
+										$status = "<b style='color:blue'>Diterima</b>";
+									} elseif ($status == "1") {
+										$status = "<b style='color:red'>Ditolak</b>";
+									}elseif ($status == "0") {
+										$status = "<b style='color:black'>Diproses</b>";
 									}
 								?>
                                 

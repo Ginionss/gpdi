@@ -76,7 +76,7 @@ if (isset($_POST['simpan'])) {
 	$nik_pria = $_POST['nik_pria'];
 	$nik_wanita = $_POST['nik_wanita'];
 
-	$sql = "INSERT INTO pernikahan (tanggal_request,nik_pria,nik_wanita,status) VALUES ('$tanggal_request','$nik_pria','$nik_wanita','1')";
+	$sql = "INSERT INTO pernikahan (tanggal_request,nik_pria,nik_wanita,status) VALUES ('$tanggal_request','$nik_pria','$nik_wanita','0')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
