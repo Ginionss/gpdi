@@ -203,10 +203,22 @@
 			case 'tampil_surat_masuk';
 			include 'tampil_surat_masuk.php';
 		  break;
+		  case 'tambah_surat_masuk';
+		  include 'tambah_surat_masuk.php';
+		break;
+		case 'ubah_surat_masuk';
+		  include 'ubah_surat_masuk.php';
+		break;
 			//surat keluar
 			case 'tampil_surat_keluar';
 			include 'tampil_surat_keluar.php';
 		  break;
+		  case 'tambah_surat_keluar';
+		  include 'tambah_surat_keluar.php';
+		break;
+		case 'ubah_surat_keluar';
+		  include 'ubah_surat_keluar.php';
+		break;
 		  //baptis
 			  case 'tampil_baptis';
 			  include 'tampil_baptis.php';

@@ -86,6 +86,7 @@
                                     $tampil = "SELECT * FROM suratkeluar";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+                                        $id_surat_keluar = $data['id_surat_keluar'];
                                         $noSurat = $data['no_surat_keluar'];
                                         $tgl1 = $data['tgl_surat'];
                                         $tujuan = $data['tujuan_surat'];
@@ -100,10 +101,10 @@
                                             <td><?php echo $perihal; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=ubah_user&nik=<?php echo $username; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit User">
+                                                    <a href="?halaman=ubah_surat_keluar&id_surat_keluar=<?php echo $id_surat_keluar; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Surat">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="?halaman=tampil_user&nik=<?php echo $username; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus User">
+                                                    <a href="?halaman=tampil_user&id_surat_keluar=<?php echo $id_surat_keluar; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Surat">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </div>
@@ -124,8 +125,8 @@
 
 
 <?php
-if (isset($_GET['nik'])) {
-    $sql_hapus = "DELETE FROM jemaat WHERE nik='" . $_GET['nik'] . "'";
+if (isset($_GET['id_surat_keluar'])) {
+    $sql_hapus = "DELETE FROM surat_keluar WHERE id_surat_keluar='" . $_GET['id_surat_keluar'] . "'";
     $query_hapus = mysqli_query($konek, $sql_hapus);
     if ($query_hapus) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
