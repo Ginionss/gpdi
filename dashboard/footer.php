@@ -146,6 +146,42 @@
 		});
 	});
 </script>
+
+ <!-- wajib jquery  -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <!-- js untuk bootstrap4  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+        <!-- js untuk select2  -->
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#cari_anak").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Pilih Nama Anak"
+                });
+    
+                $("#cari_ayah").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Pilih Nama Ayah"
+                });
+				$("#cari_ibu").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Pilih Nama Ibu"
+                });
+				$("#cari_pria").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Pilih Nama Mempelai Pria"
+                });
+				$("#cari_wanita").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Pilih Nama Mempelai Wanita"
+                });
+            });
+        </script>
 </body>
 
 </html>

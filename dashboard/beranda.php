@@ -18,7 +18,7 @@ if ($hak_akses == "Pemohon") {
 			<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 				<div>
 					<h2 class="text-white pb-2 fw-bold">Halo <?php echo $nama; ?>!</h2>
-					<h5 class="text-white op-7 mb-2">Sebelum Anda Request Surat Keterangan Lengkapi Biodata Anda, Klik Biodata Anda</h5>
+					<h5 class="text-white op-7 mb-2">Sebelum Anda Melakukan Request Surat Mohon Pastikan Biodata Anda Sudah Benar, Klik Biodata Anda</h5>
 				</div>
 				<div class="ml-md-auto py-2 py-md-0">
 					<a href="?halaman=tampil_pemohon" class="btn btn-sm btn-primary btn-round"><span class="btn-label">
@@ -32,7 +32,7 @@ if ($hak_akses == "Pemohon") {
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-primary">
 					<div class="pricing-header">
-						<h6 class="fw-bold text-center text-uppercase">Surat Rekomendasi</h6>
+						<h6 class="fw-bold text-center text-uppercase">Penyerahan Anak</h6>
 					</div>
 					<div class="price-value">
 						<div class="value">
@@ -43,7 +43,7 @@ if ($hak_akses == "Pemohon") {
 					</div>
 					<ul class="pricing-content">
 					</ul>
-					<a href="?halaman=request_sktm" class="btn btn-primary btn-round btn-sm mb-3">
+					<a href="?halaman=transit_penyerahan" class="btn btn-primary btn-round btn-sm mb-3">
 						<span class="btn-label">
 							<i class="fas fa-plus-circle"></i>
 						</span> Request</a>
@@ -52,7 +52,7 @@ if ($hak_akses == "Pemohon") {
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-success">
 					<div class="pricing-header">
-						<h6 class="fw-bold text-center text-uppercase">Surat Keterangan Usaha</h6>
+						<h6 class="fw-bold text-center text-uppercase">Baptis</h6>
 					</div>
 					<div class="price-value">
 						<div class="value">
@@ -63,32 +63,14 @@ if ($hak_akses == "Pemohon") {
 					</div>
 					<ul class="pricing-content">
 					</ul>
-					<a href="?halaman=request_sku" class="btn btn-success btn-round btn-sm mb-3"><span class="btn-label">
-							<i class="fas fa-plus-circle"></i> Request</a>
-				</div>
-			</div>
-			<div class="col-md-3 pr-md-0">
-				<div class="card-pricing2 card-warning">
-					<div class="pricing-header">
-						<h6 class="fw-bold text-center text-uppercase">Surat Keterangan Pamit</h6>
-					</div>
-					<div class="price-value">
-						<div class="value">
-							<span class="currency"></span>
-							<span class="amount"><i class="flaticon-envelope-1"></i><span></span></span>
-							<span class="month"></span>
-						</div>
-					</div>
-					<ul class="pricing-content">
-					</ul>
-					<a href="?halaman=request_skp" class="btn btn-warning btn-round btn-sm mb-3"><span class="btn-label">
+					<a href="?halaman=request_baptis" class="btn btn-success btn-round btn-sm mb-3"><span class="btn-label">
 							<i class="fas fa-plus-circle"></i> Request</a>
 				</div>
 			</div>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-secondary">
 					<div class="pricing-header">
-						<h6 class="fw-bold text-center text-uppercase">Surat Keterangan Domisili</h6>
+						<h6 class="fw-bold text-center text-uppercase">Pernikahan</h6>
 					</div>
 					<div class="price-value">
 						<div class="value">
@@ -99,7 +81,7 @@ if ($hak_akses == "Pemohon") {
 					</div>
 					<ul class="pricing-content">
 					</ul>
-					<a href="?halaman=request_skd" class="btn btn-secondary btn-round btn-sm mb-3"><span class="btn-label">
+					<a href="?halaman=transit_pernikahan" class="btn btn-secondary btn-round btn-sm mb-3"><span class="btn-label">
 							<i class="fas fa-plus-circle"></i> Request</a>
 				</div>
 			</div>

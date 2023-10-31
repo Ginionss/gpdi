@@ -2,19 +2,16 @@
 
 <?php
 if (isset($_GET['nik'])) {
-	$tampil_nik = "SELECT * FROM data_user WHERE nik=$_SESSION[nik]";
+	$tampil_nik = "SELECT * FROM jemaat WHERE nik=$_SESSION[nik]";
 	$query = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 	$nik = $data['nik'];
 	$nama = $data['nama'];
 	$tempat = $data['tempat_lahir'];
 	$tanggal = $data['tanggal_lahir'];
-	$jekel = $data['jekel'];
-	$agama = $data['agama'];
+	$jekel = $data['jenis_kelamin'];
 	$alamat = $data['alamat'];
-	$telepon = $data['telepon'];
-	$jabatan = $data['jabatan'];
-	$lulusan = $data['lulusan'];
+	$telepon = $data['no_hp'];
 }
 
 ?>
@@ -63,41 +60,12 @@ if (isset($_GET['nik'])) {
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
-									<label>Agama</label>
-									<select name="agama" class="form-control">
-										<option value="">Pilih Agama Anda</option>
-										<option <?php if ($agama == 'Islam') {
-													echo "selected";
-												} ?> value='Islam'>Islam</option>
-										<option <?php if ($agama == 'Katolik') {
-													echo "selected";
-												} ?> value='Kristen'>Katolik</option>
-										<option <?php if ($agama == 'Kristen') {
-													echo "selected";
-												} ?> value='Kristen'>Kristen</option>
-										<option <?php if ($agama == 'Hindu') {
-													echo "selected";
-												} ?> value='Hindu'>Hindu</option>
-										<option <?php if ($agama == 'Budha') {
-													echo "selected";
-												} ?> value='Budha'>Budha</option>
-									</select>
-								</div>
-								<div class="form-group">
 									<label for="comment">Alamat</label>
 									<textarea class="form-control" name="alamat" rows="5"><?= $alamat ?></textarea>
 								</div>
 								<div class="form-group">
-									<label>Telepon</label>
+									<label>Nomor Telepon</label>
 									<input type="number" name="telepon" class="form-control" value="<?= $telepon ?>" placeholder="Telepon Anda..">
-								</div>
-								<div class="form-group">
-									<label>Jabatan</label>
-									<input type="text" name="jabatan" class="form-control" value="<?= $jabatan; ?>" placeholder="Jabatan Anda..">
-								</div>
-								<div class="form-group">
-									<label>Lulusan</label>
-									<input type="text" name="lulusan" class="form-control" value="<?= $lulusan; ?>" placeholder="Anda merupakan lulusan dari..">
 								</div>
 							</div>
 						</div>
@@ -119,22 +87,16 @@ if (isset($_POST['ubah'])) {
 	$tempat = $_POST['tempat'];
 	$tgl = $_POST['tgl'];
 	$jekel = $_POST['jekel'];
-	$agama = $_POST['agama'];
 	$alamat = $_POST['alamat'];
 	$telepon = $_POST['telepon'];
-	$jabatan = $_POST['jabatan'];
-	$lulusan = $_POST['lulusan'];
 
-	$sql = "UPDATE data_user SET
+	$sql = "UPDATE jemaat SET
 	nama='$nama',
 	tanggal_lahir='$tgl',
 	tempat_lahir='$tempat',
-	jekel='$jekel',
-	agama='$agama',
+	jenis_kelamin='$jekel',
 	alamat='$alamat',
-	telepon='$telepon',
-	jabatan='$jabatan',
-	lulusan = '$lulusan'
+	no_hp='$telepon'
 	WHERE nik=$_SESSION[nik]";
 	$query = mysqli_query($konek, $sql);
 

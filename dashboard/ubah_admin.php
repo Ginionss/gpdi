@@ -48,6 +48,7 @@ if (isset($_GET['id_pengguna'])) {
                                     <select class="form-control" name="hak_akses" id="">
                                         <option value="member" <?php if ($hak_akses == "member") echo 'selected' ?>>Member</option>
                                         <option value="admin" <?php if ($hak_akses == "admin") echo 'selected' ?>>Admin</option>
+                                        <option value="gembala" <?php if ($hak_akses == "gembala") echo 'selected' ?>>Gembala</option>
                                     </select>
 								</div>
 						</div>

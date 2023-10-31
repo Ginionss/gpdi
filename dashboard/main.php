@@ -34,12 +34,36 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 							<p>Biodata Anda</p>
 						</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a href="?halaman=tampil_status">
 							<i class="far fa-calendar-check"></i>
 							<p>Status Request</p>
 						</a>
-					</li>
+					</li> -->
+					<li class="nav-item">
+							<a data-toggle="collapse" href="#tables">
+							<i class="far fa-calendar-check"></i>
+							<p>Status Request</p>
+								<span class="caret"></span>
+							</a>
+						<ul class="nav nav-collapse">
+									<li>
+										<a href="?halaman=tampil_baptis">
+											<span class="sub-item">Baptis</span>
+										</a>
+									</li>
+									<li>
+										<a href="?halaman=tampil_penyerahan">
+											<span class="sub-item">Penyerahan Anak</span>
+										</a>
+									</li>
+									<li>
+										<a href="?halaman=tampil_pernikahan">
+											<span class="sub-item">Pernikahan</span>
+										</a>
+									</li>
+								</ul>
+						</li>
 				<?php
 				}
 				?>
@@ -61,65 +85,12 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'beranda';
 					include 'beranda.php';
 					break;
+				//pemohon
 				case 'ubah_pemohon';
 					include 'ubah_pemohon.php';
 					break;
 				case 'tampil_pemohon';
 					include 'tampil_pemohon.php';
-					break;
-				case 'request_sktm';
-					include 'request_sktm.php';
-					break;
-				case 'request_sku';
-					include 'request_sku.php';
-					break;
-				case 'request_skp';
-					include 'request_skp.php';
-					break;
-				case 'request_skd';
-					include 'request_skd.php';
-					break;
-				case 'tampil_status';
-					include 'status_request.php';
-					break;
-				case 'belum_acc_sktm';
-					include 'belum_acc_sktm.php';
-					break;
-				case 'belum_acc_sku';
-					include 'belum_acc_sku.php';
-					break;
-				case 'belum_acc_skp';
-					include 'belum_acc_skp.php';
-					break;
-				case 'belum_acc_skd';
-					include 'belum_acc_skd.php';
-					break;
-				case 'sudah_acc_sktm';
-					include 'acc_sktm.php';
-					break;
-				case 'sudah_acc_sku';
-					include 'acc_sku.php';
-					break;
-				case 'sudah_acc_skp';
-					include 'acc_skp.php';
-					break;
-				case 'sudah_acc_skd';
-					include 'acc_skd.php';
-					break;
-				case 'detail_sktm';
-					include 'detail_sktm.php';
-					break;
-				case 'detail_sku';
-					include 'detail_sku.php';
-					break;
-				case 'detail_skp';
-					include 'detail_skp.php';
-					break;
-				case 'detail_skd';
-					include 'detail_skd.php';
-					break;
-				case 'cetak_sktm';
-					include 'cetak_sktm.php';
 					break;
 				case 'tampil_user';
 					include 'tampil_user.php';
@@ -130,24 +101,24 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'ubah_user';
 					include 'ubah_user.php';
 					break;
-				case 'ubah_sktm';
-					include 'ubah_request_sktm.php';
-					break;
-				case 'ubah_sku';
-					include 'ubah_request_sku.php';
-					break;
-				case 'ubah_skp';
-					include 'ubah_request_skp.php';
-					break;
-				case 'ubah_skd';
-					include 'ubah_request_skd.php';
-					break;
-				case 'laporan_perbulan';
-					include 'laporan_perbulan.php';
-					break;
-				case 'laporan_pertahun';
-					include 'laporan_pertahun.php';
-					break;
+				//penyerahan
+				case 'transit_penyerahan';
+				include 'transit_penyerahan.php';
+				break;
+				case 'request_penyerahan';
+				include 'request_penyerahan.php';
+				break;
+				//baptis
+				case 'request_baptis';
+				include 'request_baptis.php';
+				break;
+				//pernikahan
+				case 'transit_pernikahan';
+				include 'transit_pernikahan.php';
+				break;
+				case 'request_pernikahan';
+				include 'request_pernikahan.php';
+				break;
 				default:
 					echo "<center>HALAMAN KOSONG</center>";
 					break;

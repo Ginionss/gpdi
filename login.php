@@ -71,14 +71,14 @@
     $nik = $_POST['nik'];
     $password = $_POST['password'];
 
-    $sql_login = "SELECT * FROM data_user WHERE nik='$nik' AND password='$password'";
+    $sql_login = "SELECT * FROM user u join jemaat j on u.nik = j.nik WHERE u.nik='$nik' AND u.password='$password'";
     $query_login = mysqli_query($konek, $sql_login);
     $data_login = mysqli_fetch_array($query_login, MYSQLI_BOTH);
     $jumlah_login = mysqli_num_rows($query_login);
 
     if ($jumlah_login > 0) {
       session_start();
-      $_SESSION['hak_akses'] = $data_login['hak_akses'];
+      $_SESSION['hak_akses'] = "Pemohon";
       $_SESSION['nama'] = $data_login['nama'];
       $_SESSION['password'] = $data_login['password'];
       $_SESSION['nik'] = $data_login['nik'];

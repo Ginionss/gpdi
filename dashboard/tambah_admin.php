@@ -34,6 +34,7 @@
                                     <select class="form-control" name="hak_akses" id="">
                                         <option value="member">Member</option>
                                         <option value="admin">Admin</option>
+                                        <option value="gembala">Gembala</option>
                                     </select>
 								</div>
 							</div>

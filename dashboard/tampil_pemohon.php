@@ -1,6 +1,6 @@
 <?php include '../konek.php'; ?>
 <?php
-$tampil_nik = "SELECT * FROM data_user WHERE nik=$_SESSION[nik]";
+$tampil_nik = "SELECT * FROM jemaat WHERE nik=$_SESSION[nik]";
 $query = mysqli_query($konek, $tampil_nik);
 $data = mysqli_fetch_array($query, MYSQLI_BOTH);
 $nik = $data['nik'];
@@ -8,12 +8,9 @@ $nama = $data['nama'];
 $tempat = $data['tempat_lahir'];
 $tanggal = $data['tanggal_lahir'];
 $format = date('d-m-Y', strtotime($tanggal));
-$jekel = $data['jekel'];
+$jekel = $data['jenis_kelamin'];
 $alamat = $data['alamat'];
-$telepon = $data['telepon'];
-$agama = $data['agama'];
-$jabatan = $data['jabatan'];
-$lulusan = $data['lulusan'];
+$telepon = $data['no_hp'];
 
 ?>
 <div class="page-inner">
@@ -54,29 +51,14 @@ $lulusan = $data['lulusan'];
                                 <td><?= $jekel; ?></td>
                             </tr>
                             <tr>
-                                <th>AGAMA</th>
-                                <td>:</td>
-                                <td><?= $agama; ?></td>
-                            </tr>
-                            <tr>
                                 <th>ALAMAT</th>
                                 <td>:</td>
                                 <td><?= $alamat; ?></td>
                             </tr>
                             <tr>
-                                <th>TELEPON</th>
+                                <th>NOMOR TELEPON</th>
                                 <td>:</td>
                                 <td><?= $telepon; ?></td>
-                            </tr>
-                            <tr>
-                                <th>JABATAN</th>
-                                <td>:</td>
-                                <td><?= $jabatan; ?></td>
-                            </tr>
-                            <tr>
-                                <th>LULUSAN</th>
-                                <td>:</td>
-                                <td><?= $lulusan; ?></td>
                             </tr>
                         </thead>
                     </table>
