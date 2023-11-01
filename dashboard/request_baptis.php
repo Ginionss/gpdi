@@ -96,7 +96,7 @@ if (isset($_POST['simpan'])) {
 	$file_akta= isset($_FILES['file_akta']);
     $file_akta_kelahiran ="Baptis_".$_POST['nik'].".pdf";
 
-	$sql = "INSERT INTO penyerahan (tanggal_request,nik,nama_ayah,nama_ibu,file_kartu_keluarga,file_akta_kelahiran,status) VALUES ('$tanggal_request','$nik','$nama_ayah','$nama_ibu','$file_kartu_keluarga','$file_akta_kelahiran','0')";
+	$sql = "INSERT INTO baptis (tanggal_request,nik,nama_ayah,nama_ibu,file_kartu_keluarga,file_akta_kelahiran,status) VALUES ('$tanggal_request','$nik','$nama_ayah','$nama_ibu','$file_kartu_keluarga','$file_akta_kelahiran','0')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

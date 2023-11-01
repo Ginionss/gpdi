@@ -108,10 +108,16 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'request_penyerahan';
 				include 'request_penyerahan.php';
 				break;
+				case 'tampil_penyerahan';
+				include 'tampil_penyerahan.php';
+			  break;
 				//baptis
 				case 'request_baptis';
 				include 'request_baptis.php';
 				break;
+				case 'tampil_baptis';
+				include 'tampil_baptis.php';
+			  break;
 				//pernikahan
 				case 'transit_pernikahan';
 				include 'transit_pernikahan.php';
@@ -119,6 +125,9 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'request_pernikahan';
 				include 'request_pernikahan.php';
 				break;
+				case 'tampil_pernikahan';
+				include 'tampil_pernikahan.php';
+			  break;
 				default:
 					echo "<center>HALAMAN KOSONG</center>";
 					break;
