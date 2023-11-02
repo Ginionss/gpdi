@@ -79,7 +79,7 @@ $level = "pemohon";
                         </div>
                     </div>
                 </div>
-                <img class="img-responsive wow fadeIn" src="main/images/cta2/cta2-bg.png" alt="" data-wow-duration="300ms" data-wow-delay="300ms">
+                <img class="img-responsive wow fadeIn" src="main/images/cta2/cta2-img.png" alt="" data-wow-duration="300ms" data-wow-delay="300ms">
             </div>
         </div>
     </section>

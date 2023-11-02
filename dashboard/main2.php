@@ -223,6 +223,9 @@
 			  case 'tampil_baptis';
 			  include 'tampil_baptis.php';
 			break;
+			case 'ubah_baptis';
+			include 'ubah_baptis.php';
+		  break;
 		  //penyerahan
 			  case 'tampil_penyerahan';
 			  include 'tampil_penyerahan.php';

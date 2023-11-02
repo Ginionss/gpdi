@@ -3,6 +3,7 @@
 $hak_akses = $_SESSION['hak_akses'];
 if ($hak_akses == "Pemohon") {
 	$nik_pemohon = $_SESSION['nik'];
+	$jekel = $_SESSION['password'];
 }
 ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
@@ -32,7 +33,18 @@ if ($hak_akses == "Pemohon") {
 							</thead>
 							<tbody>
 								<?php
-								$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik = j.nik";
+								if ($hak_akses == "Pemohon") {
+									$cek1 = "SELECT * FROM jemaat where nik = '$nik_pemohon'";
+									$query1 = mysqli_fetch_array(mysqli_query($konek, $cek1));
+									$nama_a = $query1['nama'];
+									if ($jekel == "Laki-laki") {
+										$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik = j.nik and b.nama_ayah = '$nama_a'";
+									}elseif ($jekel == "Perempuan"){
+									$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik = j.nik and b.nama_ibu = '$nama_a'";
+									}
+								}else {
+									$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik= j.nik";
+								}
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 									$id_baptis = $data['id_penyerahan'];

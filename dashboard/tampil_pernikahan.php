@@ -2,6 +2,7 @@
 $hak_akses = $_SESSION['hak_akses'];
 if ($hak_akses == "Pemohon") {
 	$nik_pemohon = $_SESSION['nik'];
+	$jekel = $_SESSION['password'];
 }?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
@@ -12,7 +13,7 @@ if ($hak_akses == "Pemohon") {
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex align-items-center">
-						<h4 class="card-title">Data Pernikahan</h4>
+						<h4 class="card-title">Data Pernikahan <?= $jekel ?></h4>
 					</div>
 				</div>
 				<div class="card-body">
@@ -29,12 +30,24 @@ if ($hak_akses == "Pemohon") {
 							</thead>
 							<tbody>
 								<?php
-                                $sql1 = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_wanita = j.nik";
+								if ($hak_akses == "Pemohon") {
+									$sql1 = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_wanita = j.nik and b.nik_wanita = '$nik_pemohon'";
+									$sql = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_pria = j.nik and b.nik_pria = '$nik_pemohon'";
+									if (isset($sql) && $jekel == "Laki-laki") {
+										$sql1 = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_wanita = j.nik";
+									}elseif (isset($sql1)&& $jekel == "Perempuan"){
+									$sql = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_pria = j.nik";
+									}
+								}
+								else {
+									$sql1 = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_wanita = j.nik";
+									$sql = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_pria = j.nik";
+									
+								}
 								$query1 = mysqli_fetch_array(mysqli_query($konek, $sql1));
                                 $nik_wanita = $query1['nik_wanita'];
                                 $nama_wanita = $query1['nama'];
 
-								$sql = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_pria = j.nik";
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 									$id_baptis = $data['id_pernikahan'];

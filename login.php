@@ -80,7 +80,7 @@
       session_start();
       $_SESSION['hak_akses'] = "Pemohon";
       $_SESSION['nama'] = $data_login['nama'];
-      $_SESSION['password'] = $data_login['password'];
+      $_SESSION['password'] = $data_login['jenis_kelamin'];
       $_SESSION['nik'] = $data_login['nik'];
 
       echo "<script language='javascript'>swal('Selamat...', 'Login Berhasil!', 'success');</script>";

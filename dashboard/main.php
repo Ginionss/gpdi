@@ -118,6 +118,9 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'tampil_baptis';
 				include 'tampil_baptis.php';
 			  break;
+			  case 'ubah_baptis';
+			  include 'ubah_baptis.php';
+			break;
 				//pernikahan
 				case 'transit_pernikahan';
 				include 'transit_pernikahan.php';
