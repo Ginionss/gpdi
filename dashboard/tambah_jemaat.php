@@ -30,6 +30,10 @@
 									<input type="date" name="tanggal" class="form-control">
 								</div>
 								<div class="form-group">
+									<label>Nomor HP</label>
+									<input type="text" name="no_hp" class="form-control">
+								</div>
+								<div class="form-group">
 									<label>Jenis Kelamin</label>
 									<select name="jekel" class="form-control">
 										<option disabled="" selected="">Pilih Jenis Kelamin</option>
@@ -57,13 +61,15 @@
 <?php
 if (isset($_POST['simpan'])) {
 	$nik = $_POST['nik'];
-	$password = $_POST['password'];
-	$hak_akses = $_POST['hak_akses'];
+	$tempat = $_POST['tempat'];
+	$tanggal = $_POST['tanggal'];
 	$nama = $_POST['nama'];
+	$no_hp = $_POST['no_hp'];
 	$jekel = $_POST['jekel'];
 	$alamat = $_POST['alamat'];
+	$status = 1;
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,alamat) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$alamat')";
+	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

@@ -52,7 +52,7 @@ $level = "pemohon";
                     <ul class="nav navbar-nav">
                         <li class="scroll active"><a href="#home">Beranda</a></li>
                         <li class="scroll"><a href="#features">Pelayanan</a></li>
-                        <!-- <li class="scroll"><a href="#features">Jadwal</a></li> -->
+                        <li class="scroll"><a href="pendaftaran.php">Pendaftaran jemaat</a></li>
                         <li class="scroll"><a href="#services">Informasi</a></li>
                         <li class="scroll"><a href="#get-in-touch">Kontak</a></li>
                         <li class="scroll"><a href="po-admin.php">Login</a></li>

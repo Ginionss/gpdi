@@ -28,6 +28,13 @@
 							if($hak_akses=="admin"){
 						?>
 						<li class="nav-item">
+							<a href="?halaman=tampil_jemaat">
+								<i class="fas fa-user-alt"></i>
+								<p>Data Jemaat</p>
+							</a>
+						</li>
+						
+						<li class="nav-item">
 							<a data-toggle="collapse" href="#tables">
 							<i class="fas fa-user-alt"></i>
 								<p>Data Pengguna</p>
@@ -42,31 +49,6 @@
 									<li>
 										<a href="?halaman=tampil_user">
 											<span class="sub-item">User</span>
-										</a>
-									</li>
-								</ul>
-						</li>
-						<li class="nav-item">
-							<a href="?halaman=tampil_jemaat">
-								<i class="fas fa-user-alt"></i>
-								<p>Data Jemaat</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a data-toggle="collapse" href="#tables">
-								<i class="fas fa-envelope"></i>
-								<p>Arsip Surat</p>
-								<span class="caret"></span>
-							</a>
-						<ul class="nav nav-collapse">
-									<li>
-										<a href="?halaman=tampil_surat_masuk">
-											<span class="sub-item">Surat Masuk</span>
-										</a>
-									</li>
-									<li>
-										<a href="?halaman=tampil_surat_keluar">
-											<span class="sub-item">Surat Keluar</span>
 										</a>
 									</li>
 								</ul>
@@ -96,6 +78,44 @@
 									<li>
 										<a href="?halaman=tampil_warta">
 											<span class="sub-item">Warta Jemaat</span>
+										</a>
+									</li>
+								</ul>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#tables">
+								<i class="fas fa-envelope"></i>
+								<p>Arsip Surat</p>
+								<span class="caret"></span>
+							</a>
+						<ul class="nav nav-collapse">
+									<li>
+										<a href="?halaman=tampil_surat_masuk">
+											<span class="sub-item">Surat Masuk</span>
+										</a>
+									</li>
+									<li>
+										<a href="?halaman=tampil_surat_keluar">
+											<span class="sub-item">Surat Keluar</span>
+										</a>
+									</li>
+								</ul>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#tables">
+							<i class="fas fa-user-alt"></i>
+								<p>Data Pengguna</p>
+								<span class="caret"></span>
+							</a>
+						<ul class="nav nav-collapse">
+									<li>
+										<a href="?halaman=tampil_admin">
+											<span class="sub-item">Pengurus</span>
+										</a>
+									</li>
+									<li>
+										<a href="?halaman=tampil_user">
+											<span class="sub-item">User</span>
 										</a>
 									</li>
 								</ul>
@@ -198,6 +218,12 @@
 			break;
 			case 'ubah_jemaat';
 			  include 'ubah_jemaat.php';
+			break;
+			case 'tampil_jemaat_baru';
+			  include 'tampil_jemaat_baru.php';
+			break;
+			case 'verifikasi_jemaat';
+			  include 'verifikasi_jemaat.php';
 			break;
 			//surat masuk
 			case 'tampil_surat_masuk';

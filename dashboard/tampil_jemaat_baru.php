@@ -8,11 +8,11 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Data Jemaat</h4>
-                        <a href="?halaman=tambah_jemaat" class="btn btn-primary btn-round ml-auto">
+                        <h4 class="card-title">Permohonan Jemaat Baru</h4>
+                        <!-- <a href="?halaman=tambah_jemaat" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-plus"></i>
                             Tambah Jemaat
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <div class="card-body">
@@ -84,7 +84,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat where status > 0";
+                                    $tampil = "SELECT * FROM jemaat where status = 0";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $username = $data['nik'];
@@ -105,10 +105,10 @@
                                             <td><?php echo $alamat; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=ubah_jemaat&nik=<?php echo $username; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Jemaat">
+                                                    <a href="?halaman=verifikasi_jemaat&nik=<?php echo $username; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Verifikasi">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="?halaman=tampil_jemaat&nik=<?php echo $username; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Jemaat">
+                                                    <a href="?halaman=tampil_jemaat_baru&nik=<?php echo $username; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </div>
@@ -134,10 +134,10 @@ if (isset($_GET['nik'])) {
     $query_hapus = mysqli_query($konek, $sql_hapus);
     if ($query_hapus) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_baru">';
     } else {
         echo "<script language='javascript'>swal('Gagal...', 'Hapus Gagal', 'error');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_baru">';
     }
 }
 ?>

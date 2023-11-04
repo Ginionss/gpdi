@@ -31,7 +31,7 @@ if ($hak_akses == "admin") {
 				<div class="card card-stats card-round">
 					<div class="card-body ">
 						<div class="row align-items-center">
-							<a href="?halaman=sudah_acc_sktm">
+							<a href="?halaman=tampil_jemaat_baru">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-primary bubble-shadow-small">
 										<i class="flaticon-user"></i>
@@ -40,9 +40,43 @@ if ($hak_akses == "admin") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">Jemaat</p>
+									<p class="card-category">Jemaat Baru</p>
 									<?php
-									$sql = "SELECT * FROM jemaat";
+									$sql = "SELECT * FROM jemaat where status = 0";
+									$query = mysqli_query($konek, $sql);
+									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
+									$count = mysqli_num_rows($query);
+									// $status = $data['status'];
+
+									// if($status=="1"){
+									// 	$count ="Belum ada request";
+									// }
+
+
+									?>
+									<h4 class="card-title"><?php echo $count; ?></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="card card-stats card-round">
+					<div class="card-body ">
+						<div class="row align-items-center">
+							<a href="?halaman=tampil_jemaat">
+								<div class="col-icon">
+									<div class="icon-big text-center icon-primary bubble-shadow-small">
+										<i class="flaticon-user"></i>
+									</div>
+								</div>
+							</a>
+							<div class="col col-stats ml-3 ml-sm-0">
+								<div class="numbers">
+									<p class="card-category">Jumlah Jemaat</p>
+									<?php
+									$sql = "SELECT * FROM jemaat where status > 0";
 									$query = mysqli_query($konek, $sql);
 									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 									$count = mysqli_num_rows($query);
@@ -65,7 +99,7 @@ if ($hak_akses == "admin") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=sudah_acc_sku">
+							<a href="?halaman=tampil_penyerahan">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-success bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>
@@ -99,7 +133,7 @@ if ($hak_akses == "admin") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=sudah_acc_skp">
+							<a href="?halaman=tampil_baptis">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-warning bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>
@@ -133,7 +167,7 @@ if ($hak_akses == "admin") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=sudah_acc_skd">
+							<a href="?halaman=tampil_prnikahan">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-secondary bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>

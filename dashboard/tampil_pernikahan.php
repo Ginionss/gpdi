@@ -13,7 +13,7 @@ if ($hak_akses == "Pemohon") {
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex align-items-center">
-						<h4 class="card-title">Data Pernikahan <?= $jekel ?></h4>
+						<h4 class="card-title">Data Pernikahan</h4>
 					</div>
 				</div>
 				<div class="card-body">
@@ -51,6 +51,7 @@ if ($hak_akses == "Pemohon") {
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 									$id_baptis = $data['id_pernikahan'];
+                                    $no_surat = $data['no_surat'];
                                     $tgl = $data['tanggal_request'];
 									$format = date('d F Y', strtotime($tgl));
 									$nik_pria = $data['nik_pria'];

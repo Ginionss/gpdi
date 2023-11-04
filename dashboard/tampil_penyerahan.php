@@ -48,6 +48,7 @@ if ($hak_akses == "Pemohon") {
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 									$id_baptis = $data['id_penyerahan'];
+                                    $no_surat = $data['no_surat'];
                                     $tgl = $data['tanggal_request'];
 									$format = date('d F Y', strtotime($tgl));
 									$nik = $data['nik'];

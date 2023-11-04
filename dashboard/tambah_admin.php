@@ -42,7 +42,7 @@
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=tampil_user" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=tampil_admin" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>

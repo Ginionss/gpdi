@@ -17,7 +17,7 @@
 									<label>NIK - NAMA</label>
 									<select id="cari_jemaat" name="nik" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat ";
+                                        <?php  $tampil = "SELECT * FROM jemaat where status = 1";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                              $nik = $data['nik'];
@@ -50,6 +50,12 @@ if (isset($_POST['simpan'])) {
 	$password = $_POST['password'];
 
 	$sql = "INSERT INTO user (nik,password) VALUES ('$nik','$password')";
+	$query = mysqli_query($konek, $sql);
+	
+	$status = 2;
+
+	$sql = "UPDATE jemaat SET
+	status='$status' WHERE nik=$nik";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

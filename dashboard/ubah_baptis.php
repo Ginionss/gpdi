@@ -84,7 +84,7 @@ if (isset($_GET['id_baptis'])) {
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=transit_penyerahan" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=tampil_baptis" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>
