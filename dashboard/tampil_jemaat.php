@@ -84,7 +84,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat where status > 0";
+                                    $tampil = "SELECT * FROM jemaat where status_j > 0";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $username = $data['nik'];

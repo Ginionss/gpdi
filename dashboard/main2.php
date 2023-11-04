@@ -59,7 +59,7 @@
 								<p>Pelayanan</p>
 								<span class="caret"></span>
 							</a>
-						<ul class="nav nav-collapse">
+							<ul class="nav nav-collapse">
 									<li>
 										<a href="?halaman=tampil_baptis">
 											<span class="sub-item">Baptis</span>
@@ -101,25 +101,6 @@
 									</li>
 								</ul>
 						</li>
-						<li class="nav-item">
-							<a data-toggle="collapse" href="#tables">
-							<i class="fas fa-user-alt"></i>
-								<p>Data Pengguna</p>
-								<span class="caret"></span>
-							</a>
-						<ul class="nav nav-collapse">
-									<li>
-										<a href="?halaman=tampil_admin">
-											<span class="sub-item">Pengurus</span>
-										</a>
-									</li>
-									<li>
-										<a href="?halaman=tampil_user">
-											<span class="sub-item">User</span>
-										</a>
-									</li>
-								</ul>
-						</li>
 
 
 						<!-- <li class="nav-item">
@@ -135,28 +116,54 @@
 							</a>
 						</li> -->
 						<?php
-							 }elseif($hak_akses=="member"){
+							 }elseif($hak_akses=="gembala"){
 						?>
+						
+						<li class="nav-item">
+							<a href="?halaman=tampil_surat_masuk">
+								<i class="fas fa-envelope"></i>
+								<p>Surat Masuk</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="?halaman=tampilan_disposisi">
+								<i class="fas fa-envelope"></i>
+								<p>Disposisi</p>
+							</a>
+						</li>
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#tables">
-								<i class="fas fa-table"></i>
-								<p>Laporan</p>
+								<i class="fas fa-calendar-check"></i>
+								<p>Pelayanan</p>
 								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="tables">
-								<ul class="nav nav-collapse">
+							<ul class="nav nav-collapse">
 									<li>
-										<a href="?halaman=laporan_perbulan">
-											<span class="sub-item">Perbulan</span>
+										<a href="?halaman=tampil_baptis">
+											<span class="sub-item">Baptis</span>
 										</a>
 									</li>
 									<li>
-										<a href="?halaman=laporan_pertahun">
-											<span class="sub-item">Pertahun</span>
+										<a href="?halaman=tampil_penyerahan">
+											<span class="sub-item">Penyerahan Anak</span>
+										</a>
+									</li>
+									<li>
+										<a href="?halaman=tampil_pernikahan">
+											<span class="sub-item">Pernikahan</span>
 										</a>
 									</li>
 								</ul>
-							</div>
+						</li>
+						<?php
+							 }elseif($hak_akses=="member"){
+						?>
+						
+						<li class="nav-item">
+							<a href="?halaman=tampil_disposisi">
+								<i class="fas fa-envelope"></i>
+								<p>Surat Masuk</p>
+							</a>
 						</li>
 						<?php
 							}
@@ -235,6 +242,10 @@
 		case 'ubah_surat_masuk';
 		  include 'ubah_surat_masuk.php';
 		break;
+		//disposisi
+			case 'tampil_disposisi';
+			include 'tampil_disposisi.php';
+		  break;
 			//surat keluar
 			case 'tampil_surat_keluar';
 			include 'tampil_surat_keluar.php';

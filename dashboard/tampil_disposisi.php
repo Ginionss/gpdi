@@ -8,11 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Permohonan Jemaat Baru</h4>
-                        <!-- <a href="?halaman=tambah_jemaat" class="btn btn-primary btn-round ml-auto">
-                            <i class="fa fa-plus"></i>
-                            Tambah Jemaat
-                        </a> -->
+                        <h4 class="card-title">Disposisi Surat Masuk</h4>
                     </div>
                 </div>
                 <div class="card-body">
@@ -73,43 +69,44 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>NIK / Nama</th>
-                                        <th>TTL</th>
-                                        <th>No HP</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
+                                        <th>Tanggal Disposisi</th>
+                                        <th>Keterangan Surat</th>
+                                        <th>Disposisi Dari</th>
+                                        <th>Dspisisi Kepada</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat where status_j = 0";
+                                    // if(true){
+
+                                    // }else{
+
+                                    // }
+                                    $tampil = "SELECT * FROM disposisi d join suratmasuk s where d.id_surat_masuk = s.id_surat_masuk";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-                                        $username = $data['nik'];
-                                        $nama = $data['nama'];
-                                        $tempat = $data['tempat_lahir'];
-                                        $tanggal = $data['tanggal_lahir'];
-                                        $no_hp = $data['no_hp'];
-                                        $alamat = $data['alamat'];
-                                        $jekel = $data['jenis_kelamin'];
-                                        $tanggal_lahir = date("d-F-Y", strtotime($tanggal));
+                                        $id_disposisi = $data['id_disposisi'];
+                                        $id_surat_masuk = $data['id_surat_masuk'];
+                                        $file_surat_masuk = $data['file_surat_masuk'];
+                                        $tgl1 = $data['tanggal_disposisi'];
+                                        $dari = $data['dari'];
+                                        $kepada = $data['kepada'];
+                                        $asal = $data['asal_surat'];
+                                        $perihal = $data['perihal'];
+                                        $tgl_surat = date("d-F-Y", strtotime($tgl1));
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $username . ' -<br> ' . $nama; ?></td>
-                                            <td><?php echo $tempat . ", " . $tanggal_lahir; ?></td>
-                                            <td><?php echo $no_hp; ?></td>
-                                            <td><?php echo $jekel; ?></td>
-                                            <td><?php echo $alamat; ?></td>
+                                            <td><?php echo $tgl_surat; ?></td>
+                                            <td><?php echo "Asal Surat".$asal."<br>Perihal: ".$perihal; ?></td>
+                                            <td><?php echo $dari; ?></td>
+                                            <td><?php echo $kepada; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=verifikasi_jemaat&nik=<?php echo $username; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Verifikasi">
+                                                    <a href="?halaman=lihat_disposisi&id_disposisi=<?php echo $id_disposisi; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View">
                                                         <i class="fa fa-edit"></i>
-                                                    </a>
-                                                    <a href="?halaman=tampil_jemaat_baru&nik=<?php echo $username; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
-                                                        <i class="fa fa-times"></i>
                                                     </a>
                                                 </div>
                                             </td>
@@ -126,18 +123,3 @@
         </div>
     </div>
 </div>
-
-
-<?php
-if (isset($_GET['nik'])) {
-    $sql_hapus = "DELETE FROM jemaat WHERE nik='" . $_GET['nik'] . "'";
-    $query_hapus = mysqli_query($konek, $sql_hapus);
-    if ($query_hapus) {
-        echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_baru">';
-    } else {
-        echo "<script language='javascript'>swal('Gagal...', 'Hapus Gagal', 'error');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_baru">';
-    }
-}
-?>

@@ -92,7 +92,7 @@
                                         $nama = $data['nama'];
                                         $password = $data['password'];
                                         $jabatan = $data['jabatan'];
-                                        $password = $data['hak_akses'];
+                                        $hak_akses = $data['hak_akses'];
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>

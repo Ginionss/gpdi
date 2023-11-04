@@ -52,7 +52,7 @@ if (isset($_POST['simpan'])) {
 	$sql = "INSERT INTO user (nik,password) VALUES ('$nik','$password')";
 	$query = mysqli_query($konek, $sql);
 	
-	$status = 2;
+	$status_j = 2;
 
 	$sql = "UPDATE jemaat SET
 	status='$status' WHERE nik=$nik";

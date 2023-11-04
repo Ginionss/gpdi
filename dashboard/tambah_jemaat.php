@@ -69,7 +69,7 @@ if (isset($_POST['simpan'])) {
 	$alamat = $_POST['alamat'];
 	$status = 1;
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status')";
+	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

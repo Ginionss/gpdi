@@ -94,7 +94,7 @@
       echo '<meta http-equiv="refresh" content="3; url=dashboard/main2.php">';
     } else {
       echo "<script language='javascript'>swal('Gagal...', 'Login Gagal', 'error');</script>";
-      echo '<meta http-equiv="refresh" content="3; url=pegawai.php">';
+      echo '<meta http-equiv="refresh" content="3; url=po-admin.php">';
     }
   }
   ?>
