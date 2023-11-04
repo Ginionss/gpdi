@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 31 Okt 2023 pada 15.41
+-- Generation Time: 04 Nov 2023 pada 11.20
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `baptis` (
   `id_baptis` int(5) NOT NULL,
+  `no_surat` varchar(35) DEFAULT NULL,
   `tanggal_request` date NOT NULL,
   `nik` varchar(16) NOT NULL,
   `nama_ayah` varchar(50) NOT NULL,
@@ -39,6 +40,14 @@ CREATE TABLE `baptis` (
   `status` varchar(15) DEFAULT NULL,
   `ketarangan` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `baptis`
+--
+
+INSERT INTO `baptis` (`id_baptis`, `no_surat`, `tanggal_request`, `nik`, `nama_ayah`, `nama_ibu`, `tanggal_baptis`, `nama_pendeta`, `file_kartu_keluarga`, `file_akta_kelahiran`, `status`, `ketarangan`) VALUES
+(1, NULL, '2023-11-01', '123123', 'Aryo Ronaldo Hamba Pulu', 'Keflin Regina Willa', NULL, NULL, 'Baptis_123123.pdf', 'Baptis_123123.pdf', '0', NULL),
+(2, NULL, '2023-11-02', '5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'Yolanda Meiliani Mutiara', NULL, NULL, 'Baptis_5311022409000001.pdf', 'Baptis_5311022409000001.pdf', '0', NULL);
 
 -- --------------------------------------------------------
 
@@ -68,18 +77,21 @@ CREATE TABLE `jemaat` (
   `tanggal_lahir` date NOT NULL,
   `no_hp` varchar(12) NOT NULL,
   `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
-  `alamat` text NOT NULL
+  `alamat` text NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `jemaat`
 --
 
-INSERT INTO `jemaat` (`nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `jenis_kelamin`, `alamat`) VALUES
-('111111', 'Yolanda Meiliani Mutiara', 'Bajawa', '2023-06-03', '123', 'Perempuan', 'Bajawa'),
-('123123', 'Arman Wicaksono', 'kalimantan', '2023-03-01', '34567', 'Laki-laki', 'Kalimantan'),
-('123456', 'Keflin Regina Willa', 'Oseapa', '2023-05-01', '678', 'Perempuan', 'Oesapa'),
-('5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'test', '2023-10-25', '123', 'Laki-laki', 'sumba');
+INSERT INTO `jemaat` (`nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `jenis_kelamin`, `alamat`, `status`) VALUES
+('000000', 'Richard Waang', 'Alor', '2023-11-01', '1234', 'Laki-laki', 'Alamat', 2),
+('111111', 'Yolanda Meiliani Mutiara', 'Bajawa', '2023-06-03', '123', 'Perempuan', 'Bajawa', 2),
+('123123', 'Arman Wicaksono', 'kalimantan', '2023-03-01', '34567', 'Laki-laki', 'Kalimantan', 2),
+('123456', 'Keflin Regina Willa', 'Oseapa', '2023-05-01', '678', 'Perempuan', 'Oesapa', 2),
+('222222', 'Angga Waang', 'Alor', '2023-11-02', '09876', 'Laki-laki', '<p>Saka Kaya richard</p>', 0),
+('5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'test', '2023-10-25', '123', 'Laki-laki', 'sumba', 2);
 
 -- --------------------------------------------------------
 
@@ -112,6 +124,7 @@ INSERT INTO `operator` (`id_pengguna`, `username`, `password`, `nama`, `jabatan`
 
 CREATE TABLE `penyerahan` (
   `id_penyerahan` int(5) NOT NULL,
+  `no_surat` varchar(35) DEFAULT NULL,
   `tanggal_request` date NOT NULL,
   `nik` varchar(16) NOT NULL,
   `nama_ayah` varchar(50) NOT NULL,
@@ -128,8 +141,9 @@ CREATE TABLE `penyerahan` (
 -- Dumping data untuk tabel `penyerahan`
 --
 
-INSERT INTO `penyerahan` (`id_penyerahan`, `tanggal_request`, `nik`, `nama_ayah`, `nama_ibu`, `tanggal_penyerahan`, `nama_pendeta`, `file_kartu_keluarga`, `file_akta_kelahiran`, `status`, `keterangan`) VALUES
-(1, '2023-10-31', '111111', 'Aryo Ronaldo Hamba Pulu', 'Keflin Regina Willa', NULL, NULL, 'KK_111111.pdf', 'AKTA_111111.pdf', '0', NULL);
+INSERT INTO `penyerahan` (`id_penyerahan`, `no_surat`, `tanggal_request`, `nik`, `nama_ayah`, `nama_ibu`, `tanggal_penyerahan`, `nama_pendeta`, `file_kartu_keluarga`, `file_akta_kelahiran`, `status`, `keterangan`) VALUES
+(1, NULL, '2023-10-31', '111111', 'Aryo Ronaldo Hamba Pulu', 'Keflin Regina Willa', NULL, NULL, 'KK_111111.pdf', 'AKTA_111111.pdf', '0', NULL),
+(2, NULL, '2023-11-01', '123123', 'Arman Wicaksono', 'Yolanda Meiliani Mutiara', NULL, NULL, 'Baptis_123123.pdf', 'Baptis_123123.pdf', '0', NULL);
 
 -- --------------------------------------------------------
 
@@ -139,6 +153,7 @@ INSERT INTO `penyerahan` (`id_penyerahan`, `tanggal_request`, `nik`, `nama_ayah`
 
 CREATE TABLE `pernikahan` (
   `id_pernikahan` int(5) NOT NULL,
+  `no_surat` varchar(35) NOT NULL,
   `tanggal_request` date NOT NULL,
   `nik_pria` varchar(16) NOT NULL,
   `nik_wanita` varchar(16) NOT NULL,
@@ -152,8 +167,8 @@ CREATE TABLE `pernikahan` (
 -- Dumping data untuk tabel `pernikahan`
 --
 
-INSERT INTO `pernikahan` (`id_pernikahan`, `tanggal_request`, `nik_pria`, `nik_wanita`, `tanggal_pernikahan`, `nama_pendeta`, `status`, `keterangan`) VALUES
-(1, '2023-10-31', '5311022409000001', '123456', NULL, NULL, '0', NULL);
+INSERT INTO `pernikahan` (`id_pernikahan`, `no_surat`, `tanggal_request`, `nik_pria`, `nik_wanita`, `tanggal_pernikahan`, `nama_pendeta`, `status`, `keterangan`) VALUES
+(1, '', '2023-10-31', '5311022409000001', '123456', NULL, NULL, '0', NULL);
 
 -- --------------------------------------------------------
 
@@ -218,7 +233,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nik`, `password`) VALUES
 (3, '5311022409000001', 'user'),
-(4, '111111', 'user');
+(4, '111111', 'user'),
+(5, '123123', 'user'),
+(6, '123456', 'user'),
+(8, '000000', 'user');
 
 -- --------------------------------------------------------
 
@@ -312,7 +330,7 @@ ALTER TABLE `wartajemaat`
 -- AUTO_INCREMENT for table `baptis`
 --
 ALTER TABLE `baptis`
-  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_baptis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `disposisi`
 --
@@ -327,7 +345,7 @@ ALTER TABLE `operator`
 -- AUTO_INCREMENT for table `penyerahan`
 --
 ALTER TABLE `penyerahan`
-  MODIFY `id_penyerahan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_penyerahan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pernikahan`
 --
@@ -347,7 +365,7 @@ ALTER TABLE `suratmasuk`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `wartajemaat`
 --
