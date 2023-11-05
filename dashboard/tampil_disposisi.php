@@ -1,4 +1,6 @@
-<?php include '../konek.php'; ?>
+<?php include '../konek.php';
+
+$id_pengguna = $_SESSION['password']; ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
@@ -73,6 +75,7 @@
                                         <th>Keterangan Surat</th>
                                         <th>Disposisi Dari</th>
                                         <th>Dspisisi Kepada</th>
+                                        <th>Isi Disposisi</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
@@ -84,7 +87,7 @@
                                     // }else{
 
                                     // }
-                                    $tampil = "SELECT * FROM disposisi d join suratmasuk s where d.id_surat_masuk = s.id_surat_masuk";
+                                    $tampil = "SELECT * FROM disposisi d join suratmasuk s where d.kepada = '$id_pengguna' or d.dari = '$id_pengguna'";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $id_disposisi = $data['id_disposisi'];
@@ -95,18 +98,31 @@
                                         $kepada = $data['kepada'];
                                         $asal = $data['asal_surat'];
                                         $perihal = $data['perihal'];
+                                        $isi_disposisi = $data['isi_disposisi'];
                                         $tgl_surat = date("d-F-Y", strtotime($tgl1));
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo $tgl_surat; ?></td>
-                                            <td><?php echo "Asal Surat".$asal."<br>Perihal: ".$perihal; ?></td>
-                                            <td><?php echo $dari; ?></td>
-                                            <td><?php echo $kepada; ?></td>
+                                            <td><?php echo "Asal Surat: ".$asal."<br>Perihal: ".$perihal; ?></td>
+                                            <td><?php
+                                            $tampil1 = "SELECT * FROM operator where id_pengguna = '$dari'";
+                                            $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
+                                            $nama = $query1['nama'];
+                                            $jabatan = $query1['jabatan'];
+                                             echo $jabatan."- ".$nama; ?></td>
+
+                                            <td><?php
+                                            $tampil2 = "SELECT * FROM operator where id_pengguna = '$kepada'";
+                                            $query2 = mysqli_fetch_array(mysqli_query($konek, $tampil2));
+                                            $nama2 = $query2['nama'];
+                                            $jabatan2 = $query2['jabatan'];
+                                             echo $jabatan2."- ".$nama2; ?></td>
+                                            <td><?php echo $isi_disposisi; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=lihat_disposisi&id_disposisi=<?php echo $id_disposisi; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View">
-                                                        <i class="fa fa-edit"></i>
+                                                    <a href="../dataFile/surat_masuk/<?= $file_surat_masuk ?>" target="_blank" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View">
+                                                        <i class="fa fa-eye"></i>
                                                     </a>
                                                 </div>
                                             </td>

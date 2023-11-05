@@ -87,7 +87,7 @@
     if ($jumlah_login > 0) {
       session_start();
       $_SESSION['hak_akses'] = $data_login['hak_akses'];
-      $_SESSION['password'] = $data_login['password'];
+      $_SESSION['password'] = $data_login['id_pengguna'];
       $_SESSION['nama'] = $data_login['nama'];
 
       echo "<script language='javascript'>swal('Selamat...', 'Login Berhasil!', 'success');</script>";

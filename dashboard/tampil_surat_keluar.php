@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center col-md-3">
-                    <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" title="Type in a name">
+                    <input class="form-control" type="text" id="myInput" onkeyup="myFunction2()" placeholder="Search" title="Type in a name">
                     </div>
                     <form action="">
                         <div class="table-responsive"> 
@@ -92,10 +92,12 @@
                                         $tujuan = $data['tujuan_surat'];
                                         $perihal = $data['perihal'];
                                         $tgl_surat = date("d-F-Y", strtotime($tgl1));
+                                        $file_surat_keluar = $data['file_surat_keluar'];
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $noSurat ; ?></td>
+                                            <td><a href="../dataFile/surat_keluar/<?= $file_surat_keluar ?>" target="_blank" data-original-title="View Surat">
+                                                <?php echo $noSurat ; ?></a></td>
                                             <td><?php echo $tgl_surat; ?></td>
                                             <td><?php echo $tujuan; ?></td>
                                             <td><?php echo $perihal; ?></td>

@@ -184,6 +184,10 @@
                     theme: 'bootstrap4',
                     placeholder: "Pilih Jemaat"
                 });
+				$("#cari_pengguna").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Pilih..."
+                });
             });
         </script>
 </body>

@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center col-md-3">
-                    <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" title="Type in a name">
+                    <input class="form-control" type="text" id="myInput" onkeyup="myFunction2()" placeholder="Search" title="Type in a name">
                     </div>
                     <form action="">
                         <div class="table-responsive"> 
@@ -75,8 +75,8 @@
                                         <th>No.</th>
                                         <th>No Surat</th>
                                         <th>tanggal Surat</th>
-                                        <th>tanggal Terima</th>
                                         <th>Asal Surat</th>
+                                        <th>tanggal Terima</th>
                                         <th>Perihal</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
@@ -95,16 +95,21 @@
                                         $perihal = $data['perihal'];
                                         $tgl_surat = date("d-F-Y", strtotime($tgl1));
                                         $tgl_terima = date("d-F-Y", strtotime($tgl2));
+                                        $file_surat_masuk = $data['file_surat_masuk'];
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $noSurat ; ?></td>
+                                            <td><a href="../dataFile/surat_masuk/<?= $file_surat_masuk ?>" target="_blank" data-original-title="View Surat">
+                                            <?php echo $noSurat ; ?> </a></td>
                                             <td><?php echo $tgl_surat; ?></td>
-                                            <td><?php echo $tgl_terima; ?></td>
                                             <td><?php echo $asal; ?></td>
+                                            <td><?php echo $tgl_terima; ?></td>
                                             <td><?php echo $perihal; ?></td>
                                             <td>
                                                 <div class="form-button-action">
+                                                    <a href="?halaman=disposisi_surat&id_surat_masuk=<?php echo $id_surat_masuk; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Disposisi">
+                                                        <i class="fa fa-reply"></i>
+                                                    </a>
                                                     <a href="?halaman=ubah_surat_masuk&id_surat_masuk=<?php echo $id_surat_masuk; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Surat">
                                                         <i class="fa fa-edit"></i>
                                                     </a>

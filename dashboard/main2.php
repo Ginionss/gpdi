@@ -99,6 +99,11 @@
 											<span class="sub-item">Surat Keluar</span>
 										</a>
 									</li>
+									<li >
+										<a href="?halaman=tampil_disposisi">
+											<span class="sub-item">Disposisi</span>
+										</a>
+									</li>
 								</ul>
 						</li>
 
@@ -126,43 +131,31 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="?halaman=tampilan_disposisi">
+							<a href="?halaman=tampil_disposisi">
 								<i class="fas fa-envelope"></i>
 								<p>Disposisi</p>
 							</a>
 						</li>
+						
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#tables">
-								<i class="fas fa-calendar-check"></i>
-								<p>Pelayanan</p>
-								<span class="caret"></span>
+							<a href="?halaman=laporan_perbulan">
+								<i class="far fa-calendar-check"></i>
+								<p>Laporan Bulanan</p>
 							</a>
-							<ul class="nav nav-collapse">
-									<li>
-										<a href="?halaman=tampil_baptis">
-											<span class="sub-item">Baptis</span>
-										</a>
-									</li>
-									<li>
-										<a href="?halaman=tampil_penyerahan">
-											<span class="sub-item">Penyerahan Anak</span>
-										</a>
-									</li>
-									<li>
-										<a href="?halaman=tampil_pernikahan">
-											<span class="sub-item">Pernikahan</span>
-										</a>
-									</li>
-								</ul>
+						</li>
+						<li class="nav-item">
+							<a href="?halaman=laporan_pertahun">
+								<i class="far fa-calendar-check"></i>
+								<p>Laporan Tahunan</p>
+							</a>
 						</li>
 						<?php
 							 }elseif($hak_akses=="member"){
 						?>
-						
 						<li class="nav-item">
 							<a href="?halaman=tampil_disposisi">
 								<i class="fas fa-envelope"></i>
-								<p>Surat Masuk</p>
+								<p>Disposisi</p>
 							</a>
 						</li>
 						<?php
@@ -243,6 +236,9 @@
 		  include 'ubah_surat_masuk.php';
 		break;
 		//disposisi
+			case 'disposisi_surat';
+			include 'disposisi_surat.php';
+		  break;
 			case 'tampil_disposisi';
 			include 'tampil_disposisi.php';
 		  break;
@@ -320,7 +316,24 @@ function myFunction() {
     }       
   }
 }
-
+function myFunction2() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("add");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 tinymce.init({
     pemilih: '#myTextarea' 
 });
