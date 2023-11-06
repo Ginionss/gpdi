@@ -1,10 +1,11 @@
 <?php include '../konek.php'; ?>
 
 <?php
-if (isset($_GET['nik'])) {
-	$tampil_nik = "SELECT * FROM jemaat WHERE nik=$_SESSION[nik]";
+if (isset($_GET['id_jemaat'])) {
+	$tampil_nik = "SELECT * FROM jemaat WHERE id_jemaat=$_SESSION[nik]";
 	$query = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
+	$id_jemaat = $data['id_jemaat'];
 	$nik = $data['nik'];
 	$nama = $data['nama'];
 	$tempat = $data['tempat_lahir'];
@@ -12,6 +13,8 @@ if (isset($_GET['nik'])) {
 	$jekel = $data['jenis_kelamin'];
 	$alamat = $data['alamat'];
 	$telepon = $data['no_hp'];
+	$username = $data['username'];
+	$password = $data['password'];
 }
 
 ?>
@@ -32,7 +35,7 @@ if (isset($_GET['nik'])) {
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK</label>
-									<input type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>" readonly>
+									<input type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>" >
 								</div>
 								<div class="form-group">
 									<label>Nama Lengkap</label>
@@ -67,6 +70,14 @@ if (isset($_GET['nik'])) {
 									<label>Nomor Telepon</label>
 									<input type="number" name="telepon" class="form-control" value="<?= $telepon ?>" placeholder="Telepon Anda..">
 								</div>
+								<div class="form-group">
+									<label>Username</label>
+									<input type="text" name="username" class="form-control" value="<?= $username ?>" placeholder="Username..">
+								</div>
+								<div class="form-group">
+									<label>Password</label>
+									<input type="text" name="password" class="form-control" value="<?= $password ?>" placeholder="Password..">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -89,15 +100,20 @@ if (isset($_POST['ubah'])) {
 	$jekel = $_POST['jekel'];
 	$alamat = $_POST['alamat'];
 	$telepon = $_POST['telepon'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 
 	$sql = "UPDATE jemaat SET
+	nik='$nik',
 	nama='$nama',
 	tanggal_lahir='$tgl',
 	tempat_lahir='$tempat',
 	jenis_kelamin='$jekel',
 	alamat='$alamat',
-	no_hp='$telepon'
-	WHERE nik=$_SESSION[nik]";
+	no_hp='$telepon',
+	username='$username',
+	password='$password'
+	WHERE id_jemaat=$_SESSION[nik]";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

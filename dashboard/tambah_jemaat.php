@@ -45,6 +45,22 @@
 									<label>Alamat</label>
 									<textarea name="alamat" class="form-control" cols="30" rows="10" placeholder="Alamat.."></textarea>
 								</div>
+								<div class="form-group">
+									<label>Status Jemaat</label>
+									<select name="ket" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="Laki-Laki">Tetap</option>
+										<option value="Perempuan">Sementara</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Username</label>
+									<input type="text" name="username" class="form-control" placeholder="Username..">
+								</div>
+								<div class="form-group">
+									<label>Password</label>
+									<input type="text" name="password" class="form-control" placeholder="Password..">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -67,9 +83,12 @@ if (isset($_POST['simpan'])) {
 	$no_hp = $_POST['no_hp'];
 	$jekel = $_POST['jekel'];
 	$alamat = $_POST['alamat'];
+	$ket = $_POST['ket'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 	$status = 1;
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status')";
+	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

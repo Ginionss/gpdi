@@ -1,8 +1,9 @@
 <?php include '../konek.php'; ?>
 <?php
-$tampil_nik = "SELECT * FROM jemaat WHERE nik=$_SESSION[nik]";
+$tampil_nik = "SELECT * FROM jemaat WHERE id_jemaat=$_SESSION[nik]";
 $query = mysqli_query($konek, $tampil_nik);
 $data = mysqli_fetch_array($query, MYSQLI_BOTH);
+$id_jemaat = $data['id_jemaat'];
 $nik = $data['nik'];
 $nama = $data['nama'];
 $tempat = $data['tempat_lahir'];
@@ -11,6 +12,8 @@ $format = date('d-m-Y', strtotime($tanggal));
 $jekel = $data['jenis_kelamin'];
 $alamat = $data['alamat'];
 $telepon = $data['no_hp'];
+$username = $data['username'];
+$password = $data['password'];
 
 ?>
 <div class="page-inner">
@@ -20,7 +23,7 @@ $telepon = $data['no_hp'];
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">BIODATA ANDA</h4>
-                        <a href="?halaman=ubah_pemohon&nik=<?= $nik; ?>" class="btn btn-sm btn-warning btn-round ml-auto">
+                        <a href="?halaman=ubah_pemohon&id_jemaat=<?= $id_jemaat; ?>" class="btn btn-sm btn-warning btn-round ml-auto">
                             <i class="fa fa-edit"></i>
                             Ubah Biodata
                         </a>
@@ -59,6 +62,16 @@ $telepon = $data['no_hp'];
                                 <th>NOMOR TELEPON</th>
                                 <td>:</td>
                                 <td><?= $telepon; ?></td>
+                            </tr>
+                            <tr>
+                                <th>USERNAME</th>
+                                <td>:</td>
+                                <td><?= $username; ?></td>
+                            </tr>
+                            <tr>
+                                <th>PASSWORD</th>
+                                <td>:</td>
+                                <td><?= $password; ?></td>
                             </tr>
                         </thead>
                     </table>

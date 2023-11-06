@@ -73,7 +73,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>NIK / Nama</th>
+                                        <th>Username / Nama</th>
                                         <th>Password</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
@@ -81,23 +81,25 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat j join user u where j.nik= u.nik";
+                                    $tampil = "SELECT * FROM jemaat j join user u where j.id_jemaat= u.id_jemaat";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-                                        $username = $data['nik'];
+                                        $id_user = $data['id_user'];
+                                        $id_jemaat = $data['id_jemaat'];
+                                        $username = $data['username'];
                                         $nama = $data['nama'];
                                         $password = $data['password'];
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $username . ' -<br> ' . $nama; ?></td>
+                                            <td><?php echo $username . ' /<br> ' . $nama; ?></td>
                                             <td><?php echo $password; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=ubah_user&nik=<?php echo $username; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit User">
+                                                    <a href="?halaman=ubah_user&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit User">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="?halaman=tampil_user&nik=<?php echo $username; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus User">
+                                                    <a href="?halaman=tampil_user&id_user=<?php echo $id_user; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus User">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </div>
@@ -118,8 +120,8 @@
 
 
 <?php
-if (isset($_GET['nik'])) {
-    $sql_hapus = "DELETE FROM user WHERE nik='" . $_GET['nik'] . "'";
+if (isset($_GET['id_user'])) {
+    $sql_hapus = "DELETE FROM user WHERE id_user='" . $_GET['id_user'] . "'";
     $query_hapus = mysqli_query($konek, $sql_hapus);
     if ($query_hapus) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";

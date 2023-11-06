@@ -15,21 +15,18 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK - NAMA</label>
-									<select id="cari_jemaat" name="nik" class="form-control">
+									<select id="cari_jemaat" name="id_jemaat" class="form-control">
                                         <option value=""></option>
                                         <?php  $tampil = "SELECT * FROM jemaat where status = 1";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+											$id_jemaat = $data['id_jemaat'];
                                              $nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
                                         <option  value="<?= $nik?>"><?= $nik."-".$nama?></option>
                                         <?php } ?>
                                     </select>
-								</div>
-								<div class="form-group">
-									<label>Password</label>
-									<input type="text" name="password" class="form-control" value="user">
 								</div>
 							</div>
 						</div>
@@ -46,10 +43,9 @@
 
 <?php
 if (isset($_POST['simpan'])) {
-	$nik = $_POST['nik'];
-	$password = $_POST['password'];
+	$id_jemaat = $_POST['id_jemaat'];
 
-	$sql = "INSERT INTO user (nik,password) VALUES ('$nik','$password')";
+	$sql = "INSERT INTO user (nik) VALUES ('$nik')";
 	$query = mysqli_query($konek, $sql);
 	
 	$status_j = 2;

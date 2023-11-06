@@ -27,7 +27,7 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Mempelai Pria</label>
                                     <select id="cari_pria" name="nik_pria" class="form-control">
                                         <option value=""></option>
-                                        <?php if($mempelai == "pria"){$tampil = "SELECT * FROM jemaat where nik = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'";} 
+                                        <?php if($mempelai == "pria"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'";} 
                                         else {
                                             $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'"; 
                                         }
@@ -44,7 +44,7 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Mempelai Wanita</label>
                                     <select id="cari_wanita" name="nik_wanita" class="form-control">
                                         <option value=""></option>
-                                        <?php if($mempelai == "wanita"){$tampil = "SELECT * FROM jemaat where nik = '$nik_pemohon' AND jenis_kelamin = 'Perempuan'";} 
+                                        <?php if($mempelai == "wanita"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Perempuan'";} 
                                         else {
                                             $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'"; 
                                         }

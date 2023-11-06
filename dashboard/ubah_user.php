@@ -1,11 +1,12 @@
 <?php
-if (isset($_GET['nik'])) {
-	$nik = $_GET['nik'];
-	$tampil_nik = "SELECT * FROM user u join jemaat j on u.nik= j.nik WHERE u.nik=$nik";
+if (isset($_GET['id_jemaat'])) {
+	$id_jemaat = $_GET['id_jemaat'];
+	$tampil_nik = "SELECT * FROM user u join jemaat j on u.id_jemaat= j.id_jemaat WHERE u.id_jemaat=$id_jemaat";
 	$query = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 	$nik = $data['nik'];
 	$nama = $data['nama'];
+	$username = $data['username'];
 	$password = $data['password'];
 }
 
@@ -30,8 +31,12 @@ if (isset($_GET['nik'])) {
 									<input type="text" name="nik" class="form-control" value="<?= $nik .'-'. $nama; ?>" readonly>
 								</div>
 								<div class="form-group">
+									<label>Username</label>
+									<input type="text" name="username" class="form-control"  value="<?= $username; ?>">
+								</div>
+								<div class="form-group">
 									<label>Password</label>
-									<input type="text" name="password" class="form-control" placeholder="Nama Lengkap Anda.." value="<?= $password; ?>">
+									<input type="text" name="password" class="form-control"  value="<?= $password; ?>">
 								</div>
 							</div>
 						</div>
@@ -48,11 +53,12 @@ if (isset($_GET['nik'])) {
 
 <?php
 if (isset($_POST['ubah'])) {
-	$nik = $nik;
+	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$sql = "UPDATE user SET
-	password='$password'WHERE nik=$nik";
+	$sql = "UPDATE jemaat SET
+	username='$username',
+	password='$password'WHERE id_jemaat=$id_jemaat";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

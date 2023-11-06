@@ -1,4 +1,9 @@
-<?php include '../konek.php'; ?>
+<?php include '../konek.php'; 
+$nik_pemohon = $_SESSION['nik'];
+$tampil_nik = "SELECT * FROM jemaat WHERE id_jemaat=$nik_pemohon";
+$query = mysqli_query($konek, $tampil_nik);
+$data = mysqli_fetch_array($query, MYSQLI_BOTH);
+$jekel = $data['jenis_kelamin'];?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
@@ -16,8 +21,8 @@
                             <div class="form-group">
 									<label>Anda adalah</label>
                                     <select class="form-control" name="ortu" id="">
-                                        <option value="ayah">Ayah</option>
-                                        <option value="ibu">Ibu</option>
+                                        <option value="ayah" <?php if ($jekel == "Laki-laki") echo 'selected' ?>>Ayah</option>
+                                        <option value="ibu" <?php if ($jekel == "Perempuan") echo 'selected' ?>>Ibu</option>
                                     </select>
 								</div>
 							</div>

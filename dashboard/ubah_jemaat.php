@@ -1,9 +1,10 @@
 <?php
-if (isset($_GET['nik'])) {
-	$nik = $_GET['nik'];
-	$tampil_nik = "SELECT * FROM jemaat WHERE nik=$nik";
+if (isset($_GET['id_jemaat'])) {
+	$id_jemaat = $_GET['id_jemaat'];
+	$tampil_nik = "SELECT * FROM jemaat WHERE id_jemaat=$id_jemaat";
 	$query = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
+	$id_jemaat = $data['id_jemaat'];
 	$nik = $data['nik'];
 	$nama = $data['nama'];
 	$tempat = $data['tempat_lahir'];
@@ -11,6 +12,7 @@ if (isset($_GET['nik'])) {
 	$jekel = $data['jenis_kelamin'];
     $alamat =$data['alamat'];
     $no_hp =$data['no_hp'];
+    $ket =$data['ket'];
 }
 
 ?>
@@ -31,7 +33,7 @@ if (isset($_GET['nik'])) {
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK</label>
-									<input  type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>" readonly>
+									<input  type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>">
 								</div>
 								<div class="form-group">
 									<label>Nama Lengkap</label>
@@ -61,6 +63,14 @@ if (isset($_GET['nik'])) {
 									<label for="comment">Alamat</label>
 									<textarea class="form-control" name="alamat" rows="5"><?= $alamat ?></textarea>
 								</div>
+								<div class="form-group">
+									<label>Status Jemaat</label>
+									<select name="ket" class="form-control">
+										<option disabled="" selected="">Pilih Status</option>
+										<option value="1" <?php if ($ket == 1) echo 'selected' ?>>Tetap</option>
+										<option value="0" <?php if ($ket == 0) echo 'selected' ?>>Sementara</option>
+									</select>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -80,17 +90,20 @@ if (isset($_POST['ubah'])) {
 	$nama = $_POST['nama'];
 	$tempat = $_POST['tempat'];
 	$tgl = $_POST['tgl'];
-	$jekel = $_POST['jenis_kelamin'];
+	$jekel = $_POST['jekel'];
 	$alamat = $_POST['alamat'];
 	$no_hp = $_POST['no_hp'];
+	$ket = $_POST['ket'];
 
 	$sql = "UPDATE jemaat SET
+	nik= '$nik',
 	nama='$nama',
 	tanggal_lahir='$tgl',
 	tempat_lahir='$tempat',
 	jenis_kelamin='$jekel',
 	no_hp='$no_hp',
-	alamat='$alamat' WHERE nik=$nik";
+	alamat='$alamat',
+	ket='$ket' WHERE id_jemaat=$id_jemaat";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

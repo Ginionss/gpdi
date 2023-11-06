@@ -33,6 +33,12 @@
 								<p>Data Jemaat</p>
 							</a>
 						</li>
+						<li class="nav-item">
+							<a href="?halaman=tampil_jemaat_sementara">
+								<i class="fas fa-user-alt"></i>
+								<p>Data Jemaat Sementara</p>
+							</a>
+						</li>
 						
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#tables">
@@ -212,6 +218,9 @@
 			  //jemaat
 			  case 'tampil_jemaat';
                 include 'tampil_jemaat.php';
+			  break;
+			  case 'tampil_jemaat_sementara';
+                include 'tampil_jemaat_sementara.php';
 			  break;
 			  case 'tambah_jemaat';
 			  include 'tambah_jemaat.php';

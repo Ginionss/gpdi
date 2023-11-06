@@ -26,7 +26,7 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Anak</label>
                                     <select id="cari_anak" name="nik" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat where nik = '$nik_pemohon'";
+                                        <?php  $tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon'";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                              $nik = $data['nik'];

@@ -34,7 +34,7 @@
               <h6 class="font-weight-light"></h6>
               <form method="POST" class="pt-3">
                 <div class="form-group">
-                  <input type="text" name="nik" class="form-control form-control-xs text-bold" placeholder="NIK Anda.." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="16" required autofocus>
+                  <input type="text" name="username" class="form-control form-control-xs text-bold" placeholder="Username Anda.." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="16" required autofocus>
                 </div>
                 <div class="form-group">
                   <input type="password" name="password" class="form-control form-control-xs" placeholder="Password Anda.." required autofocus>
@@ -52,7 +52,7 @@
                   <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="http://localhost:8080/gpdi/">BATAL</a>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  <!-- Belum memiliki akun? <a href="register.php" class="text-primary">Registrasi</a> -->
+                  Belum memiliki akun? <a href="pendaftaran.php" class="text-primary">Pendaftaran</a>
                 </div>
               </form>
             </div>
@@ -68,10 +68,10 @@
   <!-- login -->
   <?php
   if (isset($_POST['login'])) {
-    $nik = $_POST['nik'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql_login = "SELECT * FROM user u join jemaat j on u.nik = j.nik WHERE u.nik='$nik' AND u.password='$password'";
+    $sql_login = "SELECT * FROM user u join jemaat j on u.id_jemaat = j.id_jemaat WHERE j.username='$username' AND j.password='$password'";
     $query_login = mysqli_query($konek, $sql_login);
     $data_login = mysqli_fetch_array($query_login, MYSQLI_BOTH);
     $jumlah_login = mysqli_num_rows($query_login);
@@ -81,7 +81,7 @@
       $_SESSION['hak_akses'] = "Pemohon";
       $_SESSION['nama'] = $data_login['nama'];
       $_SESSION['password'] = $data_login['jenis_kelamin'];
-      $_SESSION['nik'] = $data_login['nik'];
+      $_SESSION['nik'] = $data_login['id_jemaat'];
 
       echo "<script language='javascript'>swal('Selamat...', 'Login Berhasil!', 'success');</script>";
       echo '<meta http-equiv="refresh" content="3; url=dashboard/main.php">';

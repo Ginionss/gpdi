@@ -47,11 +47,11 @@
 								</div>
 								<div class="form-group">
 									<label>Tanggal Lahir</label>
-									<input type="date" name="tanggal" class="form-control">
+									<input type="date" name="tanggal" class="form-control" >
 								</div>
 								<div class="form-group">
 									<label>Nomor HP</label>
-									<input type="text" name="no_hp" class="form-control">
+									<input type="text" name="no_hp" class="form-control" placeholder="Nomor HP..">
 								</div>
 								<div class="form-group">
 									<label>Jenis Kelamin</label>
@@ -64,6 +64,22 @@
 								<div class="form-group">
 									<label>Alamat</label>
 									<textarea name="alamat" class="form-control" cols="30" rows="10" placeholder="Alamat.."></textarea>
+								</div>
+								<div class="form-group">
+									<label>Status Jemaat</label>
+									<select name="ket" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="Laki-Laki">Tetap</option>
+										<option value="Perempuan">Sementara</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Username</label>
+									<input type="text" name="username" class="form-control" placeholder="Username..">
+								</div>
+								<div class="form-group">
+									<label>Password</label>
+									<input type="text" name="password" class="form-control" placeholder="Password..">
 								</div>
                 <div class="mt-3">
                   <!-- <a href="SBAdmin/index.html" class="btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn">LOGIN</a> -->
@@ -101,9 +117,12 @@ if (isset($_POST['simpan'])) {
 	$no_hp = $_POST['no_hp'];
 	$jekel = $_POST['jekel'];
 	$alamat = $_POST['alamat'];
-    $status = 0;
+	$ket = $_POST['ket'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+  $status = 0;
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status')";
+	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Data Jemaat</h4>
+                        <h4 class="card-title">Data Jemaat Tetap</h4>
                         <a href="?halaman=tambah_jemaat" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-plus"></i>
                             Tambah Jemaat
@@ -84,9 +84,10 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat where status_j > 0";
+                                    $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 1";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+                                        $id_jemaat = $data['id_jemaat'];
                                         $username = $data['nik'];
                                         $nama = $data['nama'];
                                         $tempat = $data['tempat_lahir'];
@@ -94,6 +95,7 @@
                                         $no_hp = $data['no_hp'];
                                         $alamat = $data['alamat'];
                                         $jekel = $data['jenis_kelamin'];
+                                        $ket = $data['ket'];
                                         $tanggal_lahir = date("d-F-Y", strtotime($tanggal));
                                     ?>
                                         <tr>
@@ -105,10 +107,10 @@
                                             <td><?php echo $alamat; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=ubah_jemaat&nik=<?php echo $username; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Jemaat">
+                                                    <a href="?halaman=ubah_jemaat&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Jemaat">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="?halaman=tampil_jemaat&nik=<?php echo $username; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Jemaat">
+                                                    <a href="?halaman=tampil_jemaat&id_jemaat=<?php echo $id_jemaat; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Jemaat">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </div>
@@ -129,8 +131,8 @@
 
 
 <?php
-if (isset($_GET['nik'])) {
-    $sql_hapus = "DELETE FROM jemaat WHERE nik='" . $_GET['nik'] . "'";
+if (isset($_GET['id_jemaat'])) {
+    $sql_hapus = "DELETE FROM jemaat WHERE id_jemaat='" . $_GET['id_jemaat'] . "'";
     $query_hapus = mysqli_query($konek, $sql_hapus);
     if ($query_hapus) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";

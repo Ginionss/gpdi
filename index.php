@@ -52,10 +52,10 @@ $level = "pemohon";
                     <ul class="nav navbar-nav">
                         <li class="scroll active"><a href="#home">Beranda</a></li>
                         <li class="scroll"><a href="#features">Pelayanan</a></li>
-                        <li class="scroll"><a href="pendaftaran.php">Pendaftaran jemaat</a></li>
                         <li class="scroll"><a href="#services">Informasi</a></li>
-                        <li class="scroll"><a href="#get-in-touch">Kontak</a></li>
-                        <li class="scroll"><a href="po-admin.php">Login</a></li>
+                        <li class="scroll"><a href="#get-in-touch">Lokasi</a></li>
+                        <li class="scroll"><a href="pendaftaran.php">Pendaftaran jemaat</a></li>
+                        <li class="scroll"><a href="login.php">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -87,7 +87,8 @@ $level = "pemohon";
     <section id="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title text-center wow fadeInDown"> Pelayanan</h2>
+                <br>
+                <h3 class="section-title text-center wow fadeInDown"> Pelayanan</h3>
             </div>
             <div class="row">
                 <div class="col-sm-6 wow fadeInLeft">
@@ -121,9 +122,9 @@ $level = "pemohon";
 
     <section id="services">
         <div class="container">
-
+            <br>
             <div class="section-header">
-                <h2 class="section-title text-center wow fadeInDown">Prosedur Permohonan Surat</h2>
+                <h3 class="section-title text-center wow fadeInDown">Prosedur Permohonan Surat</h3>
             </div>
 
             <div class="row">
@@ -135,7 +136,7 @@ $level = "pemohon";
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Login</h4>
-                                <p>Pemohon Surat melakukan login, melalui halaman Login.
+                                <p>Pemohon Surat melakukan login, melalui halaman Login. Jika Belum memiliki akun atau merupakan jemaat baru mohon untuk melakukan pendaftaran terlebih dahulu.
                                 </p>
                             </div>
                         </div>
@@ -155,14 +156,19 @@ $level = "pemohon";
                     </div>
                     <!--/.col-md-4-->
 
+                </div>
+            </div>
+            <!--/.row-->
+            <div class="row">
+                <div class="features">
                     <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
                         <div class="media service-box">
                             <div class="pull-left">
                                 <img src="main/img/number3.png" alt="">
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Mengajukan Surat Permohonan</h4>
-                                <p>Setelah input data pemohon dengan lengkap dan benar, Pemohon memilih Surat yang mau direquest serta melengkapi data request, Kemudian Dikirim dan Menunggu persetujuan dari Lurah.</p>
+                                <h4 class="media-heading">Mengajukan Permohonan Baptis/ Penyerahan Anak/ Pernikahan</h4>
+                                <p>Setelah input data pemohon dengan lengkap dan benar, Pemohon memilih Surat yang mau direquest serta melengkapi data request, Kemudian Dikirim dan Menunggu persetujuan dari admin, setelah itu admin akan mengirimkan feedback berupa tanggal Baptis/ Penyerahan Anak/ Pernikahan akan di laksanakan.</p>
                             </div>
                         </div>
                     </div>
@@ -175,7 +181,7 @@ $level = "pemohon";
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Permohonan Disetujui</h4>
-                                <p>Permohonan di setujui oleh lurah, kemudian staf akan mencetak surat sesuai request surat yang diajukan, pemohon mengambil surat yang sudah dicetak dan bertandatangan di Kantor Kelurahan Wergu Wetan.</p>
+                                <p>Permohonan di setujui oleh admin, kemudian admin akan mencetak surat sesuai request surat yang diajukan, pemohon mengambil surat yang sudah dicetak dan bertandatangan di GPdI Bukit Zaitun Oesapa setelah pelayanan Baptis/ Penyerahan Anak/ Pernikahan di laksanakan.</p>
                             </div>
                         </div>
                     </div>
@@ -191,6 +197,7 @@ $level = "pemohon";
 
     <section id="get-in-touch">
         <div class="container">
+            <br>
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">LOKASI</h2>
             </div>
@@ -200,7 +207,7 @@ $level = "pemohon";
 
 
     <section id="contact">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15708.571715949398!2d123.5984595!3d-10.1690355!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4cd56f23dc90500d!2sDinas%20Kesehatan%20Prov.%20NTT!5e0!3m2!1sid!2sid!4v1654787306478!5m2!1sid!2sid" width="100%" height="650px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" alt="lokasi kelurahan"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.4712814452555!2d123.65797537503302!3d-10.142293089970476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c5683086e038177%3A0x5236f32218cab00b!2sGereja%20Pentakosta.%20Jemaat%20Bukit%20Zaitun!5e0!3m2!1sid!2sid!4v1699283765921!5m2!1sid!2sid" width="1350" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     <!--/#bottom-->
@@ -209,14 +216,13 @@ $level = "pemohon";
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; <?php echo date('Y'); ?> DINAS KESEHATAN PROVINSI NUSA TENGGARA TIMUR
+                    &copy; <?php echo date('Y'); ?> GPdI BUKIT ZAITUN OESAPA
                 </div>
                 <div class="col-sm-6">
                     <ul class="social-icons">
-                        <li><a href="https://www.instagram.com/fachrishofiyyuddin/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=100005519746461" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCzdAstXxirdPWsTcdyl9DQg" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="https://github.com/fachrishofiyyuddin" target="_blank"><i class="fa fa-github"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>

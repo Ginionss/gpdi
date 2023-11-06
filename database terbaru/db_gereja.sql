@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 Nov 2023 pada 11.20
+-- Generation Time: 06 Nov 2023 pada 16.22
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -56,13 +56,20 @@ INSERT INTO `baptis` (`id_baptis`, `no_surat`, `tanggal_request`, `nik`, `nama_a
 --
 
 CREATE TABLE `disposisi` (
-  `id_diposisi` int(5) NOT NULL,
+  `id_disposisi` int(5) NOT NULL,
   `id_surat_masuk` int(5) NOT NULL,
   `isi_disposisi` text NOT NULL,
   `dari` varchar(50) NOT NULL,
   `kepada` varchar(50) NOT NULL,
   `tanggal_disposisi` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `disposisi`
+--
+
+INSERT INTO `disposisi` (`id_disposisi`, `id_surat_masuk`, `isi_disposisi`, `dari`, `kepada`, `tanggal_disposisi`) VALUES
+(1, 2, 'tolong di tindak lanjuti', '2', '3', '2023-11-05');
 
 -- --------------------------------------------------------
 
@@ -71,27 +78,31 @@ CREATE TABLE `disposisi` (
 --
 
 CREATE TABLE `jemaat` (
-  `nik` varchar(16) NOT NULL,
+  `id_jemaat` int(11) NOT NULL,
+  `nik` varchar(16) DEFAULT NULL,
   `nama` varchar(50) NOT NULL,
   `tempat_lahir` varchar(20) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `no_hp` varchar(12) NOT NULL,
   `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
   `alamat` text NOT NULL,
-  `status` int(11) NOT NULL
+  `status_j` int(11) NOT NULL,
+  `ket` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `jemaat`
 --
 
-INSERT INTO `jemaat` (`nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `jenis_kelamin`, `alamat`, `status`) VALUES
-('000000', 'Richard Waang', 'Alor', '2023-11-01', '1234', 'Laki-laki', 'Alamat', 2),
-('111111', 'Yolanda Meiliani Mutiara', 'Bajawa', '2023-06-03', '123', 'Perempuan', 'Bajawa', 2),
-('123123', 'Arman Wicaksono', 'kalimantan', '2023-03-01', '34567', 'Laki-laki', 'Kalimantan', 2),
-('123456', 'Keflin Regina Willa', 'Oseapa', '2023-05-01', '678', 'Perempuan', 'Oesapa', 2),
-('222222', 'Angga Waang', 'Alor', '2023-11-02', '09876', 'Laki-laki', '<p>Saka Kaya richard</p>', 0),
-('5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'test', '2023-10-25', '123', 'Laki-laki', 'sumba', 2);
+INSERT INTO `jemaat` (`id_jemaat`, `nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `jenis_kelamin`, `alamat`, `status_j`, `ket`, `username`, `password`) VALUES
+(1, '1', 'Richard Waang', 'Alor', '2023-11-01', '1234', 'Laki-laki', 'Alamat', 2, '0', 'richard', 'user'),
+(111111, '111111', 'Yolanda Meiliani Mutiara', 'Bajawa', '2023-06-03', '123', 'Perempuan', '<p>Bajawa</p>', 2, '1', 'yolan', 'user'),
+(123123, '123123', 'Arman Wicaksono', 'kalimantan', '2023-03-01', '34567', 'Laki-laki', 'Kalimantan', 2, '1', 'arman', 'user'),
+(123456, '123456', 'Keflin Regina Willa', 'Oseapa', '2023-05-01', '678', 'Perempuan', 'Oesapa', 2, '1', 'key', 'user'),
+(222222, '222222', 'Angga Waang', 'Alor', '2023-11-02', '09876', 'Laki-laki', '<p>Saka Kaya richard</p>', 0, '0', 'angga', 'user'),
+(2147483647, '5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'sumba', '2023-10-25', '123', 'Laki-laki', 'sumba', 2, '1', 'aryo', 'user');
 
 -- --------------------------------------------------------
 
@@ -114,7 +125,8 @@ CREATE TABLE `operator` (
 
 INSERT INTO `operator` (`id_pengguna`, `username`, `password`, `nama`, `jabatan`, `hak_akses`) VALUES
 (1, 'admin', 'admin', 'aryo', 'Intel', 'admin'),
-(2, 'pendeta', 'pendeta', 'individu', 'Gembala', 'gembala');
+(2, 'pendeta', 'pendeta', 'pak pendeta', 'Gembala', 'gembala'),
+(3, 'arman', 'arman', 'arman', 'Bendahara', 'member');
 
 -- --------------------------------------------------------
 
@@ -223,20 +235,19 @@ INSERT INTO `suratmasuk` (`id_surat_masuk`, `no_surat_masuk`, `tgl_surat`, `tgl_
 
 CREATE TABLE `user` (
   `id_user` int(5) NOT NULL,
-  `nik` varchar(16) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `id_jemaat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `nik`, `password`) VALUES
-(3, '5311022409000001', 'user'),
-(4, '111111', 'user'),
-(5, '123123', 'user'),
-(6, '123456', 'user'),
-(8, '000000', 'user');
+INSERT INTO `user` (`id_user`, `id_jemaat`) VALUES
+(3, 2147483647),
+(4, 111111),
+(5, 123123),
+(6, 123456),
+(8, 1);
 
 -- --------------------------------------------------------
 
@@ -272,13 +283,13 @@ ALTER TABLE `baptis`
 -- Indexes for table `disposisi`
 --
 ALTER TABLE `disposisi`
-  ADD PRIMARY KEY (`id_diposisi`);
+  ADD PRIMARY KEY (`id_disposisi`);
 
 --
 -- Indexes for table `jemaat`
 --
 ALTER TABLE `jemaat`
-  ADD PRIMARY KEY (`nik`);
+  ADD PRIMARY KEY (`id_jemaat`);
 
 --
 -- Indexes for table `operator`
@@ -335,12 +346,17 @@ ALTER TABLE `baptis`
 -- AUTO_INCREMENT for table `disposisi`
 --
 ALTER TABLE `disposisi`
-  MODIFY `id_diposisi` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_disposisi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `jemaat`
+--
+ALTER TABLE `jemaat`
+  MODIFY `id_jemaat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483647;
 --
 -- AUTO_INCREMENT for table `operator`
 --
 ALTER TABLE `operator`
-  MODIFY `id_pengguna` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pengguna` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `penyerahan`
 --
