@@ -102,10 +102,20 @@ if ($hak_akses == "Pemohon") {
 												<div class="form-button-action">
 												<a href="?halaman=view_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Verifikasi Data">
-														<i class="fa fa-edit"></i>
+														<i class="fa fa-eye"></i>
+													</button>
+												</a>
+											</div><?php 
+											if ($status == "<b style='color:black'>Diproses</b>") {?>
+												<div class="form-button-action">
+												<a href="#">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Unduh">
+														<i class="fa fa-download"></i>
 													</button>
 												</a>
 											</div>
+
+											<?php }?>
 
 											<?php }else { ?>
 											<div class="form-button-action">

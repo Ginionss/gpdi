@@ -22,7 +22,7 @@ if (isset($_GET['id_surat_masuk'])) {
 			<form method="POST">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title">DISPOSISI SURAT <?= $id_pengguna ?></div>
+						<div class="card-title">DISPOSISI SURAT</div>
 					</div>
 					<div class="card-body">
 						<div class="row">

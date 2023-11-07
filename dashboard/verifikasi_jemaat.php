@@ -66,7 +66,7 @@ if (isset($_GET['nik'])) {
 					</div>
 					<div class="card-action">
 						<button name="ubah" class="btn btn-success">Terima</button>
-						<a href="?halaman=beranda" class="btn btn-default">Batal</a>
+						<a href="main2.php" class="btn btn-default">Batal</a>
 					</div>
 				</div>
 		</div>

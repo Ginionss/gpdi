@@ -142,8 +142,32 @@
 								<p>Disposisi</p>
 							</a>
 						</li>
-						
 						<li class="nav-item">
+							<a data-toggle="collapse" href="#tables">
+								<i class="fas fa-calendar-check"></i>
+								<p>Pelayanan</p>
+								<span class="caret"></span>
+							</a>
+							<ul class="nav nav-collapse">
+									<li>
+										<a href="?halaman=tampil_baptis">
+											<span class="sub-item">Baptis</span>
+										</a>
+									</li>
+									<li>
+										<a href="?halaman=tampil_penyerahan">
+											<span class="sub-item">Penyerahan Anak</span>
+										</a>
+									</li>
+									<li>
+										<a href="?halaman=tampil_pernikahan">
+											<span class="sub-item">Pernikahan</span>
+										</a>
+									</li>
+								</ul>
+						</li>
+						
+						<!-- <li class="nav-item">
 							<a href="?halaman=laporan_perbulan">
 								<i class="far fa-calendar-check"></i>
 								<p>Laporan Bulanan</p>
@@ -154,7 +178,7 @@
 								<i class="far fa-calendar-check"></i>
 								<p>Laporan Tahunan</p>
 							</a>
-						</li>
+						</li> -->
 						<?php
 							 }elseif($hak_akses=="member"){
 						?>
@@ -289,8 +313,8 @@
 			case 'tambah_warta';
 			  include 'tambah_warta.php';
 			break;
-			case 'view_warta';
-			  include 'view_warta.php';
+			case 'ubah_warta';
+			  include 'ubah_warta.php';
 			break;
 			//laporan
 			  case 'laporan_perbulan';

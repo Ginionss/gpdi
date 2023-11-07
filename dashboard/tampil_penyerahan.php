@@ -56,9 +56,9 @@ if ($hak_akses == "Pemohon") {
 									$nama_ayah = $data['nama_ayah'];
 									$nama_ibu = $data['nama_ibu'];
 									$status = $data['status'];
-									if (isset($data['tanggal_penyerhan'])) {
-										$tanggal_penyerhan = $data['tanggal_penyerhan'];
-										$format2 = date('d F Y', strtotime($tanggal_penyerhan));
+									if (isset($data['tanggal_penyerahan'])) {
+										$tanggal_penyerahan = $data['tanggal_penyerahan'];
+										$format2 = date('d F Y', strtotime($tanggal_penyerahan));
 									}else {							
 										$format2 = "-";
 									}
@@ -97,10 +97,20 @@ if ($hak_akses == "Pemohon") {
 												<div class="form-button-action">
 												<a href="?halaman=view_penyerahan&id_penyerahan=<?= $id_penyerahan; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Verifikasi Data">
-														<i class="fa fa-edit"></i>
+														<i class="fa fa-eye"></i>
+													</button>
+												</a>
+											</div><?php 
+											if ($status == "<b style='color:black'>Diproses</b>") {?>
+												<div class="form-button-action">
+												<a href="#">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Unduh">
+														<i class="fa fa-download"></i>
 													</button>
 												</a>
 											</div>
+
+											<?php }?>
 
 											<?php }else { ?>
 											<div class="form-button-action">
