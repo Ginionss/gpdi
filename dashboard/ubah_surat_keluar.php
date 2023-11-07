@@ -20,7 +20,7 @@ if (isset($_GET['id_surat_keluar'])) {
 <div class="page-inner">
 	<div class="row">
 		<div class="col-md-12">
-			<form method="POST">
+			<form method="POST" enctype="multipart/form-data">
 				<div class="card">
 					<div class="card-header">
 						<div class="card-title">UBAH SURAT KELUAR</div>

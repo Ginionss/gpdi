@@ -1,10 +1,10 @@
 <?php
-if (isset($_GET['id_baptis'])) {
-	$id_baptis = $_GET['id_baptis'];
-	$tampil_nik = "SELECT * FROM baptis b natural join jemaat j  where b.nik = j.nik and b.id_baptis = $id_baptis";
+if (isset($_GET['id_penyerahan'])) {
+	$id_penyerahan = $_GET['id_penyerahan'];
+	$tampil_nik = "SELECT * FROM penyerahan b natural join jemaat j  where b.nik = j.nik and b.id_penyerahan = $id_penyerahan";
 	$query1 = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query1, MYSQLI_BOTH);
-	$id_baptis = $data['id_baptis'];
+	$id_penyerahan = $data['id_penyerahan'];
     $tgl = $data['tanggal_request'];
 	$format = date('d F Y', strtotime($tgl));
 	$nik = $data['nik'];
@@ -26,7 +26,7 @@ if (isset($_GET['id_baptis'])) {
 			<form method="POST" enctype="multipart/form-data">
             <div class="card">
 					<div class="card-header">
-						<div class="card-title">FORM EDIT PERMOHONAN BAPTIS </div>
+						<div class="card-title">FORM EDIT PERMOHONAN PENYERAHAN </div>
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -96,7 +96,7 @@ if (isset($_GET['id_baptis'])) {
 					</div>
 					<div class="card-action">
 						<button name="ubah" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=tampil_baptis" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=tampil_penyerahan" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>
@@ -111,29 +111,29 @@ if (isset($_POST['ubah'])) {
 	$nama_ayah = $_POST['nama_ayah'];
 	$nama_ibu = $_POST['nama_ibu'];
 	$file_kk= isset($_FILES['file_kk']);
-    $file_kartu_keluarga = "Baptis_".$_POST['nik'].".pdf";
+    $file_kartu_keluarga = "penyerahan_".$_POST['nik'].".pdf";
 	$file_akta= isset($_FILES['file_akta']);
-    $file_akta_kelahiran ="Baptis_".$_POST['nik'].".pdf";
+    $file_akta_kelahiran ="penyerahan_".$_POST['nik'].".pdf";
     $status = "0";
 
-	$sql = "UPDATE baptis SET
+	$sql = "UPDATE penyerahan SET
 	tanggal_request='$tanggal_request',
 	nik='$nik',
 	nama_ayah='$nama_ayah',
 	nama_ibu='$nama_ibu',
 	file_kartu_keluarga='$file_kartu_keluarga',
 	file_akta_kelahiran='$file_akta_kelahiran',
-	status ='$status' WHERE id_baptis=$id_baptis";
+	status ='$status' WHERE id_penyerahan=$id_penyerahan";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
         copy($_FILES['file_kk']['tmp_name'],"../dataFile/file_kk/".$file_kartu_keluarga);
         copy($_FILES['file_akta']['tmp_name'],"../dataFile/file_akta/".$file_akta_kelahiran);
 		echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_baptis">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_penyerahan">';
 	} else {
 		echo "<script language='javascript'>swal('Gagal...', 'Ubah Gagal', 'error');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=ubah_baptis">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=ubah_penyerahan">';
 	}
 }
 

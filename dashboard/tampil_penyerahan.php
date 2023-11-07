@@ -34,7 +34,7 @@ if ($hak_akses == "Pemohon") {
 							<tbody>
 								<?php
 								if ($hak_akses == "Pemohon") {
-									$cek1 = "SELECT * FROM jemaat where nik = '$nik_pemohon'";
+									$cek1 = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon'";
 									$query1 = mysqli_fetch_array(mysqli_query($konek, $cek1));
 									$nama_a = $query1['nama'];
 									if ($jekel == "Laki-laki") {
@@ -47,7 +47,7 @@ if ($hak_akses == "Pemohon") {
 								}
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-									$id_baptis = $data['id_penyerahan'];
+									$id_penyerahan = $data['id_penyerahan'];
                                     $no_surat = $data['no_surat'];
                                     $tgl = $data['tanggal_request'];
 									$format = date('d F Y', strtotime($tgl));

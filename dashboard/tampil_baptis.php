@@ -33,7 +33,7 @@ if ($hak_akses == "Pemohon") {
 							<tbody>
 								<?php
 								if ($hak_akses == "Pemohon") {
-									$sql = "SELECT * FROM baptis b natural join jemaat j  where b.nik = j.nik AND j.nik = '$nik_pemohon'";
+									$sql = "SELECT * FROM baptis b natural join jemaat j  where b.nik = j.nik AND j.id_jemaat = '$nik_pemohon'";
 								}else {
 									$sql = "SELECT * FROM baptis b natural join jemaat j where b.nik = j.nik";
 								}

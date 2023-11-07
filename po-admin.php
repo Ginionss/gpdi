@@ -37,7 +37,7 @@
               <div class="brand-logo">
                 <img src="main/img/gpdi.png" width="150" height="54" alt="logo">
               </div>
-              <h4>LOGIN </h4>
+              <h4>LOGIN PENGURUS</h4>
               <form method="POST" class="pt-3">
                 <div class="form-group">
                   

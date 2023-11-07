@@ -265,17 +265,23 @@
 			  case 'tampil_baptis';
 			  include 'tampil_baptis.php';
 			break;
-			case 'ubah_baptis';
-			include 'ubah_baptis.php';
+			case 'view_baptis';
+			include 'view_baptis.php';
 		  break;
 		  //penyerahan
 			  case 'tampil_penyerahan';
 			  include 'tampil_penyerahan.php';
 			break;
+			case 'view_penyerahan';
+			include 'view_penyerahan.php';
+		  break;
 		  //pernikahan
 			  case 'tampil_pernikahan';
 			  include 'tampil_pernikahan.php';
 			break;
+			case 'view_pernikahan';
+			include 'view_pernikahan.php';
+		  break;
 		  //warta jemaat
 			  case 'tampil_warta';
 			  include 'tampil_warta.php';
@@ -283,8 +289,8 @@
 			case 'tambah_warta';
 			  include 'tambah_warta.php';
 			break;
-			case 'ubah_warta';
-			  include 'ubah_warta.php';
+			case 'view_warta';
+			  include 'view_warta.php';
 			break;
 			//laporan
 			  case 'laporan_perbulan';

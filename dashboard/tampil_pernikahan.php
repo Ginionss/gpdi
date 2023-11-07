@@ -1,8 +1,12 @@
 <?php include '../konek.php'; 
 $hak_akses = $_SESSION['hak_akses'];
 if ($hak_akses == "Pemohon") {
-	$nik_pemohon = $_SESSION['nik'];
+	$id_pemohon = $_SESSION['nik'];
 	$jekel = $_SESSION['password'];
+	$tampil_nik = "SELECT * FROM jemaat where id_jemaat = '$id_pemohon'";
+	$query1 = mysqli_query($konek, $tampil_nik);
+	$data = mysqli_fetch_array($query1, MYSQLI_BOTH);
+	$nik_pemohon = $data['nik'];
 }?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
@@ -50,7 +54,7 @@ if ($hak_akses == "Pemohon") {
 
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-									$id_baptis = $data['id_pernikahan'];
+									$id_pernikahan = $data['id_pernikahan'];
                                     $no_surat = $data['no_surat'];
                                     $tgl = $data['tanggal_request'];
 									$format = date('d F Y', strtotime($tgl));
