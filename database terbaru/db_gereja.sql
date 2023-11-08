@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06 Nov 2023 pada 16.22
+-- Generation Time: 08 Nov 2023 pada 17.34
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -38,16 +38,16 @@ CREATE TABLE `baptis` (
   `file_kartu_keluarga` varchar(50) DEFAULT NULL,
   `file_akta_kelahiran` varchar(50) DEFAULT NULL,
   `status` varchar(15) DEFAULT NULL,
-  `ketarangan` text
+  `keterangan` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `baptis`
 --
 
-INSERT INTO `baptis` (`id_baptis`, `no_surat`, `tanggal_request`, `nik`, `nama_ayah`, `nama_ibu`, `tanggal_baptis`, `nama_pendeta`, `file_kartu_keluarga`, `file_akta_kelahiran`, `status`, `ketarangan`) VALUES
+INSERT INTO `baptis` (`id_baptis`, `no_surat`, `tanggal_request`, `nik`, `nama_ayah`, `nama_ibu`, `tanggal_baptis`, `nama_pendeta`, `file_kartu_keluarga`, `file_akta_kelahiran`, `status`, `keterangan`) VALUES
 (1, NULL, '2023-11-01', '123123', 'Aryo Ronaldo Hamba Pulu', 'Keflin Regina Willa', NULL, NULL, 'Baptis_123123.pdf', 'Baptis_123123.pdf', '0', NULL),
-(2, NULL, '2023-11-02', '5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'Yolanda Meiliani Mutiara', NULL, NULL, 'Baptis_5311022409000001.pdf', 'Baptis_5311022409000001.pdf', '0', NULL);
+(2, '13', '2023-11-02', '5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'Yolanda Meiliani Mutiara', '2023-11-19', 'Pdt. Arman Wicaksono', 'Baptis_5311022409000001.pdf', 'Baptis_5311022409000001.pdf', '1', '');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE `penyerahan` (
 --
 
 INSERT INTO `penyerahan` (`id_penyerahan`, `no_surat`, `tanggal_request`, `nik`, `nama_ayah`, `nama_ibu`, `tanggal_penyerahan`, `nama_pendeta`, `file_kartu_keluarga`, `file_akta_kelahiran`, `status`, `keterangan`) VALUES
-(1, NULL, '2023-10-31', '111111', 'Aryo Ronaldo Hamba Pulu', 'Keflin Regina Willa', NULL, NULL, 'KK_111111.pdf', 'AKTA_111111.pdf', '0', NULL),
+(1, '14', '2023-10-31', '111111', 'Aryo Ronaldo Hamba Pulu', 'Keflin Regina Willa', '2023-11-12', 'Pdt. Arman Wicaksono', 'penyerahan_111111.pdf', 'penyerahan_111111.pdf', '1', ''),
 (2, NULL, '2023-11-01', '123123', 'Arman Wicaksono', 'Yolanda Meiliani Mutiara', NULL, NULL, 'Baptis_123123.pdf', 'Baptis_123123.pdf', '0', NULL);
 
 -- --------------------------------------------------------
@@ -165,7 +165,7 @@ INSERT INTO `penyerahan` (`id_penyerahan`, `no_surat`, `tanggal_request`, `nik`,
 
 CREATE TABLE `pernikahan` (
   `id_pernikahan` int(5) NOT NULL,
-  `no_surat` varchar(35) NOT NULL,
+  `no_surat` varchar(35) DEFAULT NULL,
   `tanggal_request` date NOT NULL,
   `nik_pria` varchar(16) NOT NULL,
   `nik_wanita` varchar(16) NOT NULL,
@@ -180,7 +180,7 @@ CREATE TABLE `pernikahan` (
 --
 
 INSERT INTO `pernikahan` (`id_pernikahan`, `no_surat`, `tanggal_request`, `nik_pria`, `nik_wanita`, `tanggal_pernikahan`, `nama_pendeta`, `status`, `keterangan`) VALUES
-(1, '', '2023-10-31', '5311022409000001', '123456', NULL, NULL, '0', NULL);
+(1, '15', '2023-10-31', '5311022409000001', '123456', '2023-11-12', 'Pdt. Arman Wicaksono', '1', '');
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,8 @@ CREATE TABLE `suratkeluar` (
 --
 
 INSERT INTO `suratkeluar` (`id_surat_keluar`, `no_surat_keluar`, `tgl_surat`, `tujuan_surat`, `perihal`, `file_surat_keluar`) VALUES
-(1, '123xxx', '2023-10-30', 'GPDI1', 'Surat xxx', '2023-10-30_GPDI1.pdf');
+(1, '123xxx', '2023-10-30', 'GPDI1', 'Surat xxx', '2023-10-30_GPDI1.pdf'),
+(2, '123/qwer/9', '2023-11-01', 'arman', 'baptis', '2023-11-01_arman.pdf');
 
 -- --------------------------------------------------------
 
@@ -371,7 +372,7 @@ ALTER TABLE `pernikahan`
 -- AUTO_INCREMENT for table `suratkeluar`
 --
 ALTER TABLE `suratkeluar`
-  MODIFY `id_surat_keluar` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_surat_keluar` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `suratmasuk`
 --
