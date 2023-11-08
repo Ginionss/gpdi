@@ -128,12 +128,14 @@ if (isset($_GET['id_penyerahan'])) {
 
 <?php
 if (isset($_POST['ubah'])) {
+	$no_surat = $_POST['no_surat'];
 	$status = $_POST['status'];
 	$keterangan = $_POST['keterangan'];
 	$tanggal_penyerahan = $_POST['tanggal_penyerahan'];
 	$nama_pendeta = $_POST['nama_pendeta'];
 
 	$sql = "UPDATE penyerahan SET
+	no_surat='$no_surat',
 	status='$status',
 	keterangan='$keterangan',
 	tanggal_penyerahan='$tanggal_penyerahan',

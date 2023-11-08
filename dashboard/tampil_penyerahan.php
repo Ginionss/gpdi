@@ -103,7 +103,7 @@ if ($hak_akses == "Pemohon") {
 											</div><?php 
 											if ($status == "<b style='color:black'>Diproses</b>") {?>
 												<div class="form-button-action">
-												<a href="#">
+												<a target="_blank" href="cetak_penyerahan.php?id_penyerahan=<?= $id_penyerahan; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Unduh">
 														<i class="fa fa-download"></i>
 													</button>

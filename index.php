@@ -55,7 +55,7 @@ $level = "pemohon";
                         <li class="scroll"><a href="#services">Informasi</a></li>
                         <li class="scroll"><a href="#get-in-touch">Lokasi</a></li>
                         <li class="scroll"><a href="pendaftaran.php">Pendaftaran jemaat</a></li>
-                        <li class="scroll"><a href="login.php">Login</a></li>
+                        <li class="scroll"><a href="po-admin.php">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -136,7 +136,7 @@ $level = "pemohon";
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Login</h4>
-                                <p>Pemohon Surat melakukan login, melalui halaman Login. Jika Belum memiliki akun atau merupakan jemaat baru mohon untuk melakukan pendaftaran terlebih dahulu.
+                                <p>Klik pengajuan surat untuk mulai masuk ke halaman login. Jika Belum memiliki akun atau merupakan jemaat baru mohon untuk melakukan pendaftaran terlebih dahulu.
                                 </p>
                             </div>
                         </div>

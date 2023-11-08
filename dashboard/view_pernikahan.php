@@ -100,12 +100,14 @@ if (isset($_GET['id_pernikahan'])) {
 
 <?php
 if (isset($_POST['ubah'])) {
+	$no_surat = $_POST['no_surat'];
 	$status = $_POST['status'];
 	$keterangan = $_POST['keterangan'];
 	$tanggal_pernikahan = $_POST['tanggal_pernikahan'];
 	$nama_pendeta = $_POST['nama_pendeta'];
 
 	$sql = "UPDATE pernikahan SET
+	no_surat='$no_surat',
 	status='$status',
 	keterangan='$keterangan',
 	tanggal_pernikahan='$tanggal_pernikahan',
