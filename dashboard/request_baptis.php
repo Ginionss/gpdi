@@ -44,9 +44,10 @@ $nik_pemohon = $_SESSION['nik'];
                                             $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'"; 
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+											$nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option  value="<?= $nama?>"><?= $nama?></option>
+                                        <option  value="<?= $nama?>"><?= $nik.'- '.$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>
@@ -58,9 +59,10 @@ $nik_pemohon = $_SESSION['nik'];
                                             $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'"; 
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+											$nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option  value="<?= $nama?>"><?= $nama?></option>
+                                        <option  value="<?= $nama?>"><?= $nik.'- '.$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>

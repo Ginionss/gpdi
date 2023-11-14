@@ -36,7 +36,7 @@ $nik_pemohon = $_SESSION['nik'];
                                             $nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option <?php if ($mempelai == "pria") echo 'selected' ?> value="<?= $nik?>"><?= $nama?></option>
+                                        <option <?php if ($mempelai == "pria") echo 'selected' ?> value="<?= $nik?>"><?= $nik.'- '.$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>
@@ -53,7 +53,7 @@ $nik_pemohon = $_SESSION['nik'];
                                             $nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option <?php if ($mempelai == "wanita") echo 'selected' ?> value="<?= $nik?>"><?= $nama?></option>
+                                        <option <?php if ($mempelai == "wanita") echo 'selected' ?> value="<?= $nik?>"><?= $nik.'- '.$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>
