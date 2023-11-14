@@ -14,6 +14,9 @@ $alamat = $data['alamat'];
 $telepon = $data['no_hp'];
 $username = $data['username'];
 $password = $data['password'];
+$penyerahan =$data['penyerahan'];
+$baptis =$data['baptis'];
+$pernikahan =$data['pernikahan'];
 
 ?>
 <div class="page-inner">
@@ -62,6 +65,18 @@ $password = $data['password'];
                                 <th>NOMOR TELEPON</th>
                                 <td>:</td>
                                 <td><?= $telepon; ?></td>
+                            </tr>
+                            <tr>
+                                <th>STATUS PERNIKAHAN</th>
+                                <td>:</td>
+                                <td><?php
+                                if ($pernikahan == 0) {
+                                    echo "Belum Menikah";
+                                }else if ($pernikahan == 1) {
+                                    echo "Menikah";
+                                }else{
+                                    echo "Janda/Duda";
+                                } ?></td>
                             </tr>
                             <tr>
                                 <th>USERNAME</th>

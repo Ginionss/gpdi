@@ -66,6 +66,31 @@
 									<textarea name="alamat" class="form-control" cols="30" rows="10" placeholder="Alamat.."></textarea>
 								</div>
 								<div class="form-group">
+									<label>Status Penyerahan</label>
+									<select name="penyerahan" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="0">Belum diserahkan</option>
+										<option value="1">Sudah Diserahkan</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Status Baptis</label>
+									<select name="baptis" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="0">Belum dibaptis</option>
+										<option value="1">Sudah Dibaptis</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Status Pernikahan</label>
+									<select name="pernikahan" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="0">Belum Menikah</option>
+										<option value="1">Menikah</option>
+										<option value="2">Janda/Duda</option>
+									</select>
+								</div>
+								<div class="form-group">
 									<label>Status Jemaat</label>
 									<select name="ket" class="form-control">
 										<option disabled="" selected="">Pilih status</option>
@@ -120,9 +145,12 @@ if (isset($_POST['simpan'])) {
 	$ket = $_POST['ket'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-  $status = 0;
+  	$status = 0;
+  	$penyerahan = $_POST['penyerahan'];
+  	$baptis = $_POST['baptis'];
+  	$pernikahan = $_POST['pernikahan'];
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
+	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password,penyerahan,baptis,pernikahan) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password','$penyerahan','$baptis','$pernikahan')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

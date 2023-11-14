@@ -142,6 +142,9 @@ if (isset($_POST['ubah'])) {
 	nama_pendeta ='$nama_pendeta' WHERE id_penyerahan=$id_penyerahan";
 	$query = mysqli_query($konek, $sql);
 
+	$sql1 = "UPDATE jemaat SET penyerahan = '1' WHERE nik = '$nik'";
+	$query1 = mysqli_query($konek, $sql1);
+
 	if ($query) {
 		echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_penyerahan">';

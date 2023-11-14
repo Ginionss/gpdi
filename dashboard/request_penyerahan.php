@@ -41,9 +41,9 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Ayah</label>
                                     <select id="cari_ayah" name="nama_ayah" class="form-control">
                                         <option value=""></option>
-                                        <?php if($ortu == "ayah"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'";} 
+                                        <?php if($ortu == "ayah"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'and pernikahan > 0";} 
                                         else {
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'and pernikahan > 0"; 
                                         }
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
@@ -58,9 +58,9 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Ibu</label>
                                     <select id="cari_ibu" name="nama_ibu" class="form-control">
                                         <option value=""></option>
-                                        <?php if($ortu == "ibu"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Perempuan'";} 
+                                        <?php if($ortu == "ibu"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Perempuan' and pernikahan > 0";} 
                                         else {
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0"; 
                                         }
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {

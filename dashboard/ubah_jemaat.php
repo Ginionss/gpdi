@@ -13,6 +13,9 @@ if (isset($_GET['id_jemaat'])) {
     $alamat =$data['alamat'];
     $no_hp =$data['no_hp'];
     $ket =$data['ket'];
+    $penyerahan =$data['penyerahan'];
+    $baptis =$data['baptis'];
+    $pernikahan =$data['pernikahan'];
 }
 
 ?>
@@ -63,6 +66,33 @@ if (isset($_GET['id_jemaat'])) {
 									<label for="comment">Alamat</label>
 									<textarea class="form-control" name="alamat" rows="5"><?= $alamat ?></textarea>
 								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<label>Status Penyerahan</label>
+									<select name="penyerahan" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="0" <?php if ($penyerahan == 0) echo 'selected' ?>>Belum diserahkan</option>
+										<option value="1"<?php if ($penyerahan == 1) echo 'selected' ?>>Sudah Diserahkan</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Status Baptis</label>
+									<select name="baptis" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="0"<?php if ($baptis == 0) echo 'selected' ?>>Belum dibaptis</option>
+										<option value="1" <?php if ($baptis == 1) echo 'selected' ?>>Sudah Dibaptis</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Status Pernikahan</label>
+									<select name="pernikahan" class="form-control">
+										<option disabled="" selected="">Pilih status</option>
+										<option value="0"<?php if ($pernikahan == 0) echo 'selected' ?>>Belum Menikah</option>
+										<option value="1"<?php if ($pernikahan == 1) echo 'selected' ?>>Menikah</option>
+										<option value="2"<?php if ($pernikahan == 2) echo 'selected' ?>>Janda/Duda</option>
+									</select>
+								</div>
 								<div class="form-group">
 									<label>Status Jemaat</label>
 									<select name="ket" class="form-control">
@@ -94,6 +124,9 @@ if (isset($_POST['ubah'])) {
 	$alamat = $_POST['alamat'];
 	$no_hp = $_POST['no_hp'];
 	$ket = $_POST['ket'];
+	$penyerahan = $_POST['penyerahan'];
+	$baptis = $_POST['baptis'];
+	$pernikahan = $_POST['pernikahan'];
 
 	$sql = "UPDATE jemaat SET
 	nik= '$nik',
@@ -103,6 +136,9 @@ if (isset($_POST['ubah'])) {
 	jenis_kelamin='$jekel',
 	no_hp='$no_hp',
 	alamat='$alamat',
+	penyerahan='$penyerahan',
+	baptis='$baptis',
+	pernikahan='$pernikahan',
 	ket='$ket' WHERE id_jemaat=$id_jemaat";
 	$query = mysqli_query($konek, $sql);
 

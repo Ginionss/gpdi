@@ -26,7 +26,7 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Anak</label>
                                     <select id="cari_anak" name="nik" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon'";
+                                        <?php  $tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' and baptis = '0'";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                              $nik = $data['nik'];
@@ -41,7 +41,7 @@ $nik_pemohon = $_SESSION['nik'];
                                     <select id="cari_ayah" name="nama_ayah" class="form-control">
                                         <option value=""></option>
                                         <?php 
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki' and pernikahan > 0"; 
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$nik = $data['nik'];
@@ -56,7 +56,7 @@ $nik_pemohon = $_SESSION['nik'];
                                     <select id="cari_ibu" name="nama_ibu" class="form-control">
                                         <option value=""></option>
                                         <?php 
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0"; 
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$nik = $data['nik'];

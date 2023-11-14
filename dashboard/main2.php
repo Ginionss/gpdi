@@ -207,7 +207,7 @@
             $hal = $_GET['halaman'];
             switch($hal){
               case 'beranda';
-                include 'beranda.php';
+                include 'beranda2.php';
               break;
 			  //pemohon
               case 'ubah_pemohon';

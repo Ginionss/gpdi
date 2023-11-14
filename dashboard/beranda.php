@@ -12,6 +12,9 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 	$query = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 	$nik = $data['nik'];
+	$baptis = $data['baptis'];
+	$penyerahan = $data['penyerahan'];
+	$pernikahan = $data['pernikahan'];
 }
 ?>
 <?php
@@ -34,6 +37,7 @@ if ($hak_akses == "Pemohon") {
 	</div>
 	<div class="page-inner mt--5">
 		<div class="row mt--2">
+			<?php if ($pernikahan > 0) {?>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-primary">
 					<div class="pricing-header">
@@ -56,6 +60,8 @@ if ($hak_akses == "Pemohon") {
 					<?php }?>
 				</div>
 			</div>
+			<?php }
+			if ($baptis == 0) {?>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-success">
 					<div class="pricing-header">
@@ -77,6 +83,8 @@ if ($hak_akses == "Pemohon") {
 					<?php }?>
 				</div>
 			</div>
+			<?php }
+			if ($pernikahan != 1) {?>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-secondary">
 					<div class="pricing-header">
@@ -98,6 +106,7 @@ if ($hak_akses == "Pemohon") {
 					<?php }?>
 				</div>
 			</div>
+			<?php }?>
 		</div>
 	</div>
 <?php

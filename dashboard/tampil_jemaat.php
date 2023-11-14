@@ -78,6 +78,7 @@
                                         <th>No HP</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Alamat</th>
+                                        <th>Status Pernikahan</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
@@ -96,7 +97,16 @@
                                         $alamat = $data['alamat'];
                                         $jekel = $data['jenis_kelamin'];
                                         $ket = $data['ket'];
+                                        $pernikahan = $data['pernikahan'];
                                         $tanggal_lahir = date("d-F-Y", strtotime($tanggal));
+
+                                        if ($pernikahan == 0) {
+                                            $tmp = "Belum Menikah";
+                                        }else if($pernikahan == 1){
+                                            $tmp = "Menikah";
+                                        }else {
+                                            $tmp= "Janda/ Duda";
+                                        }
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
@@ -105,6 +115,7 @@
                                             <td><?php echo $no_hp; ?></td>
                                             <td><?php echo $jekel; ?></td>
                                             <td><?php echo $alamat; ?></td>
+                                            <td><?php echo $tmp; ?></td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="?halaman=ubah_jemaat&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Jemaat">

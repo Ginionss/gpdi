@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08 Nov 2023 pada 17.34
+-- Generation Time: 14 Nov 2023 pada 16.34
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -89,20 +89,23 @@ CREATE TABLE `jemaat` (
   `status_j` int(11) NOT NULL,
   `ket` varchar(10) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  `baptis` int(11) NOT NULL,
+  `penyerahan` int(11) NOT NULL,
+  `pernikahan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `jemaat`
 --
 
-INSERT INTO `jemaat` (`id_jemaat`, `nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `jenis_kelamin`, `alamat`, `status_j`, `ket`, `username`, `password`) VALUES
-(1, '1', 'Richard Waang', 'Alor', '2023-11-01', '1234', 'Laki-laki', 'Alamat', 2, '0', 'richard', 'user'),
-(111111, '111111', 'Yolanda Meiliani Mutiara', 'Bajawa', '2023-06-03', '123', 'Perempuan', '<p>Bajawa</p>', 2, '1', 'yolan', 'user'),
-(123123, '123123', 'Arman Wicaksono', 'kalimantan', '2023-03-01', '34567', 'Laki-laki', 'Kalimantan', 2, '1', 'arman', 'user'),
-(123456, '123456', 'Keflin Regina Willa', 'Oseapa', '2023-05-01', '678', 'Perempuan', 'Oesapa', 2, '1', 'key', 'user'),
-(222222, '222222', 'Angga Waang', 'Alor', '2023-11-02', '09876', 'Laki-laki', '<p>Saka Kaya richard</p>', 0, '0', 'angga', 'user'),
-(2147483647, '5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'sumba', '2023-10-25', '123', 'Laki-laki', 'sumba', 2, '1', 'aryo', 'user');
+INSERT INTO `jemaat` (`id_jemaat`, `nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `jenis_kelamin`, `alamat`, `status_j`, `ket`, `username`, `password`, `baptis`, `penyerahan`, `pernikahan`) VALUES
+(1, '1', 'Richard Waang', 'Alor', '2023-11-01', '1234', 'Laki-laki', '<p>Alamat</p>', 2, '0', 'richard', 'user', 0, 0, 1),
+(111111, '111111', 'Yolanda Meiliani Mutiara', 'Bajawa', '2023-06-03', '123', 'Perempuan', '<p>Bajawa</p>', 2, '1', 'yolan', 'user', 1, 1, 0),
+(123123, '123123', 'Arman Wicaksono', 'kalimantan', '2023-03-01', '34567', 'Laki-laki', 'Kalimantan', 2, '1', 'arman', 'user', 0, 0, 0),
+(123456, '123456', 'Keflin Regina Willa', 'Oseapa', '2023-05-01', '678', 'Perempuan', 'Oesapa', 2, '1', 'key', 'user', 0, 0, 1),
+(222222, '222222', 'Angga Waang', 'Alor', '2023-11-02', '09876', 'Laki-laki', '<p>Saka Kaya richard</p>', 0, '0', 'angga', 'user', 0, 0, 0),
+(2147483647, '5311022409000001', 'Aryo Ronaldo Hamba Pulu', 'sumba', '2023-10-25', '123', 'Laki-laki', 'sumba', 2, '1', 'aryo', 'user', 0, 0, 1);
 
 -- --------------------------------------------------------
 
