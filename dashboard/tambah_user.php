@@ -17,14 +17,14 @@
 									<label>NIK - NAMA</label>
 									<select id="cari_jemaat" name="id_jemaat" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat where status = 1";
+                                        <?php  $tampil = "SELECT * FROM jemaat where status_j = 1";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$id_jemaat = $data['id_jemaat'];
                                              $nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option  value="<?= $nik?>"><?= $nik."-".$nama?></option>
+                                        <option  value="<?= $id_jemaat?>"><?= $nik."-".$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>
@@ -45,16 +45,16 @@
 if (isset($_POST['simpan'])) {
 	$id_jemaat = $_POST['id_jemaat'];
 
-	$sql = "INSERT INTO user (nik) VALUES ('$nik')";
+	$sql = "INSERT INTO user (id_jemaat) VALUES ('$id_jemaat')";
 	$query = mysqli_query($konek, $sql);
 	
 	$status_j = 2;
 
-	$sql = "UPDATE jemaat SET
-	status='$status' WHERE nik=$nik";
-	$query = mysqli_query($konek, $sql);
+	$sql1 = "UPDATE jemaat SET
+	status_j='$status_j' WHERE id_jemaat=$id_jemaat";
+	$query1 = mysqli_query($konek, $sql1);
 
-	if ($query) {
+	if ($query && $query1) {
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_user">';
 	} else {
