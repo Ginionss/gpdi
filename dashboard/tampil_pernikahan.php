@@ -29,7 +29,9 @@ if ($hak_akses == "Pemohon") {
 									<th>Nama Mempelai</th>
 									<th>Status</th>
 									<th>Keterangan</th>
+									<?php if ($hak_akses != "gembala") {?>
 									<th style="width: 10%">Action</th>
+									<?php } ?>
 								</tr>
 							</thead>
 							<tbody>
@@ -97,7 +99,7 @@ if ($hak_akses == "Pemohon") {
 										} else {echo $status; } ?></td>
 										<td><?php echo $keterangan; ?></td>
 										<td>
-											<?php 
+											<?php if ($hak_akses != "gembala") {
 											if ($hak_akses != "Pemohon") {?>
 												<div class="form-button-action">
 												<a href="?halaman=view_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
@@ -129,7 +131,8 @@ if ($hak_akses == "Pemohon") {
                                                     </a>
 											</div>
 												
-											<?php } ?>
+											<?php }
+										 } ?>
 											
 										</td>
 									</tr>
