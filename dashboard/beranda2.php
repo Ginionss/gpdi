@@ -206,7 +206,7 @@ if ($hak_akses == "admin") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=tampil_prnikahan">
+							<a href="?halaman=tampil_pernikahan">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-secondary bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>

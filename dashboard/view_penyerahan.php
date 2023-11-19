@@ -109,7 +109,7 @@ if (isset($_GET['id_penyerahan'])) {
 									<br><a target="_blank" href="..//dataFile/file_kk/<?= $file_kartu_keluarga?>">Lihat>></a>
 								</div>
                                 <div class="form-group">
-									<label>File Akta Kelahitan</label><br>
+									<label>File Akta Kelahiran</label><br>
 									<iframe id="iframepdf" width="100%" height="250px" src="..//dataFile/file_akta/<?= $file_akta_kelahiran ?>"></iframe>
 									<br><a target="_blank" href="..//dataFile/file_akta/<?= $file_akta_kelahiran ?>">Lihat>></a>
 								</div>

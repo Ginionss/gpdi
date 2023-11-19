@@ -80,7 +80,7 @@ if (isset($_POST['ubah'])) {
 	$status = 1;
 
 	$sql = "UPDATE jemaat SET
-	status='$status' WHERE nik=$nik";
+	status_j='$status' WHERE nik=$nik";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

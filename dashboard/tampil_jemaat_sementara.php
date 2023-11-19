@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Data Jemaat Tetap</h4>
+                        <h4 class="card-title">Data Jemaat Sementara</h4>
                         <a href="?halaman=tambah_jemaat" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-plus"></i>
                             Tambah Jemaat

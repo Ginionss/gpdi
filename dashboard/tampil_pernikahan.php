@@ -99,16 +99,26 @@ if ($hak_akses == "Pemohon") {
 										} else {echo $status; } ?></td>
 										<td><?php echo $keterangan; ?></td>
 										<td>
-											<?php if ($hak_akses != "gembala") {
-											if ($hak_akses != "Pemohon") {?>
+											<?php  if ($hak_akses != "gembala") {
+											if ($hak_akses != "Pemohon") {
+												if ($status == "<b style='color:black'>Verifikasi Data</b>") {
+												?>
 												<div class="form-button-action">
 												<a href="?halaman=view_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Verifikasi Data">
 														<i class="fa fa-eye"></i>
 													</button>
 												</a>
-											</div><?php 
-											if ($status == "<b style='color:black'>Diproses</b>") {?>
+											</div>
+											<?php }
+											else if ($status == "<b style='color:black'>Diproses</b>") {?>
+												<div class="form-button-action">
+												<a href="?halaman=view_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Verifikasi Data">
+														<i class="fa fa-eye"></i>
+													</button>
+												</a>
+											</div>
 												<div class="form-button-action">
 												<a target="_blank" href="cetak_pernikahan.php?id_pernikahan=<?= $id_pernikahan; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Unduh">
@@ -116,9 +126,16 @@ if ($hak_akses == "Pemohon") {
 													</button>
 												</a>
 											</div>
-
+											<?php }
+											else if ($status == "<b style='color:blue'>Selesai</b>") {?>
+												<div class="form-button-action">
+												<a target="_blank" href="cetak_pernikahan.php?id_pernikahan=<?= $id_pernikahan; ?>">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Unduh">
+														<i class="fa fa-download"></i>
+													</button>
+												</a>
+											</div>
 											<?php }?>
-
 											<?php }else { ?>
 											<div class="form-button-action">
 												<a href="?halaman=ubah_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
@@ -132,7 +149,7 @@ if ($hak_akses == "Pemohon") {
 											</div>
 												
 											<?php }
-										 } ?>
+										} ?>
 											
 										</td>
 									</tr>

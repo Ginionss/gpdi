@@ -97,7 +97,7 @@
                                         $jekel = $data['jenis_kelamin'];
                                         $ket = $data['ket'];
                                         $tanggal_lahir = date("d-F-Y", strtotime($tanggal));
-                                        if ($ket = 1) {
+                                        if ($ket == 1) {
                                            $ket = "Tetap";
                                         }else {
                                             $ket = "Sementara";

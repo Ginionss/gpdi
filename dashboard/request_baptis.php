@@ -26,13 +26,14 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Anak</label>
                                     <select id="cari_anak" name="nik" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' and baptis = '0'";
+                                        <?php  $tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon'";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+											$id_jemaat = $data['id_jemaat'];
                                              $nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option <?php if ($nik = $nik_pemohon) echo 'selected' ?> value="<?= $nik?>"><?= $nama?></option>
+                                        <option <?php if ($id_jemaat = $nik_pemohon) echo 'selected' ?> value="<?= $nik?>"><?= $nik."-".$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>
@@ -41,7 +42,7 @@ $nik_pemohon = $_SESSION['nik'];
                                     <select id="cari_ayah" name="nama_ayah" class="form-control">
                                         <option value=""></option>
                                         <?php 
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki' and pernikahan > 0"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki' and pernikahan > 0 and nik != ''"; 
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$nik = $data['nik'];
@@ -56,7 +57,7 @@ $nik_pemohon = $_SESSION['nik'];
                                     <select id="cari_ibu" name="nama_ibu" class="form-control">
                                         <option value=""></option>
                                         <?php 
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0 and nik != ''"; 
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$nik = $data['nik'];
@@ -79,7 +80,7 @@ $nik_pemohon = $_SESSION['nik'];
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=transit_penyerahan" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=halaman=beranda" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>

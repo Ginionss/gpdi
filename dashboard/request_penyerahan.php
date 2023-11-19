@@ -43,7 +43,7 @@ $nik_pemohon = $_SESSION['nik'];
                                         <option value=""></option>
                                         <?php if($ortu == "ayah"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'and pernikahan > 0";} 
                                         else {
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'and pernikahan > 0"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'and pernikahan > 0 and nik != ''"; 
                                         }
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
@@ -60,7 +60,7 @@ $nik_pemohon = $_SESSION['nik'];
                                         <option value=""></option>
                                         <?php if($ortu == "ibu"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Perempuan' and pernikahan > 0";} 
                                         else {
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0"; 
+                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0 and nik != ''"; 
                                         }
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {

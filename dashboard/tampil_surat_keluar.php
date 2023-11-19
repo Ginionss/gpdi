@@ -106,7 +106,7 @@
                                                     <a href="?halaman=ubah_surat_keluar&id_surat_keluar=<?php echo $id_surat_keluar; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Surat">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="?halaman=tampil_user&id_surat_keluar=<?php echo $id_surat_keluar; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Surat">
+                                                    <a href="?halaman=tampil_surat_keluar&id_surat_keluar=<?php echo $id_surat_keluar; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Surat">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </div>
@@ -128,14 +128,14 @@
 
 <?php
 if (isset($_GET['id_surat_keluar'])) {
-    $sql_hapus = "DELETE FROM surat_keluar WHERE id_surat_keluar='" . $_GET['id_surat_keluar'] . "'";
+    $sql_hapus = "DELETE FROM suratkeluar WHERE id_surat_keluar='" . $_GET['id_surat_keluar'] . "'";
     $query_hapus = mysqli_query($konek, $sql_hapus);
     if ($query_hapus) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_user">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_surat_keluar">';
     } else {
         echo "<script language='javascript'>swal('Gagal...', 'Hapus Gagal', 'error');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_user">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_surat_keluar">';
     }
 }
 ?>

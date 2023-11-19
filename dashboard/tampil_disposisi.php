@@ -74,7 +74,7 @@ $id_pengguna = $_SESSION['password']; ?>
                                         <th>Tanggal Disposisi</th>
                                         <th>Keterangan Surat</th>
                                         <th>Disposisi Dari</th>
-                                        <th>Dspisisi Kepada</th>
+                                        <th>Dispisisi Kepada</th>
                                         <th>Isi Disposisi</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
@@ -82,12 +82,7 @@ $id_pengguna = $_SESSION['password']; ?>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    // if(true){
-
-                                    // }else{
-
-                                    // }
-                                    $tampil = "SELECT * FROM disposisi d join suratmasuk s where d.kepada = '$id_pengguna' or d.dari = '$id_pengguna'";
+                                    $tampil = "SELECT * FROM disposisi d join suratmasuk s where d.kepada = '$id_pengguna'";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $id_disposisi = $data['id_disposisi'];
