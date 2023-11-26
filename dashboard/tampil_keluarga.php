@@ -8,11 +8,11 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Permohonan Jemaat Baru</h4>
-                        <!-- <a href="?halaman=tambah_jemaat" class="btn btn-primary btn-round ml-auto">
+                        <h4 class="card-title">Data Kepala Keluarga</h4>
+                        <a href="?halaman=tambah_keluarga" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-plus"></i>
-                            Tambah Jemaat
-                        </a> -->
+                            Tambah Kepala Keluarga
+                        </a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -73,51 +73,32 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>NIK / Nama</th>
-                                        <th>TTL</th>
-                                        <th>No HP</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
-                                        <th>Status Jemaat</th>
+                                        <th>Nama</th>
                                         <th style="width: 10%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat where status_j = 0";
+                                    $tampil = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-                                        $id_jemaat = $data['id_jemaat'];
+                                        $id_kk = $data['id_kk'];
                                         $username = $data['nik'];
                                         $nama = $data['nama'];
-                                        $tempat = $data['tempat_lahir'];
-                                        $tanggal = $data['tanggal_lahir'];
-                                        $no_hp = $data['no_hp'];
-                                        $alamat = $data['alamat'];
-                                        $jekel = $data['jenis_kelamin'];
-                                        $ket = $data['ket'];
-                                        $tanggal_lahir = date("d-F-Y", strtotime($tanggal));
-                                        if ($ket == 1) {
-                                           $ket = "Tetap";
-                                        }else {
-                                            $ket = "Sementara";
-                                        }
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>
-                                            <td><?php echo $username . ' -<br> ' . $nama; ?></td>
-                                            <td><?php echo $tempat . ", " . $tanggal_lahir; ?></td>
-                                            <td><?php echo $no_hp; ?></td>
-                                            <td><?php echo $jekel; ?></td>
-                                            <td><?php echo $alamat; ?></td>
-                                            <td><?php echo $ket; ?></td>
+                                            <td><?php echo $nama; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=verifikasi_jemaat&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Verifikasi">
+                                                    <a href="?halaman=tampil_anggota_keluarga&id_kk=<?php echo $id_kk; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Keluraga">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    <a href="?halaman=ubah_keluarga&id_kk=<?php echo $id_kk; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Kepala Keluraga">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="?halaman=tampil_jemaat_baru&id_jemaat=<?php echo $id_jemaat; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
+                                                    <a href="?halaman=tampil_keluarga&id_kk=<?php echo $id_kk; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Keluarga">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </div>
@@ -138,15 +119,18 @@
 
 
 <?php
-if (isset($_GET['id_jemaat'])) {
-    $sql_hapus = "DELETE FROM jemaat WHERE id_jemaat='" . $_GET['id_jemaat'] . "'";
+if (isset($_GET['id_kk'])) {
+    $sql_hapus = "DELETE FROM kepala_keluarga WHERE id_kk='" . $_GET['id_kk'] . "'";
     $query_hapus = mysqli_query($konek, $sql_hapus);
-    if ($query_hapus) {
+    
+    $sql_hapus1 = "DELETE FROM anggota_keluarga WHERE id_kk='" . $_GET['id_kk'] . "'";
+    $query_hapus1 = mysqli_query($konek, $sql_hapus1);
+    if ($query_hapus && $query_hapus1) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_baru">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';
     } else {
         echo "<script language='javascript'>swal('Gagal...', 'Hapus Gagal', 'error');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_baru">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';
     }
 }
 ?>

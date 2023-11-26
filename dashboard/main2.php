@@ -28,6 +28,12 @@
 							if($hak_akses=="admin"){
 						?>
 						<li class="nav-item">
+							<a href="?halaman=tampil_keluarga">
+								<i class="fas fa-list"></i>
+								<p>Data Keluarga</p>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="?halaman=tampil_jemaat">
 								<i class="fas fa-user-alt"></i>
 								<p>Data Jemaat</p>
@@ -239,6 +245,26 @@
 			  case 'ubah_user';
                 include 'ubah_user.php';
 			  break;
+			  //keluarga
+			  case 'tampil_keluarga';
+                include 'tampil_keluarga.php';
+			  break;
+			  case 'tambah_keluarga';
+                include 'tambah_keluarga.php';
+			  break;
+			  case 'ubah_keluarga';
+                include 'ubah_keluarga.php';
+			  break;
+			  //anggota keluarga
+			  case 'tampil_anggota_keluarga';
+                include 'tampil_anggota_keluarga.php';
+			  break;
+			  case 'tambah_anggota_keluarga';
+                include 'tambah_anggota_keluarga.php';
+			  break;
+			  case 'ubah_anggota_keluarga';
+                include 'ubah_anggota_keluarga.php';
+			  break;
 			  //jemaat
 			  case 'tampil_jemaat';
                 include 'tampil_jemaat.php';
@@ -363,6 +389,24 @@ function myFunction2() {
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+function myFunction3() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("add");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
