@@ -53,6 +53,12 @@ if (isset($_GET['id_kk'])) {
                                     </select>
 								</div>
 							</div>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+								<label>*Jika nama tidak ada silahkan tambahkan data terlebih dahulu</label><br>
+								<a href="?halaman=tambah_jemaat_ak&id_kk=<?php echo $id_kk; ?>" class="btn btn-default btn-sm">Tambah Jemaat</a>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="card-action">
@@ -77,10 +83,10 @@ if (isset($_POST['simpan'])) {
 
 	if ($query3) {
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
 	} else {
 		echo "<script language='javascript'>swal('Gagal...', 'Simpan Gagal', 'error');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
 	}
 }
 ?>

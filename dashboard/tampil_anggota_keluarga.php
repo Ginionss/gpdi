@@ -17,7 +17,7 @@ if (isset($_GET['id_kk'])) {
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Kepala Keluarga : <?= $nama_kepala ?></h4>
+                        <h4 class="card-title">Data Keluarga</h4>
                         <a href="?halaman=tambah_anggota_keluarga&id_kk=<?php echo $id_kk; ?>" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-plus"></i>
                             Tambah Anggota Keluarga
@@ -113,16 +113,19 @@ if (isset($_GET['id_kk'])) {
                                             <td><?php echo $nama; ?></td>
                                             <td><?php echo $status_ak; ?></td>
                                             <td>
-                                                <?php if ($id_kepala != $id_jemaat) { ?>
                                                 <div class="form-button-action">
+                                                    <a href="?halaman=view_jemaat_ak&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Anggota Keluraga">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                <?php if ($id_kepala != $id_jemaat) { ?>
                                                     <a href="?halaman=ubah_anggota_keluarga&id_ak=<?php echo $id_ak; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Anggota Keluraga">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                     <a href="?halaman=tampil_anggota_keluarga&id_ak=<?php echo $id_ak; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Anggota Keluarga">
                                                         <i class="fa fa-times"></i>
                                                     </a>
-                                                </div>
                                                 <?php } ?>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php
@@ -145,10 +148,10 @@ if (isset($_GET['id_ak'])) {
     $query_hapus = mysqli_query($konek, $sql_hapus);
     if ($query_hapus) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
     } else {
         echo "<script language='javascript'>swal('Gagal...', 'Hapus Gagal', 'error');</script>";
-        echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';
+        echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
     }
 }
 ?>

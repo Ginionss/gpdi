@@ -1,11 +1,16 @@
 <?php
 session_start();
+include '../konek.php';
 if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 	header('location:login.php');
 } else {
 	$hak_akses = $_SESSION['hak_akses'];
 	$nama = $_SESSION['nama'];
 	$nik = $_SESSION['nik'];
+	$tampil_kk = "SELECT * FROM kepala_keluarga k join jemaat j on k.id_jemaat = j.id_jemaat join anggota_keluarga a where k.id_jemaat=$nik or a.id_jemaat=$nik";
+	$query = mysqli_query($konek, $tampil_kk);
+	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
+	$id_kk = $data['id_kk'];
 }
 ?>
 <?php include 'header.php'; ?>
@@ -34,6 +39,17 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 							<p>Biodata Anda</p>
 						</a>
 					</li>
+					
+				<?php
+				if (isset($id_kk)) {
+				?>
+						<li class="nav-item">
+							<a href="?halaman=tampil_anggota_keluarga&id_kk=<?php echo $id_kk; ?>">
+								<i class="fas fa-list"></i>
+								<p>Data Keluarga</p>
+							</a>
+						</li>
+				<?php } ?>
 					<!-- <li class="nav-item">
 						<a href="?halaman=tampil_status">
 							<i class="far fa-calendar-check"></i>
@@ -101,6 +117,25 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'ubah_user';
 					include 'ubah_user.php';
 					break;
+				//anggota keluarga
+				case 'tampil_anggota_keluarga';
+				  include 'tampil_anggota_keluarga.php';
+				break;
+				case 'tambah_anggota_keluarga';
+				  include 'tambah_anggota_keluarga.php';
+				break;
+				case 'ubah_anggota_keluarga';
+				  include 'ubah_anggota_keluarga.php';
+				break;
+				case 'view_jemaat_ak';
+				  include 'view_jemaat_ak.php';
+				break;
+				case 'ubah_jemaat_ak';
+				  include 'ubah_jemaat_ak.php';
+				break;
+				case 'tambah_jemaat_ak';
+				  include 'tambah_jemaat_ak.php';
+				break;
 				//penyerahan
 				case 'transit_penyerahan';
 				include 'transit_penyerahan.php';

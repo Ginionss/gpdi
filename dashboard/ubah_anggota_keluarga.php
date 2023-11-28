@@ -81,10 +81,10 @@ if (isset($_POST['ubah'])) {
 
 	if ($query) {
 		echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
 	} else {
 		echo "<script language='javascript'>swal('Gagal...', 'Ubah Gagal', 'error');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=ubah_keluarga">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
 	}
 }
 

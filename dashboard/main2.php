@@ -265,6 +265,15 @@
 			  case 'ubah_anggota_keluarga';
                 include 'ubah_anggota_keluarga.php';
 			  break;
+			  case 'view_jemaat_ak';
+                include 'view_jemaat_ak.php';
+			  break;
+			  case 'ubah_jemaat_ak';
+                include 'ubah_jemaat_ak.php';
+			  break;
+			  case 'tambah_jemaat_ak';
+                include 'tambah_jemaat_ak.php';
+			  break;
 			  //jemaat
 			  case 'tampil_jemaat';
                 include 'tampil_jemaat.php';

@@ -8,7 +8,7 @@
 			<form method="POST">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title">FORM TAMBAH DATA JEMAAT</div>
+						<div class="card-title">FORM TAMBAH DATA ANGGOTA KELUARGA</div>
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -66,7 +66,7 @@
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=beranda" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=tambah_anggota_keluarga&id_kk=<?php echo $id_kk; ?>" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>
@@ -93,10 +93,10 @@ if (isset($_POST['simpan'])) {
 
 	if ($query) {
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
 	} else {
 		echo "<script language='javascript'>swal('Gagal...', 'Simpan Gagal', 'error');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=tambah_jemaat">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
 	}
 }
 ?>
