@@ -15,6 +15,7 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 	$baptis = $data['baptis'];
 	$penyerahan = $data['penyerahan'];
 	$pernikahan = $data['pernikahan'];
+	$status_j = $data['ket'];
 }
 ?>
 <?php
@@ -25,7 +26,7 @@ if ($hak_akses == "Pemohon") {
 			<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 				<div>
 					<h2 class="text-white pb-2 fw-bold">Halo <?php echo $nama; ?>!</h2>
-					<h5 class="text-white op-7 mb-2">Sebelum Anda Melakukan Request Surat Mohon Pastikan Biodata dan NIK Anda Sudah Benar, Klik Biodata Anda</h5>
+					<h5 class="text-white op-7 mb-2">Sebelum Anda Melakukan Request Surat Mohon Pastikan Biodata dan keluarga Sudah Benar, Klik Biodata Anda atau Data Keluarga</h5>
 					<h7 class="text-white op-7 mb-2">(Tombol Request akan muncul otomatis apabila Biodata anda sudah lengkap)</h7>
 				</div>
 				<div class="ml-md-auto py-2 py-md-0">
@@ -37,7 +38,7 @@ if ($hak_akses == "Pemohon") {
 	</div>
 	<div class="page-inner mt--5">
 		<div class="row mt--2">
-			<?php if ($pernikahan > 0) {?>
+			<?php if ($pernikahan > 0 && $pernikahan < 3 && $status_j == 1) {?>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-primary">
 					<div class="pricing-header">
@@ -53,7 +54,7 @@ if ($hak_akses == "Pemohon") {
 					<ul class="pricing-content">
 					</ul>
 					<?php if ($nik != null) {?>
-					<a href="?halaman=transit_penyerahan" class="btn btn-primary btn-round btn-sm mb-3">
+					<a href="?halaman=request_penyerahan&id_kk=<?= $id_kk?>" class="btn btn-primary btn-round btn-sm mb-3">
 						<span class="btn-label">
 							<i class="fas fa-plus-circle"></i>
 						</span> Request</a>
@@ -77,14 +78,14 @@ if ($hak_akses == "Pemohon") {
 					<ul class="pricing-content">
 					</ul>
 					<?php if ($nik != null) {?>
-					<a href="?halaman=request_baptis" class="btn btn-success btn-round btn-sm mb-3">
+					<a href="?halaman=request_baptis&status_j=<?= $status_j?>" class="btn btn-success btn-round btn-sm mb-3">
 						<span class="btn-label">
 							<i class="fas fa-plus-circle"></i></span> Request</a>
 					<?php }?>
 				</div>
 			</div>
 			<?php }
-			if ($pernikahan != 1) {?>
+			if ($pernikahan == 0) {?>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-secondary">
 					<div class="pricing-header">
@@ -100,7 +101,7 @@ if ($hak_akses == "Pemohon") {
 					<ul class="pricing-content">
 					</ul>
 					<?php if ($nik != null) {?>
-					<a href="?halaman=transit_pernikahan" class="btn btn-secondary btn-round btn-sm mb-3">
+					<a href="?halaman=request_pernikahan&jekel=<?= $jekel ?>" class="btn btn-secondary btn-round btn-sm mb-3">
 						<span class="btn-label">
 							<i class="fas fa-plus-circle"></i> Request</a>
 					<?php }?>

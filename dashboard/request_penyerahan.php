@@ -2,8 +2,11 @@
 if (!isset($_SESSION)) {
 	session_start();
 }
-$ortu = $_SESSION['ortu'];
-$nik_pemohon = $_SESSION['nik'];
+
+if ($_GET['id_kk']) {
+	$id_kk = $_GET['id_kk'];
+}
+
 ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
@@ -27,7 +30,7 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Anak</label>
                                     <select id="cari_anak" name="nik" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat";
+                                        <?php  $tampil = "SELECT * FROM jemaat j join anggota_keluarga a on j.id_jemaat = a.id_jemaat join kepala_keluarga k on a.id_kk= k.id_kk where a.id_kk = $id_kk and a.status_ak = 'Anak' and penyerahan = 0";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                              $nik = $data['nik'];
@@ -37,43 +40,26 @@ $nik_pemohon = $_SESSION['nik'];
                                         <?php } ?>
                                     </select>
 								</div>
+								
 								<div class="form-group">
 									<label>Nama Ayah</label>
-                                    <select id="cari_ayah" name="nama_ayah" class="form-control">
-                                        <option value=""></option>
-                                        <?php if($ortu == "ayah"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'and pernikahan > 0";} 
-                                        else {
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'and pernikahan > 0 and nik != ''"; 
-                                        }
+									<?php 
+                                       $tampil = "SELECT * FROM jemaat j join anggota_keluarga a on j.id_jemaat = a.id_jemaat join kepala_keluarga k on a.id_kk= k.id_kk where a.id_kk = $id_kk and a.status_ak = 'Suami'";
                                          $query = mysqli_query($konek, $tampil);
-                                         while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-											$nik = $data['nik'];
-                                             $nama = $data['nama'];
-                                         ?>
-                                        <option <?php if ($ortu == "ayah") echo 'selected' ?> value="<?= $nama?>"><?= $nik.'- '.$nama?></option>
-                                        <?php } ?>
-                                    </select>
+										 $data = mysqli_fetch_array($query);
+										 $nik = $data['nik'];
+										  $nama = $data['nama']; ?>
+									<input type="text" name="nama_ayah" class="form-control" value="<?= $nama?>" readonly>
 								</div>
                                 <div class="form-group">
 									<label>Nama Ibu</label>
-                                    <select id="cari_ibu" name="nama_ibu" class="form-control">
-                                        <option value=""></option>
-                                        <?php if($ortu == "ibu"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Perempuan' and pernikahan > 0";} 
-                                        else {
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0 and nik != ''"; 
-                                        }
+                                    <?php 
+                                       $tampil = "SELECT * FROM jemaat j join anggota_keluarga a on j.id_jemaat = a.id_jemaat join kepala_keluarga k on a.id_kk= k.id_kk where a.id_kk = $id_kk and a.status_ak = 'Istri'";
                                          $query = mysqli_query($konek, $tampil);
-                                         while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-											$nik = $data['nik'];
-                                             $nama = $data['nama'];
-                                         ?>
-                                        <option <?php if ($ortu == "ibu") echo 'selected' ?> value="<?= $nama?>"><?= $nik.'- '.$nama?></option>
-                                        <?php } ?>
-                                    </select>
-								</div>
-                                <div class="form-group">
-									<label>File Kartu Keluarga</label>
-                                    <input type="file" name="file_kk" class="form-control" >
+										 $data = mysqli_fetch_array($query);
+										 $nik = $data['nik'];
+										  $nama = $data['nama']; ?>
+									<input type="text" name="nama_ibu" class="form-control" value="<?= $nama?>" readonly>
 								</div>
                                 <div class="form-group">
 									<label>File Akta Kelahitan</label>
@@ -84,7 +70,7 @@ $nik_pemohon = $_SESSION['nik'];
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=transit_penyerahan" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=beranda" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>
@@ -98,8 +84,6 @@ if (isset($_POST['simpan'])) {
 	$nik = $_POST['nik'];
 	$nama_ayah = $_POST['nama_ayah'];
 	$nama_ibu = $_POST['nama_ibu'];
-	$file_kk= isset($_FILES['file_kk']);
-    $file_kartu_keluarga = "Penyerahan_".$_POST['nik'].".pdf";
 	$file_akta= isset($_FILES['file_akta']);
     $file_akta_kelahiran ="Penyerahan_".$_POST['nik'].".pdf";
 
@@ -107,7 +91,6 @@ if (isset($_POST['simpan'])) {
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
-        copy($_FILES['file_kk']['tmp_name'],"../dataFile/file_kk/".$file_kartu_keluarga);
         copy($_FILES['file_akta']['tmp_name'],"../dataFile/file_akta/".$file_akta_kelahiran);
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_penyerahan">';

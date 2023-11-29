@@ -124,8 +124,9 @@ if ($hak_akses == "Pemohon") {
 												</a>
 											</div>
 											<?php }?>
-											<?php }else { ?>
+											<?php }else {?>
 											<div class="form-button-action">
+												<?php if ($status == "<b style='color:black'>Verifikasi Data</b>") {  ?>
 												<a href="?halaman=ubah_baptis&id_baptis=<?= $id_baptis; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Permohonan">
 														<i class="fa fa-edit"></i>
@@ -134,6 +135,14 @@ if ($hak_akses == "Pemohon") {
 												<a href="?halaman=tampil_baptis&id_baptis=<?php echo $id_baptis; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Permohonan">
                                                         <i class="fa fa-times"></i>
                                                     </a>
+												<?php } 
+											else if ($status == "<b style='color:blue'>Selesai</b>") {?>
+												<a href="?halaman=view_baptis&id_baptis=<?= $id_baptis; ?>">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat">
+														<i class="fa fa-eye"></i>
+													</button>
+												</a>
+											<?php }?>
 											</div>
 												
 											<?php }

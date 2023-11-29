@@ -81,11 +81,6 @@ if (isset($_GET['id_penyerahan'])) {
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
-							<div class="form-group">
-									<label>File Kartu Keluarga</label> <br>
-									<iframe id="iframepdf" width="100%" height="250px" src="..//dataFile/file_kk/<?= $file_kartu_keluarga?>"></iframe>
-									<br><a target="_blank" href="..//dataFile/file_kk/<?= $file_kartu_keluarga?>">Lihat>></a>
-								</div>
                                 <div class="form-group">
 									<label>File Akta Kelahitan</label><br>
 									<iframe id="iframepdf" width="100%" height="250px" src="..//dataFile/file_akta/<?= $file_akta_kelahiran ?>"></iframe>
@@ -110,8 +105,6 @@ if (isset($_POST['ubah'])) {
 	$nik = $_POST['nik'];
 	$nama_ayah = $_POST['nama_ayah'];
 	$nama_ibu = $_POST['nama_ibu'];
-	$file_kk= isset($_FILES['file_kk']);
-    $file_kartu_keluarga = "penyerahan_".$_POST['nik'].".pdf";
 	$file_akta= isset($_FILES['file_akta']);
     $file_akta_kelahiran ="penyerahan_".$_POST['nik'].".pdf";
     $status = "0";
@@ -121,13 +114,11 @@ if (isset($_POST['ubah'])) {
 	nik='$nik',
 	nama_ayah='$nama_ayah',
 	nama_ibu='$nama_ibu',
-	file_kartu_keluarga='$file_kartu_keluarga',
 	file_akta_kelahiran='$file_akta_kelahiran',
 	status ='$status' WHERE id_penyerahan=$id_penyerahan";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
-        copy($_FILES['file_kk']['tmp_name'],"../dataFile/file_kk/".$file_kartu_keluarga);
         copy($_FILES['file_akta']['tmp_name'],"../dataFile/file_akta/".$file_akta_kelahiran);
 		echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_penyerahan">';

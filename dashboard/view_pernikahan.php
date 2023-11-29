@@ -114,10 +114,12 @@ if (isset($_POST['ubah'])) {
 	nama_pendeta ='$nama_pendeta' WHERE id_pernikahan=$id_pernikahan";
 	$query = mysqli_query($konek, $sql);
 
-	$sql1 = "UPDATE jemaat SET pernikahan = '1' WHERE nik = '$nik_pria'";
-	$query1 = mysqli_query($konek, $sql1);
-	$sql2 = "UPDATE jemaat SET pernikahan = '1' WHERE nik = '$nik_wanita'";
-	$query2 = mysqli_query($konek, $sql2);
+	if ($status == 2) {
+		$sql1 = "UPDATE jemaat SET pernikahan = '1' WHERE nik = '$nik_pria'";
+		$query1 = mysqli_query($konek, $sql1);
+		$sql2 = "UPDATE jemaat SET pernikahan = '1' WHERE nik = '$nik_wanita'";
+		$query2 = mysqli_query($konek, $sql2);
+	}
 
 	if ($query) {
 		echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";

@@ -50,11 +50,11 @@ $level = "pemohon";
 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="scroll active"><a href="#home">Beranda</a></li>
+                        <li class="scroll active"><a href="index.php">Beranda</a></li>
                         <li class="scroll"><a href="pages.php">Tentang Kami</a></li>
-                        <li class="scroll"><a href="#features">Pelayanan</a></li>
-                        <li class="scroll"><a href="#services">Informasi</a></li>
-                        <li class="scroll"><a href="#get-in-touch">Lokasi</a></li>
+                        <li class="scroll"><a href="index.php#features">Pelayanan</a></li>
+                        <li class="scroll"><a href="index.php#services">Informasi</a></li>
+                        <li class="scroll"><a href="index.php#get-in-touch">Lokasi</a></li>
                         <li class="scroll"><a href="pendaftaran.php">Pendaftaran jemaat</a></li>
                         <li class="scroll"><a href="po-admin.php">Login</a></li>
                     </ul>
@@ -66,70 +66,35 @@ $level = "pemohon";
     </header>
     <!--/header-->
 
-    <section id="cta2">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms"><span>SISTEM INFORMASI MANAJEMEN </span> <br> GPdI Bukit Zaitun Oesapa</h2>
-                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">KLIK LOGIN UNTUK REQUEST PEMBUATAN SURAT
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 text-center">
-                        <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"">
-                           <!-- Button trigger modal -->
-                           <a href=" login.php" type="submit" class="btn btn-primary">Ajukan Surat</a>
-                            <!-- <a href="register.php" type="submit" class="btn btn-primary">Daftar</a> -->
-                        </div>
-                    </div>
-                </div>
-                <img class="img-responsive wow fadeIn" src="main/images/cta2/cta2-img.png" alt="" data-wow-duration="300ms" data-wow-delay="300ms">
-            </div>
-        </div>
-    </section>
-
-    <section id="features">
+    <section id="A">
         <div class="container">
             <div class="section-header">
                 <br>
-                <h3 class="section-title text-center wow fadeInDown"> Pelayanan</h3>
+                <h3 class="section-title text-center wow fadeInDown"> TENTANG GEREJA</h3>
             </div>
             <div class="row">
-                <div class="col-sm-6 wow fadeInLeft">
-                    <!-- <img class="img-responsive" src="main/img/attendance.png" alt=""> -->
-                    <?php $tampil_warta= "SELECT * FROM wartajemaat  ORDER BY tanggal DESC LIMIT 1";
-                    $data = mysqli_fetch_array(mysqli_query($konek, $tampil_warta));
-                    $judul = $data['judul'];
-                    $tanggal = $data['tanggal'];
-                    $isi = $data['isi']; ?>   
+                <div class="col-sm-6 wow fadeInLeft"> 
                     <div class="card">
-                      <h3 class="card-header">WARTA JEMAAT</h3>
+                      <h3 class="card-header">SEJARAH SINGKAT</h3>
                       <div class="card-body">
-                        <h5 class="card-title"><?= $judul." | ".$tanggal ?></h5>
-                        <p class="card-text">
-                        <iframe id="iframepdf" width="100%" height="350px" src="dataFile/warta/<?= $isi ?>"></iframe>
-						<br><a target="_blank" href="dataFile/warta/<?= $isi ?>">Lihat>></a>
+                        <h5 class="card-title">GPdI Bukit Zaitun</h5>
+                        <p class="card-text">Sejarah yaitu ilmu yang menyelidiki perkembangan-perkembangan mengenai peristiwa dan kejadian di masa lampau. Sejarah merupakan kejadian dan peristiwa yang berhubungan dengan manusia, yang menyangkut perubahan nyata di dalam kehidupan manusia. Sejarah merupakan cerita yang tersusun secara sistematis (teratur dan rapi).[CONTOH]
                         </p>
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                       </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="media service-box wow fadeInRight">
-                        <div class="pull-left">
-                            <img src="main/img/clock.png" alt="">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Ibadah Raya</h4>
-                            <p>08.00 WITA </p>
-                        </div>
-                    </div>
-
-                    <div class="media service-box wow fadeInRight">
-                        <div class="pull-left">
-                            <img src="main/img/clock.png" alt="">
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Ibadah Pemuda</h4>
-                            <p>17.30 WITA</p>
-                        </div>
+                <div class="card">
+                      <h3 class="card-header">STRUKTUR ORGANISASI</h3>
+                      <div class="card-body">
+                        <h5 class="card-title">GPdI Bukit Zaitun</h5>
+                        <p class="card-text">
+                    <img class="img-responsive" src="main/img/struktur.jpeg" alt=""> 
+                    <a target="_blank" href="main/img/struktur.jpeg">Lihat>></a> 
+                        </p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                      </div>
                     </div>
 
                 </div>
@@ -137,11 +102,11 @@ $level = "pemohon";
         </div>
     </section>
 
-    <section id="services">
+    <section id="B">
         <div class="container">
             <br>
             <div class="section-header">
-                <h3 class="section-title text-center wow fadeInDown">Prosedur Permohonan Surat</h3>
+                <h3 class="section-title text-center wow fadeInDown">Visi dan Misi</h3>
             </div>
 
             <div class="row">
@@ -149,61 +114,34 @@ $level = "pemohon";
                     <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
                         <div class="media service-box">
                             <div class="pull-left">
-                                <img src="main/img/number.png" alt="">
+                                <!-- <img src="main/img/number.png" alt=""> -->
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Login</h4>
-                                <p>Klik pengajuan surat untuk mulai masuk ke halaman login. Jika Belum memiliki akun atau merupakan jemaat baru mohon untuk melakukan pendaftaran terlebih dahulu.
+                                <h4 class="media-heading">VISI</h4>
+                                <p>Bisa dikatakan visi menjadi tujuan masa depan suatu organisasi atau lembaga. Ia berisi pikiran-pikiran yang terdapat di dalam benak para pendiri. Pikiran-pikiran itu adalah gambaran dari masa depan dari organisasi yang ingin dicapai.[CONTOH]
                                 </p>
                             </div>
                         </div>
                     </div>
                     <!--/.col-md-4-->
 
-                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">
+                    <div class="features">
+                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
                         <div class="media service-box">
                             <div class="pull-left">
-                                <img src="main/img/number2.png" alt="">
+                                <!-- <img src="main/img/number3.png" alt=""> -->
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Menginput Data</h4>
-                                <p>Input data pemohon dengan sebelumnya melakukan Login dengan username dan password.</p>
+                                <h4 class="media-heading">MISI</h4>
+                                <p>Maka bisa dikatakan misi adalah suatu proses atau tahapan yang seharusnya dilalui oleh suatu lembaga atau instansi atau organisasi dengan tujuan bisa mencapai visi tersebut. Di samping itu, misi juga dapat diartikan sebagai suatu deskripsi atau tujuan mengapa sebuah instansi atau organisasi berada di masyarakat.[CONTOH]
+
+                                </p>
                             </div>
                         </div>
                     </div>
                     <!--/.col-md-4-->
 
                 </div>
-            </div>
-            <!--/.row-->
-            <div class="row">
-                <div class="features">
-                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
-                        <div class="media service-box">
-                            <div class="pull-left">
-                                <img src="main/img/number3.png" alt="">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Mengajukan Permohonan Baptis/ Penyerahan Anak/ Pernikahan</h4>
-                                <p>Setelah input data pemohon dengan lengkap dan benar, Pemohon memilih Surat yang mau direquest serta melengkapi data request, Kemudian Dikirim dan Menunggu persetujuan dari admin, setelah itu admin akan mengirimkan feedback berupa tanggal Baptis/ Penyerahan Anak/ Pernikahan akan di laksanakan.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.col-md-4-->
-
-                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
-                        <div class="media service-box">
-                            <div class="pull-left">
-                                <img src="main/img/number4.png" alt="">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Permohonan Disetujui</h4>
-                                <p>Permohonan di setujui oleh admin, kemudian admin akan mencetak surat sesuai request surat yang diajukan, pemohon mengambil surat yang sudah dicetak dan bertandatangan di GPdI Bukit Zaitun Oesapa setelah pelayanan Baptis/ Penyerahan Anak/ Pernikahan di laksanakan.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.col-md-4-->
-
                 </div>
             </div>
             <!--/.row-->
@@ -212,7 +150,7 @@ $level = "pemohon";
     </section>
     <!--/#services-->
 
-    <section id="get-in-touch">
+    <section id="C">
         <div class="container">
             <br>
             <div class="section-header">

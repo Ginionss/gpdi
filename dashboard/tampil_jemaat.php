@@ -104,7 +104,7 @@
                                             $tmp = "Belum Menikah";
                                         }else if($pernikahan == 1){
                                             $tmp = "Menikah";
-                                        }else {
+                                        }else if ($pernikahan == 2) {
                                             $tmp= "Janda/ Duda";
                                         }
                                     ?>

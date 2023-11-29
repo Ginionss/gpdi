@@ -11,6 +11,8 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 	$query = mysqli_query($konek, $tampil_kk);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 	$id_kk = $data['id_kk'];
+	$jekel = $data['jenis_kelamin'];
+	$status_j = $data['ket'];
 }
 ?>
 <?php include 'header.php'; ?>
@@ -149,6 +151,9 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 			  case 'ubah_penyerahan';
 			  include 'ubah_penyerahan.php';
 			break;
+			case 'view_penyerahan';
+			include 'lihat_penyerahan.php';
+		  break;
 				//baptis
 				case 'request_baptis';
 				include 'request_baptis.php';
@@ -159,6 +164,9 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 			  case 'ubah_baptis';
 			  include 'ubah_baptis.php';
 			break;
+			case 'view_baptis';
+			include 'lihat_baptis.php';
+		  break;
 				//pernikahan
 				case 'transit_pernikahan';
 				include 'transit_pernikahan.php';
@@ -172,6 +180,11 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 			  case 'ubah_pernikahan';
 			  include 'ubah_pernikahan.php';
 			break;
+			case 'view_pernikahan';
+			include 'lihat_pernikahan.php';
+		  break;
+
+			//default
 				default:
 					echo "<center>HALAMAN KOSONG</center>";
 					break;

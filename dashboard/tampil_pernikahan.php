@@ -138,6 +138,7 @@ if ($hak_akses == "Pemohon") {
 											<?php }?>
 											<?php }else { ?>
 											<div class="form-button-action">
+												<?php if ($status == "<b style='color:black'>Verifikasi Data</b>") {  ?>
 												<a href="?halaman=ubah_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Permohonan">
 														<i class="fa fa-edit"></i>
@@ -146,6 +147,14 @@ if ($hak_akses == "Pemohon") {
 												<a href="?halaman=tampil_pernikahan&id_pernikahan=<?php echo $id_pernikahan; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Permohonan">
                                                         <i class="fa fa-times"></i>
                                                     </a>
+												<? } 
+											else if ($status == "<b style='color:blue'>Selesai</b>") {?>
+												<a href="?halaman=view_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="lihat">
+														<i class="fa fa-eye"></i>
+													</button>
+												</a>
+											<?php }?>
 											</div>
 												
 											<?php }

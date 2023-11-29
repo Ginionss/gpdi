@@ -3,6 +3,15 @@ if (!isset($_SESSION)) {
 	session_start();
 }
 $nik_pemohon = $_SESSION['nik'];
+if ($_GET['status_j']) {
+	$status_j = $_GET['status_j'];
+
+	if ($status_j == 1) {
+		$tampil_kk = "SELECT * FROM kepala_keluarga k join jemaat j on k.id_jemaat = j.id_jemaat join anggota_keluarga a where k.id_jemaat=$nik or a.id_jemaat=$nik";
+		$query_kk =  mysqli_fetch_array(mysqli_query($konek, $tampil_kk));
+		$id_kk = $query_kk['id_kk'];
+	}
+}
 ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
@@ -39,33 +48,29 @@ $nik_pemohon = $_SESSION['nik'];
 								</div>
 								<div class="form-group">
 									<label>Nama Ayah</label>
-                                    <select id="cari_ayah" name="nama_ayah" class="form-control">
-                                        <option value=""></option>
-                                        <?php 
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki' and pernikahan > 0 and nik != ''"; 
-                                         $query = mysqli_query($konek, $tampil);
-                                         while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-											$nik = $data['nik'];
-                                             $nama = $data['nama'];
-                                         ?>
-                                        <option  value="<?= $nama?>"><?= $nik.'- '.$nama?></option>
-                                        <?php } ?>
-                                    </select>
+									<?php if ($status_j == 1) {
+                                       $tampil1 = "SELECT * FROM jemaat j join anggota_keluarga a on j.id_jemaat = a.id_jemaat join kepala_keluarga k on a.id_kk= k.id_kk where a.id_kk = $id_kk and a.status_ak = 'Suami'";
+                                         $query1 = mysqli_query($konek, $tampil1);
+										 $data1 = mysqli_fetch_array($query1);
+										 $nik = $data1['nik'];
+										  $nama = $data1['nama']; ?>
+									<input type="text" name="nama_ayah" class="form-control" value="<?= $nama?>" readonly>
+									<?php }else { ?>
+									<input type="text" name="nama_ayah" class="form-control">
+									<?php } ?>
 								</div>
                                 <div class="form-group">
 									<label>Nama Ibu</label>
-                                    <select id="cari_ibu" name="nama_ibu" class="form-control">
-                                        <option value=""></option>
-                                        <?php 
-                                            $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan > 0 and nik != ''"; 
-                                         $query = mysqli_query($konek, $tampil);
-                                         while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-											$nik = $data['nik'];
-                                             $nama = $data['nama'];
-                                         ?>
-                                        <option  value="<?= $nama?>"><?= $nik.'- '.$nama?></option>
-                                        <?php } ?>
-                                    </select>
+                                    <?php if ($status_j == 1) {
+                                       $tampil2 = "SELECT * FROM jemaat j join anggota_keluarga a on j.id_jemaat = a.id_jemaat join kepala_keluarga k on a.id_kk= k.id_kk where a.id_kk = $id_kk and a.status_ak = 'Istri'";
+                                         $query2 = mysqli_query($konek, $tampil2);
+										 $data2 = mysqli_fetch_array($query2);
+										 $nik = $data2['nik'];
+										  $nama = $data2['nama']; ?>
+									<input type="text" name="nama_ibu" class="form-control" value="<?= $nama?>" readonly>
+									<?php }else { ?>
+									<input type="text" name="nama_ibu" class="form-control">
+									<?php } ?>
 								</div>
                                 <div class="form-group">
 									<label>File Kartu Keluarga</label>
@@ -103,6 +108,8 @@ if (isset($_POST['simpan'])) {
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
+		$sql1 = "UPDATE jemaat SET baptis = '2' WHERE nik = '$nik'";
+		$query1 = mysqli_query($konek, $sql1);
         copy($_FILES['file_kk']['tmp_name'],"../dataFile/file_kk/".$file_kartu_keluarga);
         copy($_FILES['file_akta']['tmp_name'],"../dataFile/file_akta/".$file_akta_kelahiran);
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";

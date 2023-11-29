@@ -103,11 +103,6 @@ if (isset($_GET['id_penyerahan'])) {
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
-							<div class="form-group">
-									<label>File Kartu Keluarga</label> <br>
-									<iframe id="iframepdf" width="100%" height="250px" src="..//dataFile/file_kk/<?= $file_kartu_keluarga?>"></iframe>
-									<br><a target="_blank" href="..//dataFile/file_kk/<?= $file_kartu_keluarga?>">Lihat>></a>
-								</div>
                                 <div class="form-group">
 									<label>File Akta Kelahiran</label><br>
 									<iframe id="iframepdf" width="100%" height="250px" src="..//dataFile/file_akta/<?= $file_akta_kelahiran ?>"></iframe>
@@ -142,8 +137,10 @@ if (isset($_POST['ubah'])) {
 	nama_pendeta ='$nama_pendeta' WHERE id_penyerahan=$id_penyerahan";
 	$query = mysqli_query($konek, $sql);
 
-	$sql1 = "UPDATE jemaat SET penyerahan = '1' WHERE nik = '$nik'";
-	$query1 = mysqli_query($konek, $sql1);
+	if ($status == 2) {
+		$sql1 = "UPDATE jemaat SET penyerahan = '1' WHERE nik = '$nik'";
+		$query1 = mysqli_query($konek, $sql1);
+	}
 
 	if ($query) {
 		echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";

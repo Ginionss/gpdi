@@ -2,8 +2,11 @@
 if (!isset($_SESSION)) {
 	session_start();
 }
-$mempelai = $_SESSION['mempelai'];
 $nik_pemohon = $_SESSION['nik'];
+
+if ($_GET['jekel']) {
+	$jekel = $_GET['jekel'];
+}
 ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
@@ -27,7 +30,7 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Mempelai Pria</label>
                                     <select id="cari_pria" name="nik_pria" class="form-control">
                                         <option value=""></option>
-                                        <?php if($mempelai == "pria"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'and pernikahan = 0";} 
+                                        <?php if($jekel == "Laki-laki"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Laki-laki'and pernikahan = 0";} 
                                         else {
                                             $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Laki-laki'and pernikahan = 0 and nik != ''"; 
                                         }
@@ -44,7 +47,7 @@ $nik_pemohon = $_SESSION['nik'];
 									<label>Nama Mempelai Wanita</label>
                                     <select id="cari_wanita" name="nik_wanita" class="form-control">
                                         <option value=""></option>
-                                        <?php if($mempelai == "wanita"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Perempuan'and pernikahan = 0";} 
+                                        <?php if($jekel == "Perempuan"){$tampil = "SELECT * FROM jemaat where id_jemaat = '$nik_pemohon' AND jenis_kelamin = 'Perempuan'and pernikahan = 0";} 
                                         else {
                                             $tampil = "SELECT * FROM jemaat where jenis_kelamin = 'Perempuan'and pernikahan = 0 and nik != ''"; 
                                         }
@@ -62,7 +65,7 @@ $nik_pemohon = $_SESSION['nik'];
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=transit_penyerahan" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=beranda" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>
@@ -80,6 +83,10 @@ if (isset($_POST['simpan'])) {
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
+		$sql1 = "UPDATE jemaat SET pernikahan = '3' WHERE nik = '$nik_pria'";
+		$query1 = mysqli_query($konek, $sql1);
+		$sql2 = "UPDATE jemaat SET pernikahan = '3' WHERE nik = '$nik_wanita'";
+		$query2 = mysqli_query($konek, $sql2);
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_pernikahan">';
 	} else {

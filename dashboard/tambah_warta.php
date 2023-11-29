@@ -5,7 +5,7 @@
 <div class="page-inner">
 	<div class="row">
 		<div class="col-md-12">
-			<form method="POST">
+			<form method="POST" enctype="multipart/form-data">
 				<div class="card">
 					<div class="card-header">
 						<div class="card-title">FORM TAMBAH WARTA JEMAAT</div>
@@ -23,7 +23,7 @@
 								</div>
                                 <div class="form-group">
 									<label>Isi</label>
-                                    <textarea name="isi" id = "myTextarea" cols="30" rows="10"></textarea>
+									<input type="file" name="isi" class="form-control" >
 								</div>
 							</div>
 						</div>
@@ -42,12 +42,14 @@
 if (isset($_POST['simpan'])) {
 	$tanggal = $_POST['tanggal'];
 	$judul = $_POST['judul'];
-	$isi = $_POST['isi'];
+	$isi= isset($_FILES['isi']);
+    $file_warta ="warta-".$_POST['tanggal'].".pdf";
 
-	$sql = "INSERT INTO wartajemaat (tanggal,judul, isi) VALUES ('$tanggal','$judul','$isi')";
+	$sql = "INSERT INTO wartajemaat (tanggal,judul, isi) VALUES ('$tanggal','$judul','$file_warta')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
+        copy($_FILES['isi']['tmp_name'],"../dataFile/warta/".$file_warta);
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_warta">';
 	} else {

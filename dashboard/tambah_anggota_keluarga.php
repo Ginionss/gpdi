@@ -46,7 +46,7 @@ if (isset($_GET['id_kk'])) {
                                     $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
                                     $jekel = $query1['jenis_kelamin']; 
                                     if ($jekel == "Laki-laki") {?>
-                                        <option  value="Isteri">Isteri</option>
+                                        <option  value="Istri">Istri</option>
                                     <?php }else{ ?>
                                         <option  value="Suami">Suami</option>
                                    <?php }?>
