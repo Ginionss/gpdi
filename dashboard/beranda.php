@@ -38,7 +38,7 @@ if ($hak_akses == "Pemohon") {
 	</div>
 	<div class="page-inner mt--5">
 		<div class="row mt--2">
-			<?php if ($pernikahan > 0 && $pernikahan < 3 && $status_j == 1) {?>
+			<?php if ($pernikahan > 0 && $pernikahan < 3 && $status_j == 1 && $status_ak != "Anak") {?>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-primary">
 					<div class="pricing-header">

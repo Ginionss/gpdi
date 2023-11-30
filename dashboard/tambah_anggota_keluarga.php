@@ -26,7 +26,7 @@ if (isset($_GET['id_kk'])) {
 									<label>NIK - NAMA</label>
 									<select id="cari_jemaat" name="id_jemaat" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat where status_j > 0";
+                                        <?php  $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 1 ";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$id_jemaat = $data['id_jemaat'];
@@ -42,6 +42,9 @@ if (isset($_GET['id_kk'])) {
 									<select id="cari_jemaat" name="status_ak" class="form-control">
                                         <option  value="Anak">Anak</option>
                                         <?php 
+										$tampil11 = "SELECT * FROM anggota_keluarga where id_kk = '$id_kk' and status_ak = 'Suami' OR status_ak = 'Istri' ";
+                                    $query11 = mysqli_fetch_array(mysqli_query($konek, $tampil11));
+										if (!isset($query11)) {
                                     $tampil1 = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat";
                                     $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
                                     $jekel = $query1['jenis_kelamin']; 
@@ -49,13 +52,14 @@ if (isset($_GET['id_kk'])) {
                                         <option  value="Istri">Istri</option>
                                     <?php }else{ ?>
                                         <option  value="Suami">Suami</option>
-                                   <?php }?>
+                                   <?php }
+								}?>
                                     </select>
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
-								<label>*Jika nama tidak ada silahkan tambahkan data terlebih dahulu</label><br>
+								<label>*Klik tomboh di bawah jika anggota keluarga yang ingin anda tambahkan <br> belum ada dalam list</label><br>
 								<a href="?halaman=tambah_jemaat_ak&id_kk=<?php echo $id_kk; ?>" class="btn btn-default btn-sm">Tambah Jemaat</a>
 								</div>
 							</div>
