@@ -39,7 +39,7 @@ if ($_GET['jekel']) {
                                             $nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option <?php if ($mempelai == "pria") echo 'selected' ?> value="<?= $nik?>"><?= $nik.'- '.$nama?></option>
+                                        <option <?php if ($jekel == "Laki-laki") echo 'selected' ?> value="<?= $nik?>"><?= $nik.'- '.$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>
@@ -56,7 +56,7 @@ if ($_GET['jekel']) {
                                             $nik = $data['nik'];
                                              $nama = $data['nama'];
                                          ?>
-                                        <option <?php if ($mempelai == "wanita") echo 'selected' ?> value="<?= $nik?>"><?= $nik.'- '.$nama?></option>
+                                        <option <?php if ($jekel == "Perempuan") echo 'selected' ?> value="<?= $nik?>"><?= $nik.'- '.$nama?></option>
                                         <?php } ?>
                                     </select>
 								</div>

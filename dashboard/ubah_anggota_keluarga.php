@@ -28,8 +28,7 @@ if (isset($_GET['id_ak'])) {
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
                                     <label>NIK - NAMA</label>
-									<select id="cari_jemaat" name="id_jemaat" class="form-control">
-                                        <option value=""></option>
+									<select name="id_jemaat" class="form-control">
                                         <?php  $tampil = "SELECT * FROM anggota_keluarga a join jemaat j on a.id_jemaat = j.id_jemaat where id_kk=$id_kk and a.id_ak=$id_ak";
                                          $query2 = mysqli_query($konek, $tampil);
                                          while ($data2 = mysqli_fetch_array($query2, MYSQLI_BOTH)) {

@@ -7,12 +7,15 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 	$hak_akses = $_SESSION['hak_akses'];
 	$nama = $_SESSION['nama'];
 	$nik = $_SESSION['nik'];
-	$tampil_kk = "SELECT * FROM kepala_keluarga k join jemaat j on k.id_jemaat = j.id_jemaat join anggota_keluarga a where k.id_jemaat=$nik or a.id_jemaat=$nik";
+	$tampil_kk = "SELECT * FROM kepala_keluarga k join jemaat j on k.id_jemaat = j.id_jemaat join anggota_keluarga a where k.id_jemaat=$nik or a.id_jemaat=$nik or j.id_jemaat=$nik";
 	$query = mysqli_query($konek, $tampil_kk);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
-	$id_kk = $data['id_kk'];
-	$jekel = $data['jenis_kelamin'];
-	$status_j = $data['ket'];
+	if (isset($data)) {
+		$id_kk = $data['id_kk'];
+		$jekel = $data['jenis_kelamin'];
+		$status_j = $data['ket'];
+		$status_ak = $data['status_ak'];
+	}
 }
 ?>
 <?php include 'header.php'; ?>

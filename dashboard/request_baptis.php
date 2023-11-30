@@ -11,6 +11,8 @@ if ($_GET['status_j']) {
 		$query_kk =  mysqli_fetch_array(mysqli_query($konek, $tampil_kk));
 		$id_kk = $query_kk['id_kk'];
 	}
+}else {
+	$status_j = 0;
 }
 ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
@@ -22,7 +24,7 @@ if ($_GET['status_j']) {
 			<form method="POST" enctype="multipart/form-data">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title">FORM PERMOHONAN BAPTIS</div>
+						<div class="card-title">FORM PERMOHONAN BAPTIS </div>
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -85,7 +87,7 @@ if ($_GET['status_j']) {
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=halaman=beranda" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=beranda" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>

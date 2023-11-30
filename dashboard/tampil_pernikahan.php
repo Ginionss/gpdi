@@ -147,7 +147,7 @@ if ($hak_akses == "Pemohon") {
 												<a href="?halaman=tampil_pernikahan&id_pernikahan=<?php echo $id_pernikahan; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Permohonan">
                                                         <i class="fa fa-times"></i>
                                                     </a>
-												<? } 
+												<?php }
 											else if ($status == "<b style='color:blue'>Selesai</b>") {?>
 												<a href="?halaman=view_pernikahan&id_pernikahan=<?= $id_pernikahan; ?>">
 													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="lihat">
