@@ -62,7 +62,7 @@ if ($_GET['id_kk']) {
 									<input type="text" name="nama_ibu" class="form-control" value="<?= $nama?>" readonly>
 								</div>
                                 <div class="form-group">
-									<label>File Akta Kelahitan</label>
+									<label>File Akta Kelahiran</label>
                                     <input type="file" name="file_akta" class="form-control" >
 								</div>
 							</div>

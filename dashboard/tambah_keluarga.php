@@ -1,6 +1,7 @@
 <?php include '../konek.php';
 if (isset($_GET['id_kk'])) {
 	$id_kk = $_GET['id_kk'];
+
 } ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
@@ -20,15 +21,20 @@ if (isset($_GET['id_kk'])) {
 									<label>NIK - NAMA</label>
 									<select id="cari_jemaat" name="id_jemaat" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat j join kepala_keluarga k where j.pernikahan = 1 and j.jenis_kelamin = 'Laki-laki' and j.status_j > 0 and ket = 1 and j.id_jemaat != k.id_jemaat";
+                                        <?php  $tampil = "SELECT * FROM jemaat where pernikahan = 1 and jenis_kelamin = 'Laki-laki' and status_j > 0 and ket = 1 ";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$id_jemaat = $data['id_jemaat'];
                                              $nik = $data['nik'];
                                              $nama = $data['nama'];
+
+											 $tampil1 = "SELECT * FROM kepala_keluarga where id_jemaat = '$id_jemaat'";
+											 $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
+											 if (!isset($query1)) {
                                          ?>
                                         <option  value="<?= $id_jemaat?>"><?= $nik."-".$nama?></option>
-                                        <?php } ?>
+                                        <?php }
+									} ?>
                                     </select>
 								</div>
 							</div>
@@ -52,21 +58,22 @@ if (isset($_POST['simpan'])) {
 	$query = mysqli_query($konek, $sql);
 
     
-    $sql2 = "SELECT COUNT(id_kk) as jum_kk from kepala_keluarga";
-    $query2 = mysqli_fetch_array(mysqli_query($konek, $sql2));
-    $jumlah = $query2['jum_kk'];
+	$sql2 = "SELECT MAX(id_kk) as jum_kk from kepala_keluarga";
+	$query2 = mysqli_fetch_assoc(mysqli_query($konek, $sql2));
+	$jumlah = $query2['jum_kk'];
+    
 
 	$sql3 = "SELECT jenis_kelamin from jemaat";
     $query3 = mysqli_fetch_array(mysqli_query($konek, $sql3));
     $Jekel = $query3['jenis_kelamin'];
 
 	if ($Jekel == "Laki-Laki") {
-		$Jekel = "Suami";
+		$status_ak = "Suami";
 	}else {
-		$Jekel = "Isteri";
+		$status_ak = "Istri";
 	}
 
-    $sql3 = "INSERT INTO anggota_keluarga (id_kk,id_jemaat) VALUES ('$jumlah','$id_jemaat')";
+    $sql3 = "INSERT INTO anggota_keluarga (id_kk,id_jemaat,status_ak) VALUES ('$jumlah','$id_jemaat','$status_ak')";
 	$query3 = mysqli_query($konek, $sql3);
 	
 

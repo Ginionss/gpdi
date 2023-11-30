@@ -15,6 +15,7 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 		$jekel = $data['jenis_kelamin'];
 		$status_j = $data['ket'];
 		$status_ak = $data['status_ak'];
+		$pernikahan = $data['pernikahan'];
 	}
 }
 ?>
@@ -74,15 +75,17 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 										</a>
 									</li>
 									<li>
-										<a href="?halaman=tampil_penyerahan">
-											<span class="sub-item">Penyerahan Anak</span>
-										</a>
-									</li>
-									<li>
 										<a href="?halaman=tampil_pernikahan">
 											<span class="sub-item">Pernikahan</span>
 										</a>
 									</li>
+									<?php if ($status_j == 1 && $pernikahan > 0 && $pernikahan < 3) {?>
+									<li>
+										<a href="?halaman=tampil_penyerahan">
+											<span class="sub-item">Penyerahan Anak</span>
+										</a>
+									</li>
+									<?php } ?>
 								</ul>
 						</li>
 				<?php

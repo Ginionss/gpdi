@@ -79,7 +79,7 @@ if ($_GET['status_j']) {
                                     <input type="file" name="file_kk" class="form-control" >
 								</div>
                                 <div class="form-group">
-									<label>File Akta Kelahitan</label>
+									<label>File Akta Kelahiran</label>
                                     <input type="file" name="file_akta" class="form-control" >
 								</div>
 							</div>

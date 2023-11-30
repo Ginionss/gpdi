@@ -86,12 +86,12 @@ $level = "pemohon";
                 </div>
                 <div class="col-sm-6">
                 <div class="card">
-                      <h3 class="card-header">STRUKTUR ORGANISASI</h3>
+                      <h3 class="card-header">STRUKTUR KEPEMIMPINAN</h3>
                       <div class="card-body">
                         <h5 class="card-title">GPdI Bukit Zaitun</h5>
                         <p class="card-text">
-                    <img class="img-responsive" src="main/img/struktur.jpeg" alt=""> 
-                    <a target="_blank" href="main/img/struktur.jpeg">Lihat>></a> 
+                    <img class="img-responsive" src="main/img/struktur.png" alt=""> 
+                    <a target="_blank" href="main/img/struktur.png">Lihat>></a> 
                         </p>
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                       </div>

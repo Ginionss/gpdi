@@ -8,7 +8,7 @@
 			<form method="POST">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title">FORM TAMBAH DATA JEMAAT</div>
+						<div class="card-title">FORM TAMBAH DATA JEMAAT TETAP</div>
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -46,14 +46,6 @@
 									<textarea name="alamat" class="form-control" cols="30" rows="10" placeholder="Alamat.."></textarea>
 								</div>
 								<div class="form-group">
-									<label>Status Jemaat</label>
-									<select name="ket" class="form-control">
-										<option disabled="" selected="">Pilih status</option>
-										<option value="Laki-Laki">Tetap</option>
-										<option value="Perempuan">Sementara</option>
-									</select>
-								</div>
-								<div class="form-group">
 									<label>Username</label>
 									<input type="text" name="username" class="form-control" placeholder="Username..">
 								</div>
@@ -66,7 +58,7 @@
 					</div>
 					<div class="card-action">
 						<button name="simpan" class="btn btn-success btn-sm">Simpan</button>
-						<a href="?halaman=beranda" class="btn btn-default btn-sm">Batal</a>
+						<a href="?halaman=tampil_jemaat" class="btn btn-default btn-sm">Batal</a>
 					</div>
 				</div>
 		</div>
@@ -83,7 +75,7 @@ if (isset($_POST['simpan'])) {
 	$no_hp = $_POST['no_hp'];
 	$jekel = $_POST['jekel'];
 	$alamat = $_POST['alamat'];
-	$ket = $_POST['ket'];
+	$ket = 1;
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$status = 1;

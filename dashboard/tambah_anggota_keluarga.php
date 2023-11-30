@@ -42,9 +42,9 @@ if (isset($_GET['id_kk'])) {
 									<select id="cari_jemaat" name="status_ak" class="form-control">
                                         <option  value="Anak">Anak</option>
                                         <?php 
-										$tampil11 = "SELECT * FROM anggota_keluarga where id_kk = '$id_kk' and status_ak = 'Suami' OR status_ak = 'Istri' ";
-                                    $query11 = mysqli_fetch_array(mysqli_query($konek, $tampil11));
-										if (!isset($query11)) {
+									// 	$tampil11 = "SELECT * FROM anggota_keluarga where id_kk = '$id_kk' and status_ak = 'Suami' or status_ak = 'Istri'";
+                                    // $query11 = mysqli_fetch_array(mysqli_query($konek, $tampil11));
+									// 	if (!isset($query11)) {
                                     $tampil1 = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat";
                                     $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
                                     $jekel = $query1['jenis_kelamin']; 
@@ -53,7 +53,8 @@ if (isset($_GET['id_kk'])) {
                                     <?php }else{ ?>
                                         <option  value="Suami">Suami</option>
                                    <?php }
-								}?>
+								// }
+								?>
                                     </select>
 								</div>
 							</div>

@@ -281,9 +281,12 @@
 			  case 'tampil_jemaat_sementara';
                 include 'tampil_jemaat_sementara.php';
 			  break;
-			  case 'tambah_jemaat';
-			  include 'tambah_jemaat.php';
+			  case 'tambah_jemaat_tetap';
+			  include 'tambah_jemaat_tetap.php';
 			break;
+			case 'tambah_jemaat_sementara';
+			include 'tambah_jemaat_sementara.php';
+		  break;
 			case 'ubah_jemaat';
 			  include 'ubah_jemaat.php';
 			break;

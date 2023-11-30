@@ -63,7 +63,7 @@ if (isset($_GET['id_jemaat'])) {
 									<label>Tanggal Lahir</label>
 									<input type="date" name="tgl" class="form-control" value="<?= $tanggal; ?>">
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label>Status Penyerahan</label>
 									<select name="penyerahan" class="form-control">
 										<option disabled="" selected="">Pilih status</option>
@@ -87,7 +87,7 @@ if (isset($_GET['id_jemaat'])) {
 										<option value="1"<?php if ($pernikahan == 1) echo 'selected' ?>>Menikah</option>
 										<option value="2"<?php if ($pernikahan == 2) echo 'selected' ?>>Janda/Duda</option>
 									</select>
-								</div>
+								</div> -->
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
@@ -130,9 +130,9 @@ if (isset($_POST['ubah'])) {
 	$telepon = $_POST['telepon'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$penyerahan = $_POST['penyerahan'];
-	$baptis = $_POST['baptis'];
-	$pernikahan = $_POST['pernikahan'];
+	// $penyerahan = $_POST['penyerahan'];
+	// $baptis = $_POST['baptis'];
+	// $pernikahan = $_POST['pernikahan'];
 
 	$sql = "UPDATE jemaat SET
 	nik='$nik',
@@ -143,10 +143,7 @@ if (isset($_POST['ubah'])) {
 	alamat='$alamat',
 	no_hp='$telepon',
 	username='$username',
-	password='$password',
-	penyerahan='$penyerahan',
-	baptis='$baptis',
-	pernikahan='$pernikahan'
+	password='$password'
 	WHERE id_jemaat=$_SESSION[nik]";
 	$query = mysqli_query($konek, $sql);
 
