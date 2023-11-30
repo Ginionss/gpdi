@@ -16,6 +16,7 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 	$penyerahan = $data['penyerahan'];
 	$pernikahan = $data['pernikahan'];
 	$status_j = $data['ket'];
+	$jekel = $data['jenis_kelamin'];
 }
 ?>
 <?php
