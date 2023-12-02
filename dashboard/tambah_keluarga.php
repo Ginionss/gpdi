@@ -63,7 +63,7 @@ if (isset($_POST['simpan'])) {
 	$jumlah = $query2['jum_kk'];
     
 
-	$sql3 = "SELECT jenis_kelamin from jemaat";
+	$sql3 = "SELECT jenis_kelamin from jemaat where id_jemaat ='$id_jemaat'";
     $query3 = mysqli_fetch_array(mysqli_query($konek, $sql3));
     $Jekel = $query3['jenis_kelamin'];
 

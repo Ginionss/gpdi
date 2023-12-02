@@ -32,9 +32,14 @@ if (isset($_GET['id_kk'])) {
 											$id_jemaat = $data['id_jemaat'];
                                              $nik = $data['nik'];
                                              $nama = $data['nama'];
+
+											 $tampil1 = "SELECT * FROM anggota_keluarga where id_jemaat = '$id_jemaat'";
+											 $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
+											 if (!isset($query1)) {
                                          ?>
                                         <option  value="<?= $id_jemaat?>"><?= $nik."-".$nama?></option>
-                                        <?php } ?>
+                                        <?php }
+									} ?>
                                     </select>
 								</div>
                                 <div class="form-group">

@@ -113,8 +113,12 @@ if (isset($_POST['simpan'])) {
 	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
 	$query = mysqli_query($konek, $sql);
 
+	$sql2 = "SELECT MAX(id_jemaat) as jum_kk from jemaat";
+	$query2 = mysqli_fetch_assoc(mysqli_query($konek, $sql2));
+	$jumlah = $query2['jum_kk'];
+
 	if ($query) {
-		$sql3 = "INSERT INTO anggota_keluarga (id_kk,id_jemaat,status_ak) VALUES ('$id_kk','$id_jemaat','$status_ak')";
+		$sql3 = "INSERT INTO anggota_keluarga (id_kk,id_jemaat,status_ak) VALUES ('$id_kk','$jumlah','$status_ak')";
 		$query3 = mysqli_query($konek, $sql3);
 		echo "<script language='javascript'>swal('Selamat...', 'Simpan Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=beranda">';
