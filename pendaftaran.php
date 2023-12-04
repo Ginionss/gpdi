@@ -90,14 +90,14 @@
 										<option value="2">Janda/Duda</option>
 									</select>
 								</div>
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label>Status Jemaat</label>
 									<select name="ket" class="form-control">
 										<option disabled="" selected="">Pilih status</option>
 										<option value="Laki-Laki">Tetap</option>
 										<option value="Perempuan">Sementara</option>
 									</select>
-								</div> -->
+								</div>
 								<div class="form-group">
 									<label>Username</label>
 									<input type="text" name="username" class="form-control" placeholder="Username..">
@@ -142,7 +142,7 @@ if (isset($_POST['simpan'])) {
 	$no_hp = $_POST['no_hp'];
 	$jekel = $_POST['jekel'];
 	$alamat = $_POST['alamat'];
-	$ket = 0;
+	$ket = $_POST['ket'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
   	$status = 0;
