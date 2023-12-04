@@ -21,14 +21,14 @@ if (isset($_GET['id_kk'])) {
 									<label>NIK - NAMA</label>
 									<select id="cari_jemaat" name="id_jemaat" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat where pernikahan = 1 and jenis_kelamin = 'Laki-laki' and status_j > 0 and ket = 1 ";
+                                        <?php  $tampil = "SELECT * FROM jemaat where pernikahan > 0 and status_j > 0 and ket = 1 ";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$id_jemaat = $data['id_jemaat'];
                                              $nik = $data['nik'];
                                              $nama = $data['nama'];
 
-											 $tampil1 = "SELECT * FROM kepala_keluarga where id_jemaat = '$id_jemaat'";
+											 $tampil1 = "SELECT * FROM anggota_keluarga where id_jemaat = '$id_jemaat'";
 											 $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
 											 if (!isset($query1)) {
                                          ?>

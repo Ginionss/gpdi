@@ -86,7 +86,7 @@ if ($hak_akses == "Pemohon") {
 				</div>
 			</div>
 			<?php }
-			if ($pernikahan == 0) {?>
+			if ($pernikahan == 0 || $pernikahan == 2) {?>
 			<div class="col-md-3 pr-md-0">
 				<div class="card-pricing2 card-secondary">
 					<div class="pricing-header">
