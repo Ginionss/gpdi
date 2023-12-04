@@ -1,7 +1,7 @@
 <?php
-if (isset($_GET['nik'])) {
-	$nik = $_GET['nik'];
-	$tampil_nik = "SELECT * FROM jemaat WHERE nik=$nik";
+if (isset($_GET['id_jemaat'])) {
+	$id_jemaat = $_GET['id_jemaat'];
+	$tampil_nik = "SELECT * FROM jemaat WHERE id_jemaat=$id_jemaat";
 	$query = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 	$nik = $data['nik'];
@@ -80,12 +80,12 @@ if (isset($_POST['ubah'])) {
 	$status = 1;
 
 	$sql = "UPDATE jemaat SET
-	status_j='$status' WHERE nik=$nik";
+	status_j='$status' WHERE id_jemaat=$id_jemaat";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
 		echo "<script language='javascript'>swal('Selamat...', 'Verifikasi Berhasil', 'success');</script>";
-		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat">';
+		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_sementara">';
 	} else {
 		echo "<script language='javascript'>swal('Gagal...', 'Verifikasi Gagal', 'error');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_jemaat_baru">';

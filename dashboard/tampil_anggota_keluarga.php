@@ -104,12 +104,12 @@ if (isset($_GET['id_kk'])) {
                                         $query2 = mysqli_fetch_array(mysqli_query($konek, $sql2));
                                         $tampil1 = "SELECT * FROM kepala_keluarga where id_jemaat = '$id_jemaat'";
 										 $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
-										 if (isset($query1)) {
+										//  if (isset($query1)) {
                                         $id_kepala = $query1['id_jemaat'];
                                             if ($id_kepala == $id_jemaat) {
                                                 $status_ak = "Kepala Keluarga";
                                             }
-                                         }
+                                        //  }
                                     ?>
                                         <tr>
                                             <td><?php echo $no++; ?></td>

@@ -152,6 +152,6 @@ function hariIndo ($hari){
     
 </body>
 </html>
-        <!-- <script>
+        <script>
             window.print();
-        </script> -->
+        </script>

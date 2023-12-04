@@ -7,7 +7,7 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 } else {
 	$hak_akses = $_SESSION['hak_akses'];
 	$nama = $_SESSION['nama'];
-	$id_jemaat = $_SESSION['nik'];	
+	$id_jemaat = $_SESSION['nik'];
 	$tampil_nik = "SELECT * FROM jemaat WHERE id_jemaat=$_SESSION[nik]";
 	$query = mysqli_query($konek, $tampil_nik);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
