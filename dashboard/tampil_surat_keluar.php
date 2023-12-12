@@ -83,7 +83,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM suratkeluar";
+                                    $tampil = "SELECT * FROM suratkeluar ORDER BY tgl_surat DESC";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $id_surat_keluar = $data['id_surat_keluar'];

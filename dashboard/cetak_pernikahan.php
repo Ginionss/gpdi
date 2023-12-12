@@ -75,12 +75,12 @@ function hariIndo ($hari){
   .no_surat{
     position: absolute;
     top: 29%;
-    left: 23%;
+    left: 25%;
   }
   .jemaat{
     position: absolute;
     top: 30.6%;
-    left: 23%;
+    left: 25%;
   }
   .hari{
     position: absolute;
@@ -90,7 +90,7 @@ function hariIndo ($hari){
   .tanggal_pernikahan{
     position: absolute;
     top: 43%;
-    left: 66%;
+    left: 60%;
   }
   .lokasi{
     position: absolute;
@@ -129,7 +129,7 @@ function hariIndo ($hari){
   .tgl_pernikahan2{
     position: absolute;
     top: 75%;
-    left: 65%;
+    left: 63%;
   }
   .gembala{
     position: absolute;
@@ -153,7 +153,7 @@ function hariIndo ($hari){
         <h5 class="pendeta"><?= $nama_pendeta ?></h5>
         <h5 class="tgl_pernikahan2">GPdI Bukit Zaitun Oesapa</h5>
         <h5 class="gembala">Pdt. Jacky D. Karawisan</h5>
-        <img class="gambar" src="../main/images/surat/pernikahan1.jpg" alt="pernikahan" style="width: 100%;">
+        <img class="gambar" src="../main/images/surat/pernikahan1.jpg" alt="pernikahan" style="width: 95%;">
     </table>
     </div>
 

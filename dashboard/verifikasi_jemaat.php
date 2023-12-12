@@ -11,6 +11,10 @@ if (isset($_GET['id_jemaat'])) {
 	$jekel = $data['jenis_kelamin'];
     $alamat =$data['alamat'];
     $no_hp =$data['no_hp'];
+    $ket =$data['ket'];
+    $penyerahan =$data['penyerahan'];
+    $baptis =$data['baptis'];
+    $pernikahan =$data['pernikahan'];
 }
 
 ?>
@@ -27,39 +31,76 @@ if (isset($_GET['id_jemaat'])) {
 						<div class="card-title">VERIFIKASI DATA JEMAAT BARU</div>
 					</div>
 					<div class="card-body">
-						<div class="row">
+					<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK</label>
-									<input  type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>" readonly>
+									<input disabled type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>">
 								</div>
 								<div class="form-group">
 									<label>Nama Lengkap</label>
-									<input type="text" disabled name="nama" class="form-control" placeholder="Nama Lengkap Anda.." value="<?= $nama; ?>">
+									<input disabled type="text" name="nama" class="form-control" placeholder="Nama Lengkap Anda.." value="<?= $nama; ?>">
 								</div>
 								<div class="form-group">
 									<label>Jenis Kelamin</label>
-									<select name="jekel" disabled class="form-control">
-										<option disabled="" selected="">Pilih Jenis Kelamin</option>
-										<option value="Laki-Laki" <?php if ($jekel == "Laki-laki") echo 'selected' ?>>Laki-Laki</option>
-										<option value="Perempuan" <?php if ($jekel == "Perempuan") echo 'selected' ?>>Perempuan</option>
-									</select>
+									<input disabled type="text" name="nama" class="form-control" placeholder="Nama Lengkap Anda.." value="<?= $jekel; ?>">
 								</div>
 								<div class="form-group">
 									<label>Tempat Lahir</label>
-									<input type="text" disabled name="tempat" class="form-control" value="<?= $tempat; ?>">
+									<input disabled type="text" name="tempat" class="form-control" value="<?= $tempat; ?>">
 								</div>
 								<div class="form-group">
 									<label>Tanggal Lahir</label>
-									<input type="date" disabled name="tgl" class="form-control" value="<?= $tanggal; ?>">
+									<input disabled type="date" name="tgl" class="form-control" value="<?= $tanggal; ?>">
 								</div>
 								<div class="form-group">
 									<label for="comment">No HP</label>
-									<input type="text" disabled name="no_hp" class="form-control" value="<?= $no_hp; ?>">
+									<input disabled type="text" name="no_hp" class="form-control" value="<?= $no_hp; ?>">
 								</div>
 								<div class="form-group">
 									<label for="comment">Alamat</label>
-									<input type="text" disabled name="alamat" class="form-control" value="<?= $alamat; ?>">
+									<textarea disabled class="form-control" name="alamat" rows="5"><?= $alamat ?></textarea>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<label>Status Penyerahan</label>
+                                    <?php if ($penyerahan == 0) {
+                                        $penyerahan = "Belum diserahkan";
+                                    }else {
+                                        $penyerahan = "Sudah diserahkan";
+                                    } ?>
+									<input disabled type="text" name="no_hp" class="form-control" value="<?= $penyerahan; ?>">
+								</div>
+								<div class="form-group">
+									<label>Status Baptis</label>
+                                    <?php if ($baptis == 0) {
+                                        $baptis = "Belum dibaptis";
+                                    }else {
+                                        $baptis = "Sudah dibaptis";
+                                    } ?>
+									<input disabled type="text" name="no_hp" class="form-control" value="<?= $baptis; ?>">
+								</div>
+								<div class="form-group">
+									<label>Status Pernikahan</label>
+									<label>Status Baptis</label>
+                                    <?php if ($pernikahan == 0) {
+                                        $pernikahan = "Belum Menikah";
+                                    }else if ($pernikahan == 1) {
+                                        $pernikahan = "Sudah Menikah";
+                                    }else {
+                                        $pernikahan = "Janda/Duda";
+                                    } ?>
+									<input disabled type="text" name="no_hp" class="form-control" value="<?= $pernikahan; ?>">
+								</div>
+								<div class="form-group">
+									<label>Status Jemaat</label>
+                                    <?php if ($ket == 0) {
+                                        $ket = "Sementara";
+                                    }else {
+                                        $ket = "Tetap";
+                                    } ?>
+									<input disabled type="text" name="no_hp" class="form-control" value="<?= $ket; ?>">
 								</div>
 							</div>
 						</div>

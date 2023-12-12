@@ -372,8 +372,8 @@
 			</div>
 <?php include 'footer.php'; ?>
 
-<script src="../assets/tinymce/js/tinymce/tinymce.min.js"></script>
-<script>tinymce.init({selector:'textarea'});</script>
+<!-- <script src="../assets/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({selector:'textarea'});</script> -->
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
@@ -429,7 +429,7 @@ function myFunction3() {
     }       
   }
 }
-tinymce.init({
-    pemilih: '#myTextarea' 
-});
+// tinymce.init({
+//     pemilih: '#myTextarea' 
+// });
 </script>

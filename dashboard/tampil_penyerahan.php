@@ -45,7 +45,7 @@ if ($hak_akses == "Pemohon") {
 									$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik = j.nik and b.nama_ibu = '$nama_a'";
 									}
 								}else {
-									$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik= j.nik";
+									$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik= j.nik ORDER BY b.tanggal_request DESC";
 								}
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {

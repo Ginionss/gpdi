@@ -80,7 +80,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat";
+                                    $tampil = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat ORDER BY j.nama ASC";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $id_kk = $data['id_kk'];

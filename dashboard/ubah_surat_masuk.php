@@ -86,6 +86,7 @@ if (isset($_POST['ubah'])) {
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
+		unlink("../dataFile/surat_masuk/".$file_surat_masuk);
         copy($_FILES['file_surat']['tmp_name'],"../dataFile/surat_masuk/".$file_surat_masuk);
 		echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_surat_masuk">';

@@ -26,7 +26,7 @@ if (isset($_GET['id_kk'])) {
 									<label>NIK - NAMA</label>
 									<select id="cari_jemaat" name="id_jemaat" class="form-control">
                                         <option value=""></option>
-                                        <?php  $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 1 ";
+                                        <?php  $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 1 and nik != ''";
                                          $query = mysqli_query($konek, $tampil);
                                          while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 											$id_jemaat = $data['id_jemaat'];

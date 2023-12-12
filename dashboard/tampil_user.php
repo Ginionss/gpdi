@@ -81,7 +81,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat j join user u where j.id_jemaat= u.id_jemaat";
+                                    $tampil = "SELECT * FROM jemaat j join user u where j.id_jemaat= u.id_jemaat ORDER BY j.nama ASC";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $id_user = $data['id_user'];
@@ -121,8 +121,21 @@
 
 <?php
 if (isset($_GET['id_user'])) {
+    
+    $id_user = $_GET['id_user'];
+
+    $tampil = "SELECT * FROM jemaat j join user u where j.id_jemaat= u.id_jemaat and u.id_user = '$id_user'";
+    $query = mysqli_query($konek, $tampil);
+    $status_j = 1;
+
+	$sql1 = "UPDATE jemaat SET
+	status_j='$status_j' WHERE id_jemaat=$id_jemaat";
+	$query1 = mysqli_query($konek, $sql1);
+
     $sql_hapus = "DELETE FROM user WHERE id_user='" . $_GET['id_user'] . "'";
     $query_hapus = mysqli_query($konek, $sql_hapus);
+
+    
     if ($query_hapus) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
         echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_user">';

@@ -82,7 +82,7 @@ $id_pengguna = $_SESSION['password']; ?>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM disposisi d join suratmasuk s where d.kepada = '$id_pengguna'";
+                                    $tampil = "SELECT * FROM disposisi d join suratmasuk s where d.kepada = '$id_pengguna' ORDER BY d.tanggal_disposisi DESC";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $id_disposisi = $data['id_disposisi'];

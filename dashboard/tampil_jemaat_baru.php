@@ -85,7 +85,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    $tampil = "SELECT * FROM jemaat where status_j = 0";
+                                    $tampil = "SELECT * FROM jemaat where status_j = 0 ORDER BY id_jemaat DESC";
                                     $query = mysqli_query($konek, $tampil);
                                     while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
                                         $id_jemaat = $data['id_jemaat'];
