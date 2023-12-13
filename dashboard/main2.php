@@ -36,7 +36,7 @@
 						<li class="nav-item">
 							<a href="?halaman=tampil_jemaat">
 								<i class="fas fa-user-alt"></i>
-								<p>Data Jemaat</p>
+								<p>Data Jemaat Tetap</p>
 							</a>
 						</li>
 						<li class="nav-item">
