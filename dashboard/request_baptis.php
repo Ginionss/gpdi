@@ -21,7 +21,7 @@ if ($_GET['status_j']) {
 <div class="page-inner">
 	<div class="row">
 		<div class="col-md-12">
-			<form method="POST" enctype="multipart/form-data">
+			<form method="POST" enctype="multipart/form-data" name="myForm" onsubmit="return validateForm()" required>
 				<div class="card">
 					<div class="card-header">
 						<div class="card-title">FORM PERMOHONAN BAPTIS </div>

@@ -16,6 +16,8 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 		$status_j = $data['ket'];
 		$status_ak = $data['status_ak'];
 		$pernikahan = $data['pernikahan'];
+	}else {
+		$status_ak = "Anak";
 	}
 }
 ?>

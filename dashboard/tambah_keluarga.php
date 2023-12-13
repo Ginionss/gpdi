@@ -27,13 +27,18 @@ if (isset($_GET['id_kk'])) {
 											$id_jemaat = $data['id_jemaat'];
                                              $nik = $data['nik'];
                                              $nama = $data['nama'];
+											 $cek_jk = $data['jenis_kelamin'];
+											 $cek_pernikahan = $data['pernikahan'];
 
 											 $tampil1 = "SELECT * FROM anggota_keluarga where id_jemaat = '$id_jemaat'";
 											 $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
 											 if (!isset($query1)) {
+												if ($cek_jk = "Laki-laki" && $cek_pernikahan > 0 || $cek_pernikahan = 2 && $cek_jk = "Perempuan") {
                                          ?>
                                         <option  value="<?= $id_jemaat?>"><?= $nik."-".$nama?></option>
-                                        <?php }
+                                        <?php 
+												}
+											 }
 									} ?>
                                     </select>
 								</div>

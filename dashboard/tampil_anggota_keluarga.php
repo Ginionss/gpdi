@@ -6,6 +6,8 @@ if (isset($_GET['id_kk'])) {
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 	$id_kk = $data['id_kk'];
 	$nama_kepala = $data['nama'];
+}else {
+    $id_kk = 0;
 }
 ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">

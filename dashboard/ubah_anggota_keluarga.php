@@ -49,7 +49,7 @@ if (isset($_GET['id_ak'])) {
                                     $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
                                     $jekel = $query1['jenis_kelamin']; 
                                     if ($jekel == "Laki-laki") {?>
-                                        <option <?php if($ak_status == "Isteri") { echo "selected";} ?>  value="Isteri">Isteri</option>
+                                        <option <?php if($ak_status == "Istri") { echo "selected";} ?>  value="Istri">Istri</option>
                                     <?php }else{ ?>
                                         <option <?php if($ak_status == "Suami") { echo "selected";} ?>  value="Suami">Suami</option>
                                    <?php }?>

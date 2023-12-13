@@ -125,6 +125,7 @@ if (isset($_GET['id_kk'])) {
     
     $sql_hapus1 = "DELETE FROM anggota_keluarga WHERE id_kk='" . $_GET['id_kk'] . "'";
     $query_hapus1 = mysqli_query($konek, $sql_hapus1);
+    
     if ($query_hapus && $query_hapus1) {
         echo "<script language='javascript'>swal('Selamat...', 'Hapus Berhasil', 'success');</script>";
         echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_keluarga">';

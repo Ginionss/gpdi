@@ -118,7 +118,7 @@
                                             <td><?php echo $tmp; ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="?halaman=ubah_jemaat&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Jemaat">
+                                                    <a href="?halaman=ubah_jemaat_sementara&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Jemaat">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                     <a href="?halaman=tampil_jemaat&id_jemaat=<?php echo $id_jemaat; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Jemaat">

@@ -290,6 +290,9 @@
 			case 'ubah_jemaat';
 			  include 'ubah_jemaat.php';
 			break;
+			case 'ubah_jemaat_sementara';
+			  include 'ubah_jemaat_sementara.php';
+			break;
 			case 'tampil_jemaat_baru';
 			  include 'tampil_jemaat_baru.php';
 			break;

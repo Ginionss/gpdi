@@ -190,6 +190,31 @@
                 });
             });
         </script>
+
+<script>
+	function validateForm() {
+  var nama_ayah = document.forms["myForm"]["nama_ayah"].value;
+  if (nama_ayah == "") {
+    alert("Nama Ayah Tidak Boleh Kosong");
+    return false;
+  }
+  var nama_ibu = document.forms["myForm"]["nama_ibu"].value;
+  if (nama_ibu == "") {
+    alert("Nama Ibu Tidak Boleh Kosong");
+    return false;
+  }
+  var file_kk = document.forms["myForm"]["file_kk"].value;
+  if (file_kk == "") {
+    alert("File Kartu Keluarga Tidak Boleh Kosong");
+    return false;
+  }
+  var file_akta = document.forms["myForm"]["file_akta"].value;
+  if (file_akta == "") {
+    alert("File Akta Kelahiran Tidak Boleh Kosong");
+    return false;
+  }
+}
+  </script>
 </body>
 
 </html>
