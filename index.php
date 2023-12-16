@@ -52,6 +52,7 @@ $level = "pemohon";
                     <ul class="nav navbar-nav">
                         <li class="scroll active"><a href="#home">Beranda</a></li>
                         <li class="scroll"><a href="pages.php">Tentang Kami</a></li>
+                        <li class="scroll"><a href="pengumuman.php">Pengumuman</a></li>
                         <li class="scroll"><a href="#features">Pelayanan</a></li>
                         <li class="scroll"><a href="#services">Informasi</a></li>
                         <li class="scroll"><a href="#get-in-touch">Lokasi</a></li>

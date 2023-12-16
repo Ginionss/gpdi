@@ -68,21 +68,24 @@
 								<div class="form-group">
 									<label>Status Penyerahan</label>**
 									<select name="penyerahan" class="form-control">
-										<option value="0" selected>Belum diserahkan</option>
+										<option disabled="" selected="">--PILIH--</option>
+										<option value="0" >Belum diserahkan</option>
 										<option value="1">Sudah Diserahkan</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<label>Status Baptis</label>**
 									<select name="baptis" class="form-control">
-										<option value="0" selected>Belum dibaptis</option>
+										<option disabled="" selected="">--PILIH--</option>
+										<option value="0" >Belum dibaptis</option>
 										<option value="1">Sudah Dibaptis</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<label>Status Pernikahan</label>**
 									<select name="pernikahan" class="form-control">
-										<option value="0" selected>Belum Menikah</option>
+										<option disabled="" selected="">--PILIH--</option>
+										<option value="0">Belum Menikah</option>
 										<option value="1">Menikah</option>
 										<option value="2">Janda/Duda</option>
 									</select>

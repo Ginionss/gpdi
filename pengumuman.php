@@ -51,8 +51,8 @@ $level = "pemohon";
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="scroll active"><a href="index.php">Beranda</a></li>
-                        <li class="scroll"><a href="#">Tentang Kami</a></li>
-                        <li class="scroll"><a href="pengumuman.php">Pengumuman</a></li>
+                        <li class="scroll"><a href="pages.php">Tentang Kami</a></li>
+                        <li class="scroll"><a href="#">Pengumuman</a></li>
                         <li class="scroll"><a href="index.php#features">Pelayanan</a></li>
                         <li class="scroll"><a href="index.php#services">Informasi</a></li>
                         <li class="scroll"><a href="index.php#get-in-touch">Lokasi</a></li>
@@ -71,29 +71,155 @@ $level = "pemohon";
         <div class="container">
             <div class="section-header">
                 <br>
-                <h3 class="section-title text-center wow fadeInDown"> TENTANG GEREJA</h3>
+                <h3 class="section-title text-center wow fadeInDown"> Pengumuman</h3>
             </div>
             <div class="row">
-                <div class="col-sm-6 wow fadeInLeft"> 
+                <div class="col-sm-12 wow fadeInLeft"> 
                     <div class="card">
-                      <h3 class="card-header">SEJARAH SINGKAT</h3>
+                      <h3 class="card-header">BAPTIS</h3>
                       <div class="card-body">
                         <h5 class="card-title">GPdI Bukit Zaitun</h5>
-                        <p class="card-text">Sejarah yaitu ilmu yang menyelidiki perkembangan-perkembangan mengenai peristiwa dan kejadian di masa lampau. Sejarah merupakan kejadian dan peristiwa yang berhubungan dengan manusia, yang menyangkut perubahan nyata di dalam kehidupan manusia. Sejarah merupakan cerita yang tersusun secara sistematis (teratur dan rapi).[CONTOH]
-                        </p>
+                        <table id="add1" class="display table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Tanggal Baptis</th>
+									<th>Nama</th>
+									<th>Nama Ayah</th>
+									<th>Nama Ibu</th>
+									<th>Pendeta</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$sql = "SELECT * FROM baptis b natural join jemaat j where b.nik = j.nik and status = 1  ORDER BY b.tanggal_request ASC";
+								$query = mysqli_query($konek, $sql);
+								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+									$id_baptis = $data['id_baptis'];
+									$nik = $data['nik'];
+									$nama = $data['nama'];
+									$nama_ayah = $data['nama_ayah'];
+									$nama_ibu = $data['nama_ibu'];
+									$status = $data['status'];
+                                    $nama_pendeta = $data['nama_pendeta'];
+                                    $tanggal_baptis = $data['tanggal_baptis'];
+                                    $format2 = date('d F Y', strtotime($tanggal_baptis));
+                                    $today = date('Y-m-d');
+                                    if ($today < $tanggal_baptis) {
+								?>
+									<tr>
+										<td><?php echo $format2; ?></td>
+										<td><?php echo $nama; ?></td>
+										<td><?php echo $nama_ayah; ?></td>
+										<td><?php echo $nama_ibu; ?></td>
+										<td><?php echo $nama_pendeta; ?></td>
+									</tr>
+								<?php 
+                                    }
+								}
+								?>
+							</tbody>
+						</table>
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                       </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                 <div class="card">
-                      <h3 class="card-header">STRUKTUR KEPEMIMPINAN</h3>
+                      <h3 class="card-header">PENYERAHAN ANAK</h3>
                       <div class="card-body">
                         <h5 class="card-title">GPdI Bukit Zaitun</h5>
-                        <p class="card-text">
-                    <img class="img-responsive" src="main/img/struktur.png" alt=""> 
-                    <a target="_blank" href="main/img/struktur.png">Lihat>></a> 
-                        </p>
+                        <table id="add1" class="display table table-striped table-hover">
+							<thead>
+								<tr>
+                                <th>Tanggal Penyerahan</th>
+									<th>Nama Anak</th>
+									<th>Nama Ayah</th>
+									<th>Nama Ibu</th>
+									<th>Pendeta</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik = j.nik and status = 1  ORDER BY b.tanggal_request ASC";
+								$query = mysqli_query($konek, $sql);
+								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+									$id_baptis = $data['id_penyerahan'];
+									$nik = $data['nik'];
+									$nama = $data['nama'];
+									$nama_ayah = $data['nama_ayah'];
+									$nama_ibu = $data['nama_ibu'];
+									$status = $data['status'];
+                                    $nama_pendeta = $data['nama_pendeta'];
+                                    $tanggal_penyerahan = $data['tanggal_penyerahan'];
+                                    $format2 = date('d F Y', strtotime($tanggal_penyerahan));
+                                    $today = date('Y-m-d');
+                                    if ($today < $tanggal_penyerahan) {
+								?>
+									<tr>
+										<td><?php echo $format2; ?></td>
+										<td><?php echo $nama; ?></td>
+										<td><?php echo $nama_ayah; ?></td>
+										<td><?php echo $nama_ibu; ?></td>
+										<td><?php echo $nama_pendeta; ?></td>
+									</tr>
+								<?php 
+                                    }
+								}
+								?>
+							</tbody>
+						</table>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                      </div>
+                    </div>
+
+                </div><div class="col-sm-12">
+                <div class="card">
+                      <h3 class="card-header">PERNIKAHAN</h3>
+                      <div class="card-body">
+                        <h5 class="card-title">GPdI Bukit Zaitun</h5>
+                        <table id="add1" class="display table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Tanggal Pernikahan</th>
+									<th>Nama Mempelai Pria</th>
+									<th>Nama Mempelai Wanita</th>
+									<th>Pendeta</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									$sql1 = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_wanita = j.nik and status = 1";
+									$sql = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_pria = j.nik and status = 1 ";
+								$query1 = mysqli_fetch_array(mysqli_query($konek, $sql1));
+                                $nik_wanita = $query1['nik_wanita'];
+                                $nama_wanita = $query1['nama'];
+
+								$query = mysqli_query($konek, $sql);
+								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
+									$id_pernikahan = $data['id_pernikahan'];
+									$nik_pria = $data['nik_pria'];
+									$nama_pria = $data['nama'];
+                                    $nama_pendeta = $data['nama_pendeta'];
+                                    $tanggal_pernikahan = $data['tanggal_pernikahan'];
+                                    $format2 = date('d F Y', strtotime($tanggal_pernikahan));
+									
+                                    
+                                    $today = date('Y-m-d');
+                                    if ($today < $tanggal_pernikahan) {
+								?>
+                                
+									<tr>
+										<td><?php echo $format2; ?></td>
+										<td><?php echo $nama_pria; ?></td>
+										<td><?php echo $nama_wanita; ?></td>
+										<td><?php echo $nama_pendeta;?> </td>
+										
+									</tr>
+								<?php }
+								}
+								?>
+							</tbody>
+						</table>
                         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                       </div>
                     </div>
@@ -103,52 +229,6 @@ $level = "pemohon";
         </div>
     </section>
 
-    <section id="B">
-        <div class="container">
-            <br>
-            <div class="section-header">
-                <h3 class="section-title text-center wow fadeInDown">Visi dan Misi</h3>
-            </div>
-
-            <div class="row">
-                <div class="features">
-                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
-                        <div class="media service-box">
-                            <div class="pull-left">
-                                <!-- <img src="main/img/number.png" alt=""> -->
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">VISI</h4>
-                                <p>Bisa dikatakan visi menjadi tujuan masa depan suatu organisasi atau lembaga. Ia berisi pikiran-pikiran yang terdapat di dalam benak para pendiri. Pikiran-pikiran itu adalah gambaran dari masa depan dari organisasi yang ingin dicapai.[CONTOH]
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.col-md-4-->
-
-                    <div class="features">
-                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
-                        <div class="media service-box">
-                            <div class="pull-left">
-                                <!-- <img src="main/img/number3.png" alt=""> -->
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">MISI</h4>
-                                <p>Maka bisa dikatakan misi adalah suatu proses atau tahapan yang seharusnya dilalui oleh suatu lembaga atau instansi atau organisasi dengan tujuan bisa mencapai visi tersebut. Di samping itu, misi juga dapat diartikan sebagai suatu deskripsi atau tujuan mengapa sebuah instansi atau organisasi berada di masyarakat.[CONTOH]
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.col-md-4-->
-
-                </div>
-                </div>
-            </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
-    </section>
     <!--/#services-->
 
     <section id="C">

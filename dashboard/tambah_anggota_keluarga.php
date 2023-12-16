@@ -50,12 +50,12 @@ if (isset($_GET['id_kk'])) {
 									// 	$tampil11 = "SELECT * FROM anggota_keluarga where id_kk = '$id_kk' and status_ak = 'Suami' or status_ak = 'Istri'";
                                     // $query11 = mysqli_fetch_array(mysqli_query($konek, $tampil11));
 									// 	if (!isset($query11)) {
-                                    $tampil1 = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat";
+                                    $tampil1 = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat and id_kk = '$id_kk'";
                                     $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
                                     $jekel = $query1['jenis_kelamin']; 
                                     if ($jekel == "Laki-laki") {?>
                                         <option  value="Istri">Istri</option>
-                                    <?php }else{ ?>
+                                    <?php }else if($jekel == "Perempuan"){ ?>
                                         <option  value="Suami">Suami</option>
                                    <?php }
 								// }
