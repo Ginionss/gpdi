@@ -91,7 +91,7 @@ $level = "pemohon";
 							</thead>
 							<tbody>
 								<?php
-								$sql = "SELECT * FROM baptis b natural join jemaat j where b.nik = j.nik and status = 1  ORDER BY b.tanggal_request ASC";
+								$sql = "SELECT * FROM baptis b natural join jemaat j where b.nik = j.nik and b.status = 1  ORDER BY b.tanggal_baptis ASC";
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 									$id_baptis = $data['id_baptis'];
@@ -104,7 +104,7 @@ $level = "pemohon";
                                     $tanggal_baptis = $data['tanggal_baptis'];
                                     $format2 = date('d F Y', strtotime($tanggal_baptis));
                                     $today = date('Y-m-d');
-                                    if ($today < $tanggal_baptis) {
+                                    if ($today <= $tanggal_baptis) {
 								?>
 									<tr>
 										<td><?php echo $format2; ?></td>
@@ -140,10 +140,10 @@ $level = "pemohon";
 							</thead>
 							<tbody>
 								<?php
-								$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik = j.nik and status = 1  ORDER BY b.tanggal_request ASC";
+								$sql = "SELECT * FROM penyerahan b natural join jemaat j where b.nik = j.nik and b.status = 1  ORDER BY b.tanggal_penyerahan ASC";
 								$query = mysqli_query($konek, $sql);
 								while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-									$id_baptis = $data['id_penyerahan'];
+									$id_penyerahan = $data['id_penyerahan'];
 									$nik = $data['nik'];
 									$nama = $data['nama'];
 									$nama_ayah = $data['nama_ayah'];
@@ -153,7 +153,7 @@ $level = "pemohon";
                                     $tanggal_penyerahan = $data['tanggal_penyerahan'];
                                     $format2 = date('d F Y', strtotime($tanggal_penyerahan));
                                     $today = date('Y-m-d');
-                                    if ($today < $tanggal_penyerahan) {
+                                    if ($today <= $tanggal_penyerahan) {
 								?>
 									<tr>
 										<td><?php echo $format2; ?></td>
@@ -188,8 +188,8 @@ $level = "pemohon";
 							</thead>
 							<tbody>
 								<?php
-									$sql1 = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_wanita = j.nik and status = 1";
-									$sql = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_pria = j.nik and status = 1 ";
+									$sql1 = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_wanita = j.nik and b.status = 1";
+									$sql = "SELECT * FROM pernikahan b natural join jemaat j where b.nik_pria = j.nik and b.status = 1 ";
 								$query1 = mysqli_fetch_array(mysqli_query($konek, $sql1));
                                 $nik_wanita = $query1['nik_wanita'];
                                 $nama_wanita = $query1['nama'];
@@ -205,7 +205,7 @@ $level = "pemohon";
 									
                                     
                                     $today = date('Y-m-d');
-                                    if ($today < $tanggal_pernikahan) {
+                                    if ($today <= $tanggal_pernikahan) {
 								?>
                                 
 									<tr>

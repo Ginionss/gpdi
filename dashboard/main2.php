@@ -149,6 +149,12 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="?halaman=transit_laporan">
+								<i class="far fa-calendar-check"></i>
+								<p>Laporan Tahunan</p>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a data-toggle="collapse" href="#tables">
 								<i class="fas fa-calendar-check"></i>
 								<p>Pelayanan</p>
@@ -358,8 +364,8 @@
 			  include 'ubah_warta.php';
 			break;
 			//laporan
-			  case 'laporan_perbulan';
-                include 'laporan_perbulan.php';
+			  case 'transit_laporan';
+                include 'transit_laporan.php';
 			  break;
 			  case 'laporan_pertahun';
                 include 'laporan_pertahun.php';
