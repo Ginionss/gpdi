@@ -48,10 +48,10 @@ date_default_timezone_set('Asia/Jakarta');
             $kolom3 = $query1['nama'];
 			$query = mysqli_query($konek, $sql);
 		}else if ($jenis_laporan == "jemaat_tetap") {
-            $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 1 ORDER BY nama ASC";
+            $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 1 and year(tanggal_pendaftaran) = '$tahun' ORDER BY nama ASC";
             $query = mysqli_query($konek, $tampil);
 		}else if ($jenis_laporan == "jemaat_sementara") {
-            $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 0 ORDER BY nama ASC";
+            $tampil = "SELECT * FROM jemaat where status_j > 0 and ket = 0 and year(tanggal_pendaftaran) = '$tahun' ORDER BY nama ASC";
             $query = mysqli_query($konek, $tampil);
 		}
 
@@ -95,7 +95,6 @@ date_default_timezone_set('Asia/Jakarta');
 							<div class="card full-height">
 								<div class="card-body">
 								<div class="card-tools">
-                                <?php if ($jenis_laporan != "jemaat_tetap" && $jenis_laporan != "jemaat_sementara") {?>
 								        <form action="?halaman=laporan_pertahun&jenis_laporan=<?php echo $jenis_laporan; ?>" method="POST">
                                             <div class="form-group">
 											<select id="cari_pengguna" name="tahun" class="form-control">
@@ -113,7 +112,6 @@ date_default_timezone_set('Asia/Jakarta');
                                                 </div>
                                             </div>
                                         </form>
-                                 <?php } ?>
 									</div>
 								</div>
 							</div>
@@ -156,13 +154,13 @@ date_default_timezone_set('Asia/Jakarta');
 									            <th>Pendeta</th>
                                                 <th></th>
                                             <?php    }else if ($jenis_laporan == "jemaat_tetap") { ?>
-												<th>NIK</th>
+												<th>Tanggal Pendaftaran</th>
 									            <th>Nama</th>
 									            <th>TTL</th>
 									            <th>Jenis kelamin</th>
 									            <th>Alamat</th>
                                             <?php    }else if ($jenis_laporan == "jemaat_sementara") { ?>
-												<th>NIK</th>
+												<th>Tanggal Pendaftaran</th>
 									            <th>Nama</th>
 									            <th>TTL</th>
 									            <th>Jenis kelamin</th>
@@ -197,23 +195,25 @@ date_default_timezone_set('Asia/Jakarta');
                                         $kolom4 = $data['nama_pendeta'];
                                         $kolom5 = "";                                        
                                     }else if ($jenis_laporan == "jemaat_tetap") {
-                                        $kolom1 = $data['nik'];
+                                        $tanggal_pendaftaran = $data['tanggal_pendaftaran'];;
+                                        $kolom1 = date('d F Y', strtotime($tanggal_pendaftaran));
                                         $kolom2 = $data['nama'];
                                         $tempat = $data['tempat_lahir'];
                                         $tanggal = $data['tanggal_lahir'];
                                         $tanggal_lahir = date("d-F-Y", strtotime($tanggal));
                                         $kolom3 = $tempat.",".$tanggal_lahir;
-                                        $kolom4 = $data['alamat'];
-                                        $kolom5 = $data['jenis_kelamin'];
+                                        $kolom4 = $data['jenis_kelamin'];
+                                        $kolom5 = $data['alamat'];
                                     }else if ($jenis_laporan == "jemaat_sementara") {
-                                        $kolom1 = $data['nik'];
+                                        $tanggal_pendaftaran = $data['tanggal_pendaftaran'];;
+                                        $kolom1 = date('d F Y', strtotime($tanggal_pendaftaran));
                                         $kolom2 = $data['nama'];
                                         $tempat = $data['tempat_lahir'];
                                         $tanggal = $data['tanggal_lahir'];
                                         $tanggal_lahir = date("d-F-Y", strtotime($tanggal));
                                         $kolom3 = $tempat.",".$tanggal_lahir;
-                                        $kolom4 = $data['alamat'];
-                                        $kolom5 = $data['jenis_kelamin'];
+                                        $kolom4 = $data['jenis_kelamin'];
+                                        $kolom5 = $data['alamat'];
                                     }
 								?>
 									<tr>

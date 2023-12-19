@@ -21,6 +21,10 @@ if (isset($_GET['id_kk'])) {
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
+								<div class="form-group">
+									<label>Tanggal Pendaftaran</label>
+									<input type="date" name="tanggal_pendaftaran" class="form-control" value="<?= date('Y-m-d'); ?>" readonly>
+								</div>
                                 <input type="hidden" name="id_kk" value="<?= $id_kk?>">
 								<div class="form-group">
 									<label>NIK</label>
@@ -96,6 +100,7 @@ if (isset($_GET['id_kk'])) {
 
 <?php
 if (isset($_POST['simpan'])) {
+	$tanggal_pendaftaran = $_POST['tanggal_pendaftaran'];
 	$id_kk = $_POST['id_kk'];
 	$nik = $_POST['nik'];
 	$tempat = $_POST['tempat'];
@@ -110,7 +115,7 @@ if (isset($_POST['simpan'])) {
 	$status = 1;
 	$status_ak = $_POST['status_ak'];
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
+	$sql = "INSERT INTO jemaat (tanggal_pendaftaran,nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$tanggal_pendaftaran','$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
 	$query = mysqli_query($konek, $sql);
 
 	$sql2 = "SELECT MAX(id_jemaat) as jum_kk from jemaat";

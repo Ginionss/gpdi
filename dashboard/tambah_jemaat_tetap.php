@@ -14,6 +14,10 @@
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
+									<label>Tanggal Pendaftaran</label>
+									<input type="date" name="tanggal_pendaftaran" class="form-control" value="<?= date('Y-m-d'); ?>" readonly>
+								</div>
+								<div class="form-group">
 									<label>NIK</label>
 									<input type="number" name="nik" class="form-control" placeholder="NIK.." autofocus>
 								</div>
@@ -68,6 +72,7 @@
 
 <?php
 if (isset($_POST['simpan'])) {
+	$tanggal_pendaftaran = $_POST['tanggal_pendaftaran'];
 	$nik = $_POST['nik'];
 	$tempat = $_POST['tempat'];
 	$tanggal = $_POST['tanggal'];
@@ -80,7 +85,7 @@ if (isset($_POST['simpan'])) {
 	$password = $_POST['password'];
 	$status = 1;
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
+	$sql = "INSERT INTO jemaat (tanggal_pendaftaran,nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password) VALUES ('$tanggal_pendaftaran','$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password')";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

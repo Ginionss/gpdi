@@ -34,6 +34,10 @@
               <h6 class="font-weight-light"></h6>
               <form name="myForm" method="POST" onsubmit="return validateForm()" class="pt-3" required>
               <div class="form-group">
+									<label>Tanggal Pendaftaran</label>
+									<input type="date" name="tanggal_pendaftaran" class="form-control" value="<?= date('Y-m-d'); ?>" readonly>
+								</div>
+              <div class="form-group">
 									<label>NIK</label>*
 									<input type="number" name="nik" class="form-control" placeholder="NIK.." autofocus>
 								</div>
@@ -141,7 +145,8 @@
 if (isset($_POST['simpan'])) {
 	if ($_POST['nik'] != "" && $_POST['tempat'] != "" && $_POST['tanggal'] != "" && $_POST['nama'] != "" && $_POST['no_hp'] != "" && $_POST['jekel'] != "" && $_POST['alamat'] != "" && $_POST['ket'] != "" && $_POST['username'] != "" && $_POST['password'] != "") {
 		
-	$nik = $_POST['nik'];
+	$tanggal_pendaftaran = $_POST['tanggal_pendaftaran'];
+  $nik = $_POST['nik'];
 	$tempat = $_POST['tempat'];
 	$tanggal = $_POST['tanggal'];
 	$nama = $_POST['nama'];
@@ -156,7 +161,7 @@ if (isset($_POST['simpan'])) {
   	$baptis = $_POST['baptis'];
   	$pernikahan = $_POST['pernikahan'];
 
-	$sql = "INSERT INTO jemaat (nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password,penyerahan,baptis,pernikahan) VALUES ('$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password','$penyerahan','$baptis','$pernikahan')";
+	$sql = "INSERT INTO jemaat (tanggal_pendaftaran, nik,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,no_hp,alamat,status_j,ket,username,password,penyerahan,baptis,pernikahan) VALUES ('$tanggal_pendaftaran','$nik','$nama','$jekel','$tempat','$tanggal','$no_hp','$alamat','$status','$ket','$username','$password','$penyerahan','$baptis','$pernikahan')";
 	$query = mysqli_query($konek, $sql);	
 }
 
