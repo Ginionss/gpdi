@@ -72,10 +72,10 @@ if (isset($_POST['simpan'])) {
     $query3 = mysqli_fetch_array(mysqli_query($konek, $sql3));
     $Jekel = $query3['jenis_kelamin'];
 
-	if ($Jekel == "Laki-Laki") {
-		$status_ak = "Suami";
-	}else {
+	if ($Jekel == "Perempuan") {
 		$status_ak = "Istri";
+	}else {
+		$status_ak = "Suami";
 	}
 
     $sql3 = "INSERT INTO anggota_keluarga (id_kk,id_jemaat,status_ak) VALUES ('$jumlah','$id_jemaat','$status_ak')";

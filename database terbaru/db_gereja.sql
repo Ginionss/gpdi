@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Des 2023 pada 13.52
+-- Generation Time: 19 Des 2023 pada 14.14
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -60,7 +60,7 @@ INSERT INTO `anggota_keluarga` (`id_ak`, `id_kk`, `id_jemaat`, `status_ak`) VALU
 (52, 16, 284, 'Istri'),
 (53, 13, 34, 'Anak'),
 (63, 12, 278, 'Anak'),
-(68, 18, 42, 'Istri'),
+(68, 18, 42, 'Suami'),
 (69, 18, 43, 'Istri'),
 (70, 18, 280, 'Anak'),
 (71, 18, 281, 'Anak'),
@@ -94,7 +94,7 @@ CREATE TABLE `baptis` (
 --
 
 INSERT INTO `baptis` (`id_baptis`, `no_surat`, `tanggal_request`, `nik`, `nama_ayah`, `nama_ibu`, `tanggal_baptis`, `nama_pendeta`, `file_kartu_keluarga`, `file_akta_kelahiran`, `status`, `keterangan`) VALUES
-(2, '18', '2023-12-14', '3333333333333333', 'tofilus saudale', 'jefry tresia saudale dethan', '2023-12-17', 'Pdt. jacky karawisan', 'Baptis_3333333333333333.pdf', 'Baptis_3333333333333333.pdf', '1', 'mau baptis');
+(2, '18', '2023-12-14', '3333333333333333', 'tofilus saudale', 'jefry tresia saudale dethan', '2023-12-17', 'Pdt. jacky karawisan', 'Baptis_3333333333333333.pdf', 'Baptis_3333333333333333.pdf', '2', 'mau baptis');
 
 -- --------------------------------------------------------
 
@@ -142,8 +142,8 @@ CREATE TABLE `jemaat` (
 
 INSERT INTO `jemaat` (`id_jemaat`, `tanggal_pendaftaran`, `nik`, `nama`, `tempat_lahir`, `tanggal_lahir`, `no_hp`, `jenis_kelamin`, `alamat`, `status_j`, `ket`, `username`, `password`, `baptis`, `penyerahan`, `pernikahan`) VALUES
 (2, '2023-12-01', '2222222222222222', 'jefry tresia saudale dethan', 'Lasiana', '1967-01-07', '', 'Perempuan', '<p>Lasiana</p>', 2, '1', 'jefry_dethan', 'user', 1, 1, 1),
-(3, NULL, '3333333333333333', 'jefta a. saudale', 'Lasiana', '1994-11-24', '', 'Laki-laki', '<p>Lasiana</p>', 2, '1', 'jefta_saudale', 'user', 1, 1, 0),
-(4, NULL, '4444444444444444', 'Debora saudale', 'Lasiana', '1996-12-08', '', 'Perempuan', '<p>Lasiana</p>', 2, '1', 'debora_saudale', 'user', 0, 0, 0),
+(3, '2023-12-01', '3333333333333333', 'jefta a. saudale', 'Lasiana', '1994-11-24', '', 'Laki-laki', '<p>Lasiana</p>', 2, '1', 'jefta_saudale', 'user', 1, 1, 0),
+(4, '2023-12-01', '4444444444444444', 'Debora saudale', 'Lasiana', '1996-12-08', '', 'Perempuan', '<p>Lasiana</p>', 2, '1', 'debora_saudale', 'user', 0, 0, 0),
 (5, NULL, '5555555555555555', 'apryana saudale', 'Lasiana', '2006-04-26', '', 'Perempuan', '<p>Lasiana</p>', 2, '1', 'apryana_saudale', 'user', 0, 0, 0),
 (6, NULL, '6666666666666666', 'Albert Fangidae', 'Lasiana', '1959-04-21', '', 'Laki-laki', '<p>Lasiana</p>', 2, '1', 'albert_fangidae', 'user', 1, 1, 1),
 (7, NULL, '7777777777777777', 'ferderika  fangidae ndun', 'Lasiana', '1966-01-19', '', 'Perempuan', '<p>Lasiana</p>', 2, '1', 'ferderika_ndun', 'user', 1, 1, 1),
@@ -800,7 +800,7 @@ ALTER TABLE `wartajemaat`
 -- AUTO_INCREMENT for table `anggota_keluarga`
 --
 ALTER TABLE `anggota_keluarga`
-  MODIFY `id_ak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id_ak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT for table `baptis`
 --
