@@ -9,10 +9,17 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Data Kepala Keluarga</h4>
+                        <?php if ($hak_akses == "gembala") { ?>
+                        <a href="#" class="btn btn-primary btn-round ml-auto">
+                            <i class="fa fa-print"></i>
+                            Cetak
+                        </a>
+                     <?php } else { ?>
                         <a href="?halaman=tambah_keluarga" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-plus"></i>
                             Tambah Kepala Keluarga
-                        </a>
+                     </a>
+                       <?php }?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -95,12 +102,14 @@
                                                     <a href="?halaman=tampil_anggota_keluarga&id_kk=<?php echo $id_kk; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Keluraga">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
+                                                    <?php if ($hak_akses != "gembala") {?>
                                                     <a href="?halaman=ubah_keluarga&id_kk=<?php echo $id_kk; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Kepala Keluraga">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                     <a href="?halaman=tampil_keluarga&id_kk=<?php echo $id_kk; ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus Keluarga">
                                                         <i class="fa fa-times"></i>
                                                     </a>
+                                                    <?php } ?>
                                                 </div>
                                             </td>
                                         </tr>

@@ -20,10 +20,12 @@ if (isset($_GET['id_kk'])) {
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Data Keluarga</h4>
+                        <?php if($hak_akses != "gembala"){ ?>
                         <a href="?halaman=tambah_anggota_keluarga&id_kk=<?php echo $id_kk; ?>" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-plus"></i>
                             Tambah Anggota Keluarga
                         </a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -87,7 +89,9 @@ if (isset($_GET['id_kk'])) {
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Status</th>
+                                        <?php if ($hak_akses != "gembala") { ?>
                                         <th style="width: 10%">Action</th>
+                                       <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,6 +122,7 @@ if (isset($_GET['id_kk'])) {
                                             <td><?php echo $username; ?></td>
                                             <td><?php echo $nama; ?></td>
                                             <td><?php echo $status_ak; ?></td>
+                                            <?php if ($hak_akses != "gembala") {?>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="?halaman=view_jemaat_ak&id_jemaat=<?php echo $id_jemaat; ?>" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Anggota Keluraga">
@@ -133,6 +138,7 @@ if (isset($_GET['id_kk'])) {
                                                 <?php } ?>
                                                 </div>
                                             </td>
+                                            <?php } ?>
                                         </tr>
                                     <?php
                                     }

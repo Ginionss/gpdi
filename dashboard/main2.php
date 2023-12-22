@@ -149,6 +149,12 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="?halaman=tampil_keluarga">
+								<i class="fas fa-list"></i>
+								<p>Data Keluarga</p>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="?halaman=transit_laporan">
 								<i class="far fa-calendar-check"></i>
 								<p>Laporan Tahunan</p>

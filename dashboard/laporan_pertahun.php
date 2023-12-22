@@ -32,8 +32,12 @@ date_default_timezone_set('Asia/Jakarta');
 		}
     }
 
+	if (isset($_POST['tahun'])) {
+		$tahun = $_POST['tahun'];
+	}else {
+		$tahun = 0;
+	}
     if (isset($_POST['tampilkan'])) {
-        $tahun = $_POST['tahun'];
         if ($jenis_laporan == "baptis") {
 			$sql = "SELECT * FROM baptis b natural join jemaat j where b.nik = j.nik and b.status = 2 and year(b.tanggal_baptis) = '$tahun' ORDER BY b.tanggal_baptis ASC";
 			$query = mysqli_query($konek, $sql);
@@ -79,6 +83,9 @@ date_default_timezone_set('Asia/Jakarta');
     }
 
 ?>
+<link href="css/sweetalert.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
 
             <div class="panel-header bg-primary-gradient">
 					<div class="page-inner py-5">
@@ -122,16 +129,19 @@ date_default_timezone_set('Asia/Jakarta');
 							<div class="card">
 								<div class="card-header">
 									<div class="card-tools">
-											<!-- <a href="cetak_tahun.php?tahun=<?php echo $tahun;?>" target="_blank" class="btn btn-info btn-border btn-round btn-sm">
+											<a href="cetak_tahun.php?tahun=<?php echo $tahun;?>" target="_blank" class="btn btn-info btn-border btn-round btn-sm">
 												<span class="btn-label">
 													<i class="fa fa-print"></i>
 												</span>
-												Print
-											</a> -->
+												Cetak
+											</a>
 										</div>
 								</div>
 								<div class="card-body">
-									<table class="table mt-3">
+                    <div class="d-flex align-items-center col-md-3">
+                    <input class="form-control" type="text" id="myInput" onkeyup="myFunction3()" placeholder="Search" title="Type in a name">
+                    </div>
+									<table id="add" class="table mt-3">
 										<thead>
 											<tr>
 												<th scope="col">No</th>

@@ -44,6 +44,8 @@ if (isset($_GET['id_ak'])) {
 									<label>Status dalam Keluarga</label>
 									<select id="cari_jemaat" name="status_ak" class="form-control">
                                         <option <?php if($ak_status == "Anak") { echo "selected";} ?>  value="Anak">Anak</option>
+                                        <option <?php if($ak_status == "Cucu") { echo "selected";} ?>  value="Anak">Cucu</option>
+                                        <option <?php if($ak_status == "Keluarga Lainnya") { echo "selected";} ?>  value="Keluarga Lain">Keluarga Lainnya</option>
                                         <?php 
                                     $tampil1 = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat";
                                     $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));

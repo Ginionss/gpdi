@@ -688,6 +688,124 @@ if ($hak_akses == "admin") {
 	<?php
 	}
 ?>
+<!-- Pertumbuhan -->
+	<div class="row">
+		<div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Pertumbuhan Jemaat Tetap</h5>
+
+              <!-- Line Chart -->
+              <div id="lineChart"></div>
+				
+			  <?php $tahun = date('Y'); ?>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new ApexCharts(document.querySelector("#lineChart"), {
+                    series: [{
+                      name: "Jemaat",
+                      data: [<?php 
+					$jumlah_pria = mysqli_query($konek,"SELECT * from jemaat where year(tanggal_pendaftaran) <= $tahun-2 and ket = 1");
+					echo mysqli_num_rows($jumlah_pria);
+					?>, 
+					<?php 
+					$jumlah_wanita = mysqli_query($konek,"SELECT * from jemaat where year(tanggal_pendaftaran) <= $tahun-1 and ket = 1");
+					echo mysqli_num_rows($jumlah_wanita);
+					?>, 
+					<?php 
+					$jumlah_pem = mysqli_query($konek,"SELECT * from jemaat where year(tanggal_pendaftaran) <= $tahun and ket = 1");
+					echo mysqli_num_rows($jumlah_pem);
+					?>]
+                    }],
+                    chart: {
+                      height: 350,
+                      type: 'line',
+                      zoom: {
+                        enabled: false
+                      }
+                    },
+                    dataLabels: {
+                      enabled: false
+                    },
+                    stroke: {
+                      curve: 'straight'
+                    },
+                    grid: {
+                      row: {
+                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                        opacity: 0.5
+                      },
+                    },
+                    xaxis: {
+                      categories: ['<?= $tahun-2 ?>', '<?= $tahun-1 ?>', '<?= $tahun?>'],
+                    }
+                  }).render();
+                });
+              </script>
+              <!-- End Line Chart -->
+
+            </div>
+          </div>
+        </div>
+
+		<div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Pertumbuhan Jemaat Sementara</h5>
+
+              <!-- Line Chart -->
+              <div id="lineChart2"></div>
+				
+			  <?php $tahun = date('Y'); ?>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new ApexCharts(document.querySelector("#lineChart2"), {
+                    series: [{
+                      name: "Jemaat",
+                      data: [<?php 
+					$jumlah_pria = mysqli_query($konek,"SELECT * from jemaat where year(tanggal_pendaftaran) <= $tahun-2 and ket = 0");
+					echo mysqli_num_rows($jumlah_pria);
+					?>, 
+					<?php 
+					$jumlah_wanita = mysqli_query($konek,"SELECT * from jemaat where year(tanggal_pendaftaran) <= $tahun-1 and ket = 0");
+					echo mysqli_num_rows($jumlah_wanita);
+					?>, 
+					<?php 
+					$jumlah_pem = mysqli_query($konek,"SELECT * from jemaat where year(tanggal_pendaftaran) <= $tahun and ket = 0");
+					echo mysqli_num_rows($jumlah_pem);
+					?>]
+                    }],
+                    chart: {
+                      height: 350,
+                      type: 'line',
+                      zoom: {
+                        enabled: false
+                      }
+                    },
+                    dataLabels: {
+                      enabled: false
+                    },
+                    stroke: {
+                      curve: 'straight'
+                    },
+                    grid: {
+                      row: {
+                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                        opacity: 0.5
+                      },
+                    },
+                    xaxis: {
+                      categories: ['<?= $tahun-2 ?>', '<?= $tahun-1 ?>', '<?= $tahun?>'],
+                    }
+                  }).render();
+                });
+              </script>
+              <!-- End Line Chart -->
+
+            </div>
+          </div>
+        </div>
+	</div>
 
 <!-- Vendor JS Files -->
 <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>

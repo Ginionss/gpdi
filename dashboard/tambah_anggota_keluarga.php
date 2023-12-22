@@ -1,10 +1,11 @@
 <?php include '../konek.php';
 if (isset($_GET['id_kk'])) {
 	$id_kk = $_GET['id_kk'];
-	$tampil_kk = "SELECT * FROM kepala_keluarga where id_kk=$id_kk";
+	$tampil_kk = "SELECT * FROM kepala_keluarga k join jemaat j where id_kk=$id_kk and k.id_jemaat = j.id_jemaat ";
 	$query = mysqli_query($konek, $tampil_kk);
 	$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 	$id_kk = $data['id_kk'];
+	$jekel = $data['jenis_kelamin'];
 }
 ?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
@@ -46,10 +47,16 @@ if (isset($_GET['id_kk'])) {
 									<label>Status dalam Keluarga</label>
 									<select id="cari_jemaat" name="status_ak" class="form-control">
                                         <option  value="Anak">Anak</option>
+                                        <option  value="Cucu">Cucu</option>
+                                        <option  value="Keluarga Lainnya">Keluarga Lainnya</option>
                                         <?php 
-									// 	$tampil11 = "SELECT * FROM anggota_keluarga where id_kk = '$id_kk' and status_ak = 'Suami' or status_ak = 'Istri'";
-                                    // $query11 = mysqli_fetch_array(mysqli_query($konek, $tampil11));
-									// 	if (!isset($query11)) {
+										if ($jekel == "Laki-laki") {
+											$tampil11 = "SELECT * FROM anggota_keluarga where id_kk = '$id_kk' and status_ak = 'Istri'";
+										}else {
+											$tampil11 = "SELECT * FROM anggota_keluarga where id_kk = '$id_kk' and status_ak = 'Suami'";
+										}
+                                    $query11 = mysqli_fetch_array(mysqli_query($konek, $tampil11));
+										if (!isset($query11)) {
                                     $tampil1 = "SELECT * FROM kepala_keluarga k join jemaat j where k.id_jemaat = j.id_jemaat and id_kk = '$id_kk'";
                                     $query1 = mysqli_fetch_array(mysqli_query($konek, $tampil1));
                                     $jekel = $query1['jenis_kelamin']; 
@@ -58,7 +65,7 @@ if (isset($_GET['id_kk'])) {
                                     <?php }else if($jekel == "Perempuan"){ ?>
                                         <option  value="Suami">Suami</option>
                                    <?php }
-								// }
+								}
 								?>
                                     </select>
 								</div>
