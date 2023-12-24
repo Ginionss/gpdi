@@ -359,6 +359,10 @@
 			case 'view_pernikahan';
 			include 'view_pernikahan.php';
 		  break;
+		  //upload
+		  case 'upload_surat';
+		  include 'upload_surat.php';
+		break;
 		  //warta jemaat
 			  case 'tampil_warta';
 			  include 'tampil_warta.php';

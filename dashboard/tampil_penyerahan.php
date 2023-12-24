@@ -58,6 +58,8 @@ if ($hak_akses == "Pemohon") {
 									$nama_ayah = $data['nama_ayah'];
 									$nama_ibu = $data['nama_ibu'];
 									$status = $data['status'];
+									$file_surat = $data['file_surat'];
+									
 									if (isset($data['tanggal_penyerahan'])) {
 										$tanggal_penyerahan = $data['tanggal_penyerahan'];
 										$format2 = date('d F Y', strtotime($tanggal_penyerahan));
@@ -124,9 +126,9 @@ if ($hak_akses == "Pemohon") {
 											<?php }
 											else if ($status == "<b style='color:blue'>Selesai</b>") {?>
 												<div class="form-button-action">
-												<a target="_blank" href="cetak_penyerahan.php?id_penyerahan=<?= $id_penyerahan; ?>">
-													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Unduh">
-														<i class="fa fa-download"></i>
+												<a href="?halaman=upload_surat&id_surat=<?= $id_penyerahan; ?>&jenis=penyerahan">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Upload">
+														<i class="fa fa-upload"></i>
 													</button>
 												</a>
 											</div>
@@ -144,9 +146,9 @@ if ($hak_akses == "Pemohon") {
                                                     </a>
 												<?php }
 											else if ($status == "<b style='color:blue'>Selesai</b>") {?>
-												<a  href="?halaman=view_penyerahan&id_penyerahan=<?= $id_penyerahan; ?>">
-													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat">
-														<i class="fa fa-eye"></i>
+												<a target="_blank" href="../dataFile/surat_keluar/<?= $file_surat ?>">
+													<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Unduh">
+														<i class="fa fa-download"></i>
 													</button>
 												</a>
 											<?php }?>
