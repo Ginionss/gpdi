@@ -4,20 +4,7 @@ include '../konek.php';
 date_default_timezone_set('Asia/Jakarta');
 ?>
 <?php
-	if (isset($_POST['jenis_laporan'])) {
-		$jenis_laporan = $_POST['jenis_laporan'];
-		if ($jenis_laporan == "baptis") {
-			$text = "BAPTIS";
-		}else if ($jenis_laporan == "penyerahan") {
-			$text = "PENYERAHAN ANAK";
-		}else if ($jenis_laporan == "pernikahan") {
-			$text = "PERNIKAHAN";
-		}else if ($jenis_laporan == "jemaat_tetap") {
-			$text = "JEMAAT TETAP";
-		}else if ($jenis_laporan == "jemaat_sementara") {
-			$text = "JEMAAT SEMANTARA";
-		}
-	}else if (isset($_GET['jenis_laporan'])) {
+	 if (isset($_GET['jenis_laporan'])) {
         $jenis_laporan = $_GET['jenis_laporan'];
 		if ($jenis_laporan == "baptis") {
 			$text = "BAPTIS";
@@ -32,12 +19,9 @@ date_default_timezone_set('Asia/Jakarta');
 		}
     }
 
-	if (isset($_POST['tahun'])) {
-		$tahun = $_POST['tahun'];
-	}else {
-		$tahun = 0;
-	}
-    if (isset($_POST['tampilkan'])) {
+    if (isset($_GET['tahun']) && $_GET['tahun'] != 0) {
+		$tahun = $_GET['tahun'];
+        $text2 = "TAHUN ". $tahun;
         if ($jenis_laporan == "baptis") {
 			$sql = "SELECT * FROM baptis b natural join jemaat j where b.nik = j.nik and b.status = 2 and year(b.tanggal_baptis) = '$tahun' ORDER BY b.tanggal_baptis ASC";
 			$query = mysqli_query($konek, $sql);
@@ -60,6 +44,7 @@ date_default_timezone_set('Asia/Jakarta');
 		}
 
     }else {
+        $text2 ="";
         if ($jenis_laporan == "baptis") {
 			$sql = "SELECT * FROM baptis b natural join jemaat j where b.nik = j.nik and b.status = 2  ORDER BY b.tanggal_baptis ASC";
 			$query = mysqli_query($konek, $sql);
@@ -87,61 +72,9 @@ date_default_timezone_set('Asia/Jakarta');
 <script src="js/jquery-2.1.3.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
 
-            <div class="panel-header bg-primary-gradient">
-					<div class="page-inner py-5">
-						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-							<div>
-								<h2 class="text-white pb-2 fw-bold">LAPORAN PERTAHUN <?= $text ?></h2>
-							</div>
-						</div>
-					</div>
-                </div>
-                <div class="page-inner mt--5">
-					<div class="row mt--2">
-						<div class="col-md-6">
-							<div class="card full-height">
-								<div class="card-body">
-								<div class="card-tools">
-								        <form action="?halaman=laporan_pertahun&jenis_laporan=<?php echo $jenis_laporan; ?>" method="POST">
-                                            <div class="form-group">
-											<select id="cari_pengguna" name="tahun" class="form-control">
-                                       			 <option value=""></option>
-                                       			 <?php $now = date('Y');
-                                       			 for ($i= 2023; $i <= $now ; $i++) { ?>
-                                       			     <option value="<?= $i ?>" ><?= $i ?></option>";
-                                       			<?php }  ?>
-                                    		</select>
-                                                <div class="form-group">
-                                                    <input type="submit" name="tampilkan" value="Tampilkan" class="btn btn-primary btn-sm">
-													<a href="?halaman=laporan_pertahun&jenis_laporan=<?php echo $jenis_laporan; ?>">
-													<input type="submit" value="Reload" class="btn btn-primary btn-sm">
-													</a>
-                                                </div>
-                                            </div>
-                                        </form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="card-tools">
-											<a href="cetak_tahun.php?tahun=<?php echo $tahun;?>&jenis_laporan=<?php echo $jenis_laporan ?>" target="_blank" class="btn btn-info btn-border btn-round btn-sm">
-												<span class="btn-label">
-													<i class="fa fa-print"></i>
-												</span>
-												Cetak
-											</a>
-										</div>
-								</div>
-								<div class="card-body">
-                    <div class="d-flex align-items-center col-md-3">
-                    <input class="form-control" type="text" id="myInput" onkeyup="myFunction3()" placeholder="Search" title="Type in a name">
-                    </div>
-									<table id="add" class="table mt-3">
+           
+								<h2 align = "center">LAPORAN PERTAHUN <?= $text ." ".$text2 ?></h2>
+									<table border="1" align="center">
 										<thead>
 											<tr>
 												<th scope="col">No</th>
@@ -239,8 +172,7 @@ date_default_timezone_set('Asia/Jakarta');
 								?>
 										</tbody>
 									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-			</div>
+								
+        <script>
+            window.print();
+        </script>

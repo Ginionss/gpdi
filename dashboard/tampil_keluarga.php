@@ -10,7 +10,7 @@
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Data Kepala Keluarga</h4>
                         <?php if ($hak_akses == "gembala") { ?>
-                        <a href="#" class="btn btn-primary btn-round ml-auto">
+                        <a target="_blank" href="cetak_keluarga.php" class="btn btn-primary btn-round ml-auto">
                             <i class="fa fa-print"></i>
                             Cetak
                         </a>
