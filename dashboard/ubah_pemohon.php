@@ -38,7 +38,7 @@ if (isset($_GET['id_jemaat'])) {
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK</label>
-									<input type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>" >
+									<input minlength="16" maxlength="16" type="number" name="nik" class="form-control" placeholder="NIK Anda.." value="<?= $nik; ?>" >
 								</div>
 								<div class="form-group">
 									<label>Nama Lengkap</label>

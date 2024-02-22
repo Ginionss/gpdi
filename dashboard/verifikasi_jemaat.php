@@ -83,7 +83,6 @@ if (isset($_GET['id_jemaat'])) {
 								</div>
 								<div class="form-group">
 									<label>Status Pernikahan</label>
-									<label>Status Baptis</label>
                                     <?php if ($pernikahan == 0) {
                                         $pernikahan = "Belum Menikah";
                                     }else if ($pernikahan == 1) {

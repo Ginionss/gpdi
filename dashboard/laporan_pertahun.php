@@ -107,7 +107,7 @@ date_default_timezone_set('Asia/Jakarta');
 											<select id="cari_pengguna" name="tahun" class="form-control">
                                        			 <option value=""></option>
                                        			 <?php $now = date('Y');
-                                       			 for ($i= 2023; $i <= $now ; $i++) { ?>
+                                       			 for ($i= 2021; $i <= $now ; $i++) { ?>
                                        			     <option value="<?= $i ?>" ><?= $i ?></option>";
                                        			<?php }  ?>
                                     		</select>

@@ -60,6 +60,6 @@ date_default_timezone_set('Asia/Jakarta');
 										</tbody>
 									</table>
 								
-        <!-- <script>
+        <script>
             window.print();
-        </script> -->
+        </script>
